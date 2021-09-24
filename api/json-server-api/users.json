@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Usuário",
+      "email": "usuario@gmail.com",
+      "username": "@usuario",
+      "password": "usuario",
+      "avatar": "https://robohash.org/quiaautomnis.png?size=150x150&set=set1"
+    }
+  ]
+}
