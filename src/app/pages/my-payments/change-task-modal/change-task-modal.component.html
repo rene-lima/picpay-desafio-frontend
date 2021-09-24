@@ -1,0 +1,80 @@
+<payfriends-modal>
+  <form
+    [formGroup]="taskForm"
+    class="form-group flex flex-wrap justify-between"
+  >
+    <h2 class="mx-2 mb-4">
+      {{ task.id ? "Editar pagamento" : "Adicionar pagamento" }}
+    </h2>
+    <div class="lg:col-12 row">
+      <payfriends-input
+        id="add-my-payments-name"
+        formControlName="name"
+        placeholder="Nome do usuário*"
+        class="lg:col-6 md:col-12"
+      >
+      </payfriends-input>
+      <payfriends-input
+        id="add-my-payments-user"
+        formControlName="username"
+        mask="A{10}"
+        [masked]="true"
+        placeholder="Usuário*"
+        class="lg:col-6 md:col-12 md:mt-2"
+      >
+      </payfriends-input>
+      <payfriends-input
+        formControlName="date"
+        id="add-my-payments-date"
+        mask="d0/M0/0000"
+        [masked]="true"
+        placeholder="Data*"
+        class="lg:col-6 md:col-12 mt-2"
+      >
+      </payfriends-input>
+      <payfriends-input
+        formControlName="hour"
+        id="add-my-payments-hours"
+        mask="Hh:m0"
+        [masked]="true"
+        placeholder="Hora*"
+        class="lg:col-6 md:col-12 mt-2"
+      >
+      </payfriends-input>
+      <payfriends-input
+        formControlName="title"
+        id="add-my-payments-title"
+        mask="A{20}"
+        pattern
+        placeholder="Titulo*"
+        class="lg:col-6 md:col-12 mt-2"
+      >
+      </payfriends-input>
+      <payfriends-input
+        formControlName="value"
+        id="add-my-payments-value"
+        isMoney="true"
+        placeholder="Valor*"
+        class="lg:col-6 md:col-12 mt-2"
+      >
+      </payfriends-input>
+    </div>
+    <div class="w-full mt-5 flex justify-end row">
+      <payfriends-button
+        (onClick)="cancel()"
+        class="lg:col-4 md:col-4 sm:col-12"
+        [secondary]="true"
+      >
+        Cancelar
+      </payfriends-button>
+      <payfriends-button
+        id="chang-task-button-save"
+        (onClick)="taskChange()"
+        [disabled]="!taskForm.valid"
+        class="lg:col-4 md:col-4 sm:col-12 sm:mt-2"
+      >
+        Salvar
+      </payfriends-button>
+    </div>
+  </form>
+</payfriends-modal>

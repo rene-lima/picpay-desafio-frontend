@@ -1,0 +1,23 @@
+<payfriends-modal>
+    <div class="flex-wrap justify-between">
+      <h2 class="mx-2 mb-4">Excluir pagamento</h2>
+      <div class="w-full mx-2">
+        <span class="block">Usuário: {{ task.name }}</span>
+        <span class="block mt-2">Data: {{ task.date }}</span>
+        <span class="block mt-2">Valor: {{ task.value }}</span>
+      </div>
+      <div class="w-full mt-5 flex justify-end row">
+        <payfriends-button
+          (onClick)="cancel()"
+          class="lg:col-4 md:col-4 sm:col-12"
+          [secondary]="true">
+          Cancelar
+        </payfriends-button>
+        <payfriends-button
+          (onClick)="removeTask()"
+          class="lg:col-4 md:col-4 sm:col-12 sm:mt-2">
+          Excluir
+        </payfriends-button>
+      </div>
+    </div>
+  </payfriends-modal>
