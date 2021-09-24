@@ -29,9 +29,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": [ "src/assets/scss/global.scss" ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -99,9 +97,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles":[ "src/assets/scss/global.scss" ],
             "scripts": []
           }
         },
