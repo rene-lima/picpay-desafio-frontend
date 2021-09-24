@@ -1,0 +1,46 @@
+.font-display-01 { font-size: $font-size-display-hg; }
+h1 {
+  font-family: $font-family-02;
+  font-size: $font-size-h1; 
+  font-weight: $font-weight-bold;
+}
+h2 {
+  font-family: $font-family-02;
+  font-size: $font-size-h2; 
+  font-weight: $font-weight-bold;
+}
+p {
+  font-family: $font-family-01;
+  font-size: $font-size-paragraph;
+  line-height: 1.4;
+}
+.font-mobile-default {
+  font-family: $font-family-01;
+  font-size: $font-size-mb-default;
+}
+
+.font-default {
+  font-family: $font-family-01;
+  font-size: $font-size-default;
+}
+
+.text-opacity-hg { opacity: $font-opacity-hg; }
+.text-opacity-md { opacity: $font-opacity-md; }
+.text-opacity-sm { opacity: $font-opacity-sm; }
+
+button {
+  font-family: $font-family-01;
+  font-size: $font-size-default;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+input {
+  font-family: $font-family-01;
+  font-size: $font-size-default;
+  letter-spacing: 0.15px;
+  color: $color-text-primary;
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+}

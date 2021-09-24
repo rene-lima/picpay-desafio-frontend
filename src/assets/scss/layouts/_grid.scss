@@ -1,0 +1,88 @@
+%util {
+  position: relative;
+  width: 100%;
+}
+
+@mixin grid-structure {
+  @extend %util;
+  min-height: 1px;
+  margin-left: $spacing-margin-xxsmall;
+  margin-right: $spacing-margin-xxsmall;
+  @include device-size(sm) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.container {
+  @extend %util;
+  max-width: breakpoint(lg);
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    left: $spacing-padding-medium;
+    right: $spacing-padding-medium;
+  }
+  width: 100%;
+  @include device-size(md) {
+    max-width: breakpoint(md);
+    padding: 0 $spacing-padding-xxsmall;
+  }
+  @include device-size(sm) {
+    max-width: breakpoint(sm);
+  }
+}
+
+.row {
+  @extend %util;
+  display: flex;
+  flex-wrap: wrap;
+  margin: {
+    left: - $spacing-margin-xxsmall;
+    right: - $spacing-margin-xxsmall;
+  }
+  @include device-size(lg) {
+    margin: {
+      left: 0;
+      right: 0;
+    }
+  }
+  &--center {
+    justify-content: center;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+}
+
+[class*=col-] {
+  @include grid-structure();
+}
+
+@for $i from 1 through grid(columns) {
+  .lg\:col-#{$i} {
+    flex: 0 0 grid-width($i);
+    max-width: grid-width($i);
+  }
+  .md\:col-#{$i} {
+    @include device-size(md) {
+      flex: 0 0 grid-width($i);
+      max-width: grid-width($i);
+    }
+  }
+  .nv\:col-#{$i} {
+    @include device-size(nv) {
+      flex: 0 0 grid-width($i);
+      max-width: grid-width($i);
+    }
+  }
+  .sm\:col-#{$i} {
+    @include device-size(sm) {
+      flex: 0 0 grid-width($i);
+      max-width: grid-width($i);
+    }
+  }
+}

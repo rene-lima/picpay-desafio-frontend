@@ -1,0 +1,10 @@
+.table {
+  td {
+    padding: 30px 16px;
+    height: 100%;
+    @media only screen and (max-width: breakpoint(sm)) {
+      display: table;
+      margin: 8px 0;
+    }
+  }
+}

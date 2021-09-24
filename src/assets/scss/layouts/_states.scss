@@ -1,0 +1,23 @@
+// DISPLAY
+.block { display: block }
+.inline-block { display: inline-block }
+.none { display: none }
+.flex { display: flex }
+.inline-flex { display: inline-flex }
+
+// POSITION
+.relative { position: relative }
+.fixed { position: fixed }
+.absolute { position: absolute }
+
+// PINS
+.pin-t { top: 0 }
+.pin-l { left: 0 }
+.pin-b { bottom: 0 }
+.pin-r { right: 0 }
+
+// POINTER EVENT
+.pointer-events-none { pointer-events: none; }
+
+// USER SELECT
+.user-select-none { user-select: none; }

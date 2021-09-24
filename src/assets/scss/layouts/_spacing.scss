@@ -1,0 +1,71 @@
+// MARGIN
+$marginSizes: (
+  '0': 0,
+  '1-4': $spacing-margin-xxxxsmall,
+  '1-2': $spacing-margin-xxxsmall,
+  '1': $spacing-margin-xxsmall,
+  '2': $spacing-margin-xsmall,
+  '3': $spacing-margin-small,
+  '4': $spacing-margin-medium,
+  '5': $spacing-margin-large,
+  'auto': auto
+);
+
+@mixin makeMargin($breakpoint) {
+  @each $size, $margin in $marginSizes {
+    .#{$breakpoint}m-#{$size} { margin: $margin }
+    .#{$breakpoint}mt-#{$size} { margin-top: $margin }
+    .#{$breakpoint}ml-#{$size} { margin-left: $margin }
+    .#{$breakpoint}mb-#{$size} { margin-bottom: $margin }
+    .#{$breakpoint}mr-#{$size} { margin-right: $margin }
+    .#{$breakpoint}mx-#{$size} {
+      @extend .#{$breakpoint}ml-#{$size};
+      @extend .#{$breakpoint}mr-#{$size};
+    }
+    .#{$breakpoint}my-#{$size} {
+      @extend .#{$breakpoint}mt-#{$size};
+      @extend .#{$breakpoint}mb-#{$size};
+    }
+  }
+}
+
+// PADDING
+$paddingSizes: (
+  '0': 0,
+  '1-2': $spacing-padding-xxxsmall,
+  '1': $spacing-padding-xxsmall,
+  '2': $spacing-padding-xsmall,
+  '3': $spacing-padding-small,
+  '4': $spacing-padding-medium,
+  '5': $spacing-padding-large
+);
+
+@mixin makePadding($breakpoint) {
+  @each $size, $padding in $paddingSizes {
+    .#{$breakpoint}p-#{$size} { padding: $padding }
+    .#{$breakpoint}pt-#{$size} { padding-top: $padding }
+    .#{$breakpoint}pl-#{$size} { padding-left: $padding }
+    .#{$breakpoint}pb-#{$size} { padding-bottom: $padding }
+    .#{$breakpoint}pr-#{$size} { padding-right: $padding }
+    .#{$breakpoint}px-#{$size} {
+      @extend .#{$breakpoint}pl-#{$size};
+      @extend .#{$breakpoint}pr-#{$size};
+    }
+    .#{$breakpoint}py-#{$size} {
+      @extend .#{$breakpoint}pt-#{$size};
+      @extend .#{$breakpoint}pb-#{$size};
+    }
+  }
+}
+
+@include makeMargin('');
+@include makePadding('');
+
+@media only screen and (max-width: breakpoint(md)) {
+  @include makeMargin(md\:);
+  @include makePadding(md\:);
+}
+@media only screen and (max-width: breakpoint(sm)) {
+  @include makeMargin(sm\:);
+  @include makePadding(sm\:);
+};

@@ -1,0 +1,43 @@
+// BG
+.bg {
+  &--white {
+    background: $color-ui-white;
+  }
+  &--black {
+    background: $color-ui-black;
+  }
+  &--gray {
+    background: $color-ui-gray;
+  }
+}
+
+// TEXT
+.text { 
+  &--primary {
+    color: $color-text-primary;
+  }
+  &--secondary {
+    color: $color-text-secondary;
+  }
+  &--black {
+    color: $color-ui-black;
+  }
+  &--white {
+    color: $color-ui-white;
+  }
+  &--success {
+    color: $color-ui-success;
+  }
+  &--warning {
+    color: $color-ui-warning;
+  }
+  &--danger {
+    color: $color-ui-danger;
+  }
+  &--grey {
+    color: $color-ui-gray;
+  }
+  &--alert {
+    color: $color-ui-alert;
+  }
+}

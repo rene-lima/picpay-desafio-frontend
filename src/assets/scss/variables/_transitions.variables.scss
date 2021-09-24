@@ -1,0 +1,28 @@
+// EASING CUBIC BEZIER
+$transition-easing-default: cubic-bezier(0.5, 0, 0.5, 1);
+$transition-easing-accelerate: cubic-bezier(0.4, 0, 0.3, 1);
+$transition-easing-decelerate: cubic-bezier(0.15, 0, 0.25, 1);
+
+// SMALL ELEMENTS
+$transition-sm-slow: 0.25s;
+$transition-sm-medium: 0.2s;
+$transition-sm-fast: 0.15s;
+
+// MEDIUM ELEMENTS
+$transition-md-slow: 0.5s;
+$transition-md-medium: 0.4s;
+$transition-md-fast: 0.3s;
+
+//  LARGE ELEMENTS
+$transition-lg-slow: 0.75s;
+$transition-lg-medium: 0.65s;
+$transition-lg-fast: 0.55s;
+
+// BOUNCE/ELASTIC ELEMENTS
+$transition-bounce-slow: 1.2s;
+$transition-bounce-medium: 1s;
+$transition-bounce-fast: 0.8s;
+
+:export {
+  transitionSmMedium: $transition-sm-medium;
+}

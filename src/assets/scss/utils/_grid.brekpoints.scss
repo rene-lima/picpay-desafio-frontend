@@ -1,0 +1,48 @@
+$grids: (
+  columns: 12,
+  gutter: 1rem,
+);
+
+$breakpoints: (
+  lg: 1080px,
+  nv: 960px,
+  md: 768px,
+  sm: 576px
+);
+
+@function grid($key) {
+  @return map-get($grids, $key)
+};
+
+@function grid-width($column) {
+  $width: $column / grid(columns) * 100 + '%';
+  @return calc(#{$width} - #{grid(gutter)});
+};
+
+@function breakpoint($name) {
+  @return map-get($breakpoints, $name);
+}
+
+@mixin device-size($size) {
+  @if $size == lg {
+    @media only screen and (max-width: breakpoint(lg)) {
+      @content;
+    }
+  } @else if $size == nv {
+    @media only screen and (max-width: breakpoint(nv)) {
+      @content;
+    }
+  } @else if $size == md {
+    @media only screen and (max-width: breakpoint(md)) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media only screen and (max-width: breakpoint(sm)) {
+      @content;
+    }
+  }
+}
+
+:export {
+  deviceSize: device-size;
+}

@@ -1,0 +1,31 @@
+@use 'sass:math';
+
+@function spacing($point: 1) {
+    $spacing-default: 2 + rem;
+    @return math.div($point, $spacing-default);
+}
+  
+// HEIGHT
+.h-1 { height: spacing(1) }
+.h-2 { height: spacing(2) }
+.h-3 { height: spacing(3) }
+.h-4 { height: spacing(4) }
+.h-5 { height: spacing(5) }
+.h-full { height: 100% }
+
+// MIN-MAX HEIGHT
+.max-h-full { max-height: 100% }
+.min-h-full { min-height: 100% }
+
+// WIDTH
+.w-1 { width: spacing(1) }
+.w-2 { width: spacing(2) }
+.w-3 { width: spacing(3) }
+.w-4 { width: spacing(4) }
+.w-5 { width: spacing(5) }
+.w-half { width: 50% }
+.w-full { width: 100% }
+
+// MIN-MAX WIDTH
+.min-w-full { min-width: 100% }
+.max-w-full { max-width: 100% }

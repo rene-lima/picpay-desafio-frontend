@@ -1,0 +1,21 @@
+// Colors
+$color-brand-primary: #007DFE;
+$color-brand-secondary: #F5F5F5;
+
+$color-text-primary: #333333;
+$color-text-secondary: #69788C;
+
+$color-ui-info: #0084F4;
+$color-ui-danger: #FF647C;
+$color-ui-warning: #F9E476;
+$color-ui-success: #9FDAAF;
+$color-ui-alert: #FFA26B;
+
+$color-ui-white: #fff;
+$color-ui-black: #000;
+$color-ui-gray: #F2F2F2;
+
+:export {
+    color-ui-white: $color-ui-white;
+    colorBrandSecondary: $color-brand-secondary;
+}

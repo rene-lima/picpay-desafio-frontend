@@ -1,0 +1,30 @@
+// BORDER RADIUS
+$border-radius-none: 0px;
+$border-radius-default: 4px;
+$border-radius-middle: 6px;
+$border-radius-large: 8px;
+$border-radius-circle: 99px;
+
+// BORDER WIDTH
+$border-width-default: 1px;
+$border-width-large: 2px;
+
+// OPACITY
+$opacity-mid-max: .7;
+$opacity-mid-half: .5;
+$opacity-mid-min: .38;
+
+$opacity-low-max: .24;
+$opacity-low-half: .12;
+$opacity-low-min: .06;
+
+// BOX-SHADOW
+$box-shadow-defualt: 0px 2px 4px rgba(4, 38, 82, $opacity-low-min);
+$box-shadow-sm: 0 2px 4px rgba($color-ui-black, $opacity-low-max);
+$box-shadow-md: 0 4px 14px rgba($color-ui-black, $opacity-low-half);
+$box-shadow-hg: 0 8px 24px rgba($color-ui-black, $opacity-low-half);
+
+$sidenav-width: 240px;
+
+// OLDER
+$border-radius-normal: $border-radius-default !default;
