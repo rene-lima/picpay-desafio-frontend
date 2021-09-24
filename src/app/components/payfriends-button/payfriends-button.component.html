@@ -1,0 +1,14 @@
+<button 
+    class="button w-full"
+    [id]="id" [disabled]="disabled"
+    role="button"
+    (click)="click($event)"
+    [ngClass]="{
+        'px-3 rounded h-5 cursor-pointer font-medium relative': true,
+        'button button--default align-center': true,
+        'button--loading': loading,
+        'button--secondary': secondary,
+        'cursor-not-allowed text-opacity-sm': loading || disabled
+      }">
+    <ng-content></ng-content>
+</button>

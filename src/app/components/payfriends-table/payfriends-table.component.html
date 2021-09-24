@@ -1,0 +1,32 @@
+<div class="table">
+  <table>
+    <thead class="table__thead">
+      <tr>
+        <th *ngFor="let header of tHeaders">
+          <div (click)="setSort(header)" class="table__th">
+            {{ header }}
+            <button
+              [class]="{
+                'table__order--asc': header === sortBy && order == 'asc',
+                'table__order--desc': header === sortBy && order == 'desc'
+              }"
+              class="table__button"
+            ></button>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table__tbody">
+      <tr class="table__lines" *ngFor="let row of tData; index as tIndex">
+        <ng-template #defaultOption>
+          <td *ngFor="let line of row">{{ line }}</td>
+        </ng-template>
+        <ng-container
+          [ngTemplateOutlet]="tableRowRef || defaultOption"
+          [ngTemplateOutletContext]="{ $implicit: row, index: tIndex }"
+        >
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>

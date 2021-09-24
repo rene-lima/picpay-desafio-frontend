@@ -1,0 +1,110 @@
+@import "../../../assets/scss/variables";
+
+$button-color: $color-brand-primary;
+$font-size-button: $font-size-paragraph;
+
+$types: (
+  default: (
+    color: $color-ui-white,
+    background: $button-color
+  ),
+  secondary: (
+    color: $color-ui-black,
+    background: $color-ui-white,
+    border-color: $color-brand-secondary
+  )
+);
+
+.button {
+  border: none;
+  font-size: $font-size-button;
+  border-radius: $border-radius-default;
+  padding: 10px;
+  transition-property: background, transform, opacity, color;
+  transition-duration: $transition-sm-fast;
+  transition-timing-function: $transition-easing-decelerate;
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+  &:focus {
+    outline: none;
+  }
+  &--default {
+    color: $color-ui-white;
+    background: $button-color;
+    box-shadow: inset 0 -1px rgba(0, 0, 0, $opacity-low-half);
+
+    &:enabled {
+      &:hover {
+        background: lighten($button-color, 5);
+        transition-duration: 0.06s;
+      }
+      &:active,
+      &:focus {
+        background: darken($button-color, 5);
+      }
+    }
+  }
+  &--secondary,
+  &--text {
+    box-shadow: none;
+  }
+  &--secondary {
+    background: $color-ui-white;
+    border-width: $border-width-default;
+    border-style: solid;
+  }
+  &--secondary {
+    &:enabled {
+      &:hover {
+        background: rgba($button-color, $opacity-low-min);
+      }
+      &:focus,
+      &:active {
+        background: rgba($button-color, $opacity-low-max);
+      }
+    }
+  }
+}
+
+@each $type, $theme in $types {
+  @each $config, $value in $theme {
+    .button--#{$type} {
+      #{$config}: $value;
+      &.button--loading {
+        &::after {
+          border-color: map-get($theme, 'color');
+        }
+      }
+    }
+  }
+}
+
+.button--loading {
+  color: transparent;
+  &::after {
+    content: '';
+    border-width: $border-width-large;
+    border-style: solid;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border-radius: 999px;
+    animation: rotateLoading $transition-bounce-slow $transition-easing-default infinite;
+  }
+}
+
+@keyframes rotateLoading {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}

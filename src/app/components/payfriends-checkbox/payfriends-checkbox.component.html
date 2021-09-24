@@ -1,0 +1,23 @@
+<div>
+  <label class="checkbox inline-flex align-center cursor-pointer">
+    <input
+      [(ngModel)]="value"
+      [readonly]="!!isReadOnly"
+      [disabled]="disabled"
+      [checked]="isChecked"
+      (ngModelChange)="onKey($event)"
+      class="
+      checkbox__input
+      border-default
+      rounded
+      inline-block
+      cursor-pointer
+    "
+      [class]="{ 'checkbox--selected': isChecked }"
+      type="checkbox"
+    >
+    <span *ngIf="label" class="ml-1 inline-block checkbox__label">
+      {{ label }}
+    </span>
+  </label>
+</div>

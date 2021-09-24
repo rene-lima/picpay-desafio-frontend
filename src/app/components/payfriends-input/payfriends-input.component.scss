@@ -1,0 +1,32 @@
+.payfriends-input {
+    margin: 0;
+    clear: both;
+    position: relative;
+    label {
+      position: relative;
+      top: 8px;
+      left: 16px;
+      color: #595959;
+      padding: 4px;
+      background-color: #F2F2F2;
+    }
+    input {
+      width: 100%;
+      display: block;
+      border: 1px solid #bdc2c6;
+      border-radius: 4px;
+      padding: 16px;
+      background: none;
+      
+    }
+    img {
+      float: right;
+      position: absolute;
+      bottom: 25%;
+      right: 12px;
+      cursor: pointer;
+    }
+    &__input-value-with-icon {
+      padding: 16px 38px 16px 16px !important;
+    }
+  }

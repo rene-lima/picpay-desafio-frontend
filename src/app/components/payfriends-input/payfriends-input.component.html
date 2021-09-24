@@ -1,0 +1,34 @@
+<div class="payfriends-input">
+  <label *ngIf="label" [for]="id">{{ label }}</label>
+  <input
+    class="form-control"
+    *ngIf="!isMoney"
+    ref="input"
+    [id]="uniqueid || id"
+    [name]="uniqueid || id"
+    [placeholder]="placeholder"
+    [type]="type"
+    [(ngModel)]="value"
+    [mask]="mask"
+    [patterns]="pattern"
+    [readonly]="!!isReadOnly"
+    [disabled]="disabled"
+    [dropSpecialCharacters]="!masked"
+    (keyup)="onKey($event)"
+    (keyup.enter)="keyUpEnter($event)"
+    />
+    <input
+    *ngIf="isMoney"
+    ref="input"
+    [id]="uniqueid || id"
+    [name]="id"
+    currencyMask
+    [placeholder]="placeholder"
+    type="money"
+    [options]="options"
+    [(ngModel)]="value"
+    [class]="{'payfriends-input__input-value-with-icon': iconSrc}"
+    (keyup)="onKey($event)"
+  />
+  <img (click)="callIconAction()" *ngIf="iconSrc" [src]="iconSrc" alt="" />
+</div>
