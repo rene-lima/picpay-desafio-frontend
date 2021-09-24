@@ -1,0 +1,87 @@
+<payfriends-main
+  title="Meus Pagamentos"
+  buttonText="ADiCIONAR PAGAMENTO"
+  (callAction)="showModalChangeTask('')">
+  <div class="my-payments__header">
+    <div class="flex align-center flex-wrap">
+      <payfriends-input
+        class="my-payments__input"
+        uniqueid="my-payments-search-input"
+        [placeholders]="{placeholders: this.filters || ['Usuário'], preText: 'Buscar por'}"
+        [(ngModel)]="search"
+        [isMoney]="filterBy === 'Valor'"
+        (actionEnter)="searchByFilter($event)"
+        (changeValue)="changeSearch($event)"
+        (iconAction)="searchByFilter($event)"
+        icon="search-icon">
+      </payfriends-input>
+      <select
+        [(ngModel)]="filterBy"
+        (change)="searchParamsClear()"
+        name="selector-filter"
+        class="my-payments__filter-select sm:mt-2 lg:ml:2"
+        id="my-payments-selector-filter">
+        <option *ngFor="let filter of filters">
+          {{ filterKeys[filter].label }}
+        </option>
+      </select>
+    </div>
+    <payfriends-paginator
+      (previousPage)="changePage(searchParams._page - 1)"
+      (nextPage)="changePage(searchParams._page + 1)"
+      (changePage)="changePage($event)"
+      (changePageSize)="changePageSize($event)"
+      [totalPages]="totalPages"
+      [totalItems]="totalItems"
+      [currentPage]="searchParams._page">
+    </payfriends-paginator>
+  </div>
+  <payfriends-table
+    (setOrder)="setOrder($event)"
+    [tData]="tasks"
+    [tHeaders]="tHeaders">
+    <ng-template #tableRow let-row let-index="index">
+      <td>
+        {{ row.name }}
+        <span class="my-payments--table-row-subitem">
+          @{{ row.username }}
+        </span>
+      </td>
+      <td>{{ row.title }}</td>
+      <td>
+        {{ formatDate(row.date) || "" }}
+        <span class="my-payments--table-row-subitem">
+          {{ formatHours(row.date) || "" }}
+        </span>
+      </td>
+      <td>{{ formatValue(row.value) || "" }}</td>
+      <td>
+        <payfriends-checkbox
+          (changeValue)="setPayed($event, row.id)"
+          [(ngModel)]="row.isPayed">
+        </payfriends-checkbox>
+      </td>
+      <td>
+        <button
+          (click)="showModalChangeTask(row.id)"
+          class="my-payments--table-row-edit"
+        ></button>
+        <button
+          (click)="showModalDeleteTask(row.id)"
+          class="my-payments--table-row-delete"
+        ></button>
+      </td>
+    </ng-template>
+  </payfriends-table>
+</payfriends-main>
+<change-task-modal
+(changeTask)="startTaskChangeFlow($event)"
+(cancelChanges)="closeTaskChange()"
+[task]="task"
+*ngIf="changeTaskModal">
+</change-task-modal>
+<delete-task-modal
+[task]="task"
+(deleteTask)="deleteTask()"
+*ngIf="deleteTaskModal">
+</delete-task-modal>

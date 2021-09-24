@@ -1,0 +1,64 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/utils/grid.brekpoints";
+
+.my-payments {
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 16px;
+  }
+  &__input {
+    @media only screen and (max-width: breakpoint(sm)) {
+      width: 100%;
+    }
+  }
+  &--table-row-subitem {
+    color: $color-text-secondary;
+    margin-top: 4px;
+    @media only screen and (min-width: breakpoint(sm)) {
+      display: block;
+    }
+  }
+  &--table-row-edit {
+    background: url(../../../assets/icons/edit-icon.svg) no-repeat center;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+    border: none;
+    cursor: pointer;
+  }
+  &--table-row-delete {
+    background: url(../../../assets/icons/delete-icon.svg) no-repeat center;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+    border: none;
+    cursor: pointer;
+  }
+  &__add-payments {
+    width: 100%;
+  }
+  &__filter-select {
+    font: 400 $font-size-default $font-family-03;
+    display: block;
+    border: 1px solid #bdc2c6;
+    border-radius: 4px;
+    padding: 14px;
+    background: none;
+    margin-left: 16px;
+    min-width: 110px;
+    @media only screen and (max-width: breakpoint(sm)) {
+        width: 100%;
+        margin: 12px 0;
+      }
+  }
+  &__error {
+    margin: 18px;
+    color: $color-ui-danger;
+    text-align: end;
+  }
+}
