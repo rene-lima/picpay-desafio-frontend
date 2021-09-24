@@ -1,0 +1,9 @@
+<div class="main container">
+    <div class="main__header">
+        <h1>{{ title }}</h1>
+        <payfriends-button (onClick)="click()">{{ buttonText }}</payfriends-button>
+    </div>
+    <div class="main__body">
+        <ng-content></ng-content>
+    </div>
+</div>

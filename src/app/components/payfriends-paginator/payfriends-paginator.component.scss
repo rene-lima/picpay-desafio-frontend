@@ -1,0 +1,50 @@
+@import "../../../assets/scss/variables";
+
+.paginator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  label {
+    font: 400 $font-size-default $font-family-03;
+    color: $color-text-secondary;
+    margin-right: 12px;
+  }
+  select {
+    font: 400 $font-size-default $font-family-03;
+    color: $color-text-secondary;
+    border: 1px solid #cfdce5;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: $color-ui-white;
+  }
+  span {
+    font: 700 12px $font-family-03;
+    color: $color-text-secondary;
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  button {
+    background: url(../../../assets/icons/arrow-icon.svg) no-repeat center;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+    }
+    &:first-child {
+      transform: rotate(180deg);
+
+    }
+  }
+  &--select {
+    background: $color-brand-primary;
+    border-radius: $border-radius-middle;
+    color: $color-ui-white !important;
+    cursor: default !important;
+  }
+}

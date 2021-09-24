@@ -1,0 +1,25 @@
+<div class="paginator sm:h-full">
+  <div class="flex align-center">
+    <label for="paginator-select-pags">Exibir</label>
+    <select
+      [(ngModel)]="pageSize"
+      (change)="setPageSize()"
+      name="paginator-select"
+      id="paginator-select-pags">
+      <option *ngFor="let pageSizeOption of pageSizeOptions">
+        {{ pageSizeOption }}
+      </option>
+    </select>
+    <span>de {{ totalItems }}</span>
+  </div>
+  <div class="flex align-center sm:mt-1-2">
+    <button (click)="setPreviousPage()"></button>
+    <span
+      *ngFor="let page of pages()"
+      [ngClass]="{ 'paginator--select': page === currentPage }"
+      (click)="setPage(page)">
+      {{ page }}
+    </span>
+    <button (click)="setNextPage()"></button>
+  </div>
+</div>

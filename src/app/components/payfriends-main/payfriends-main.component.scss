@@ -1,0 +1,32 @@
+@import "../../../assets/scss/utils/grid.brekpoints";
+@import "../../../assets/scss/variables";
+
+.main {
+    margin-bottom: 32px;
+    &__header {
+        margin-top: 60px;
+        margin-bottom: 36px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h1 {
+        margin: 0;
+        @media only screen and (max-width: breakpoint(sm)){
+            font-size: $font-size-display-sm;
+        }
+    }
+    payfriends-button {
+        z-index: 9;
+        @media only screen and (max-width: breakpoint(sm)){
+            width: 100%;
+            margin-top: 32px;
+        }
+    }
+    &__body {
+        background-color: #FFF;
+        border-radius: 4px;
+        height: 100%;
+    }
+}
