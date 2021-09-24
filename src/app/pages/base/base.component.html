@@ -1,0 +1,28 @@
+<div class="base">
+  <header class="base__header">
+    <div class="base__logo">
+      <img src="../../../assets/images/logos/logo-white.svg" alt="" />
+    </div>
+    <div (click)="showProfile()" class="base__avatar">
+      <img [src]="userData.avatar" alt="" />
+      <button [class]="{ base__rotate: profile }"></button>
+    </div>
+  </header>
+  <div class="base__profile" *ngIf="profile">
+    <div class="base__profile--img">
+      <img [src]="userData.avatar" alt="" />
+    </div>
+    <div class="mx-2 mt-2">
+        <span class="block">{{ userData.name }}</span>
+        <span class="block mt-1-2 text--secondary">{{ userData.email }}</span>
+        <button
+        (click)="logout()"
+        class="base--logout mt-4">
+        <img src="../../../assets/icons/logout-icon.svg" alt="" />
+        Sair
+      </button>
+    </div>
+    <div></div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

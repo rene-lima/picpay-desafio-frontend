@@ -1,0 +1,27 @@
+@import "../../../assets/scss/utils/grid.brekpoints";
+@import "../../../assets/scss/variables";
+
+.login {
+  display: grid;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  @media only screen and (min-width: 980px) {
+    grid-template-columns: 430px 4fr;
+  }
+  &__well-come {
+    @media only screen and (max-width: breakpoint(md)) {
+        font-size: $font-size-display-sm;
+    }
+  }
+  &__hero {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    @media only screen and (min-width: 980px) {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="login">
+  <div class="login__form container">
+    <div>
+      <img src="../../../assets/images/logos/logo.svg" alt="" />
+      <h1 class="login__well-come">Bem vindo de volta</h1>
+      <div>
+        <payfriends-input
+          label="E-mail"
+          id="email"
+          [(ngModel)]="login.email"
+          placeholder="lucas@mail.com">
+        </payfriends-input>
+        <payfriends-input
+          (iconAction)="chageTypeInputPassord()"
+          [(ngModel)]="login.password"
+          [type]="typeInputPassord"
+          label="senha"
+          icon="look-icon"
+          placeholder="****">
+        </payfriends-input>
+        <payfriends-button (onClick)="loginFlow()"class="flex mt-3">
+          Entrar
+        </payfriends-button>
+      </div>
+    </div>
+  </div>
+  <div class="login__hero bg--white">
+    <img src="../../../assets/images/man-doing-online-paymant.svg" alt="" />
+  </div>
+</div>
