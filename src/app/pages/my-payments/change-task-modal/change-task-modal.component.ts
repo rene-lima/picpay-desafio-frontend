@@ -20,7 +20,7 @@ export class ChangeTaskModalComponent implements OnInit {
     hour: '',
     isPayed: false
   }
-  taskForm: FormGroup;
+  taskForm: FormGroup
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

@@ -44,8 +44,6 @@
       <payfriends-input
         formControlName="title"
         id="add-my-payments-title"
-        mask="A{20}"
-        pattern
         placeholder="Titulo*"
         class="lg:col-6 md:col-12 mt-2"
       >
@@ -71,8 +69,7 @@
         id="chang-task-button-save"
         (onClick)="taskChange()"
         [disabled]="!taskForm.valid"
-        class="lg:col-4 md:col-4 sm:col-12 sm:mt-2"
-      >
+        class="lg:col-4 md:col-4 sm:col-12 sm:mt-2">
         Salvar
       </payfriends-button>
     </div>

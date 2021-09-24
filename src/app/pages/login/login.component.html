@@ -3,25 +3,32 @@
     <div>
       <img src="../../../assets/images/logos/logo.svg" alt="" />
       <h1 class="login__well-come">Bem vindo de volta</h1>
-      <div>
+      <form class="form-group" [formGroup]="login">
         <payfriends-input
           label="E-mail"
-          id="email"
-          [(ngModel)]="login.email"
+          id="login-email"
+          type="email"
+          formControlName="email"
+          (actionEnter)="loginFlow()"
           placeholder="lucas@mail.com">
         </payfriends-input>
         <payfriends-input
+          id="login-password"
           (iconAction)="chageTypeInputPassord()"
-          [(ngModel)]="login.password"
+          (actionEnter)="loginFlow()"
+          formControlName="password"
           [type]="typeInputPassord"
           label="senha"
           icon="look-icon"
           placeholder="****">
         </payfriends-input>
-        <payfriends-button (onClick)="loginFlow()"class="flex mt-3">
+        <payfriends-button
+          [disabled]="!login.valid"
+          (onClick)="loginFlow()"
+          class="flex mt-3">
           Entrar
         </payfriends-button>
-      </div>
+      </form>
     </div>
   </div>
   <div class="login__hero bg--white">
