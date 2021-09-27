@@ -1,0 +1,37 @@
+<div class="relative">
+  <input
+    [id]="inputId"
+    [name]="inputId"
+    [type]="inputType"
+    class="
+      peer
+      h-10
+      w-full
+      border border-gray-300
+      rounded
+      p-4
+      text-gray-600
+      placeholder-transparent
+      bg-gray-100
+      focus:outline-none focus:border-gray-300 focus:shadow-none focus:ring-offset-0 focus:ring-gray-300
+    "
+    [placeholder]="placeholder || label"
+  />
+  <label
+    [for]="inputId"
+    class="
+      font-body
+      absolute
+      left-0
+      -top-3.5
+      ml-3.5
+      px-1
+      bg-gray-100
+      transition-all
+      text-base
+      peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-2
+      peer-focus:-top-3.5 peer-focus:text-gray-600
+    "
+    >{{ label }}</label
+  >
+</div>

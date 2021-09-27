@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { InputModule } from '@features/input/input.module';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule]
+  exports: [InputModule]
 })
 export class SharedModule {}
