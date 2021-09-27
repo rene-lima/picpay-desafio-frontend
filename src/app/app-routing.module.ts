@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from '@core/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', loadChildren: () => import('./login/login.module').then((m) => m.LoginModule) },
+  { path: '', loadChildren: () => import('./features/login/login.module').then((m) => m.LoginModule) },
   { path: '**', component: NotFoundComponent }
 ];
 

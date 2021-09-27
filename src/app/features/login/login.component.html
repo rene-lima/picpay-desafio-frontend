@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-white flex">
+  <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-gray-100 w-2/5">
+    <div class="mx-auto w-full max-w-sm">
+      <div>
+        <app-logo></app-logo>
+
+        <h2 class="font-heading mt-6 text-3xl leading-9 font-extrabold text-gray-900">Bem vindo de volta</h2>
+      </div>
+
+      <div class="mt-8">
+        <form action="#" method="POST">
+          <app-input label="Email" inputType="email" inputId="emailLogin" placeholder="email@email.com"></app-input>
+
+          <div class="mt-6">
+            <app-input
+              label="Senha"
+              inputType="password"
+              inputId="senhaLogin"
+              placeholder="email@email.com"
+            ></app-input>
+          </div>
+
+          <div class="mt-6">
+            <span class="block w-full rounded-md shadow-sm">
+              <app-button buttonType="submit" buttonLabel="Entrar" (clicked)="onSubmit()"></app-button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden lg:block relative flex-1 w-3/5">
+    <div class="flex h-screen justify-center items-center">
+      <img class="w-96 h-96" src="/assets/login-illustration.svg" alt="" />
+    </div>
+  </div>
+</div>
