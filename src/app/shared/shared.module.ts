@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { InputModule } from '@features/input/input.module';
+import { ButtonModule } from '@shared/button/button.module';
+import { InputModule } from '@shared/input/input.module';
+
+import { LogoModule } from './logo/logo.module';
 
 @NgModule({
-  exports: [InputModule]
+  exports: [InputModule, ButtonModule, LogoModule]
 })
 export class SharedModule {}
