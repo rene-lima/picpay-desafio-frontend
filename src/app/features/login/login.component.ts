@@ -17,6 +17,7 @@ export class LoginComponent {
       if (name) {
         // fake token
         localStorage.setItem('user_token', JSON.stringify({ name, token: 'token' }));
+        localStorage.setItem('user_data', JSON.stringify(response[0]));
 
         this.router.navigate(['/payments']);
       } else {
