@@ -12,5 +12,7 @@ export class ButtonComponent {
 
   constructor() {}
 
-  onClick() {}
+  onClick() {
+    this.clicked.emit();
+  }
 }
