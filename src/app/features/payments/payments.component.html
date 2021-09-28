@@ -1,0 +1,25 @@
+<div class="max-w-7xl mx-auto py-2">
+  <div class="flex justify-end pb-6">
+    <app-button buttonType="button" buttonLabel="Adicionar Pagamento" (clicked)="addPayment()"></app-button>
+  </div>
+
+  <div class="flex flex-col bg-white rounded overflow-x-auto">
+    <div class="flex items-center justify-between px-4 py-3">
+      <app-payments-filter (filtered)="searchByName($event)"></app-payments-filter>
+
+      <div class="flex items-center gap-2">
+        <app-payments-show-more (changed)="changeLimit($event)"></app-payments-show-more>
+
+        <app-payments-pagination (paginationClicked)="onPageChange($event)"></app-payments-pagination>
+      </div>
+    </div>
+
+    <app-payments-table
+      [payments]="$paymentData | async"
+      (edited)="onEdit($event)"
+      (deleted)="onDelete($event)"
+      (sorted)="onSort($event)"
+      (payedChanged)="onPaymentChanged($event)"
+    ></app-payments-table>
+  </div>
+</div>

@@ -23,6 +23,10 @@ export class ApiService {
     return this.httpClient.put<void>(`${environment.API_URL}${endpoint}`, body);
   }
 
+  patch<T>(endpoint: string, body: T): Observable<T> {
+    return this.httpClient.patch<T>(`${environment.API_URL}${endpoint}`, body);
+  }
+
   delete(endpoint: string): Observable<void> {
     return this.httpClient.delete<void>(`${environment.API_URL}${endpoint}`);
   }
