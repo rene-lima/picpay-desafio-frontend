@@ -1,4 +1,4 @@
-<table class="min-w-full rounded">
+<table class="font-display min-w-full rounded">
   <thead class="border-b-2 border-gray-border">
     <tr>
       <th *ngFor="let col of colsHeader" scope="col" class="px-6 py-3 text-left text-xs text-gray-secondary">
@@ -30,8 +30,8 @@
   <tbody class="bg-white">
     <tr *ngFor="let payment of payments; let odd = odd; let idx = index" [class.bg-gray-zebra]="odd">
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm font-medium text-black-secondary">{{ payment.name }}</div>
-        <div class="text-sm text-gray-dark">@{{ payment.username }}</div>
+        <div class="text-sm text-black-secondary">{{ payment.name }}</div>
+        <div class="text-xs text-gray-dark">@{{ payment.username }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
@@ -39,8 +39,8 @@
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm font-medium text-black-secondary">{{ payment.date | date: 'd MMM y' }}</div>
-        <div class="text-sm text-gray-dark">{{ payment.date | date: 'h:mm a' }}</div>
+        <div class="text-sm text-black-secondary">{{ payment.date | date: 'd MMM y' }}</div>
+        <div class="text-xs text-gray-dark">{{ payment.date | date: 'h:mm a' }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
@@ -54,7 +54,7 @@
               [id]="'payed-' + idx"
               type="checkbox"
               [checked]="payment.isPayed"
-              class="focus:ring-indigo-dark h-4 w-4 text-indigo-600 border-gray-300 rounded"
+              class="focus:ring-indigo-dark h-4 w-4 text-indigo-600 bg-blue border-gray-300 rounded"
               (change)="payedChange(payment.id, $event)"
             />
           </div>
