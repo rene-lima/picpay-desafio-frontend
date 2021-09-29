@@ -18,7 +18,11 @@ describe('LoginWelcomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render welcome back title', () => {
+    const fixture = TestBed.createComponent(LoginWelcomeComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('h2').textContent).toContain('Bem vindo de volta');
   });
 });

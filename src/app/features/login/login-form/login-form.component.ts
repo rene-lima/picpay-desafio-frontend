@@ -21,7 +21,7 @@ import { LoginForm } from '@models/login/login.interface';
   `
 })
 export class LoginFormComponent implements OnInit {
-  @Output() submitted = new EventEmitter();
+  @Output() submitted = new EventEmitter<LoginForm>();
 
   loginForm: FormGroup;
   touched = false;

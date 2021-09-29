@@ -18,7 +18,11 @@ describe('LoginIllustrationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render an illustration as img', () => {
+    const fixture = TestBed.createComponent(LoginIllustrationComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('img')).toBeTruthy();
   });
 });
