@@ -1,7 +1,7 @@
 <table class="min-w-full rounded">
-  <thead class="border-b-2">
+  <thead class="border-b-2 border-gray-border">
     <tr>
-      <th *ngFor="let col of colsHeader" scope="col" class="px-6 py-3 text-left text-xs text-gray-500">
+      <th *ngFor="let col of colsHeader" scope="col" class="px-6 py-3 text-left text-xs text-gray-secondary">
         <div class="flex gap-3">
           {{ col.header }}
           <svg
@@ -28,23 +28,23 @@
   </thead>
 
   <tbody class="bg-white">
-    <tr *ngFor="let payment of payments; let odd = odd; let idx = index" [class.bg-gray-100]="odd">
+    <tr *ngFor="let payment of payments; let odd = odd; let idx = index" [class.bg-gray-zebra]="odd">
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm font-medium text-gray-900">{{ payment.name }}</div>
-        <div class="text-sm text-gray-500">@{{ payment.username }}</div>
+        <div class="text-sm font-medium text-black-secondary">{{ payment.name }}</div>
+        <div class="text-sm text-gray-dark">@{{ payment.username }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-900">{{ payment.title }}</div>
+        <div class="text-sm text-black-secondary">{{ payment.title }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm font-medium text-gray-900">{{ payment.date | date: 'd MMM y' }}</div>
-        <div class="text-sm text-gray-500">{{ payment.date | date: 'h:mm a' }}</div>
+        <div class="text-sm font-medium text-black-secondary">{{ payment.date | date: 'd MMM y' }}</div>
+        <div class="text-sm text-gray-dark">{{ payment.date | date: 'h:mm a' }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-900">{{ payment.value | currency: 'BRL':true }}</div>
+        <div class="text-sm text-black-secondary">{{ payment.value | currency: 'BRL':true }}</div>
       </td>
 
       <td class="px-6 py-4 whitespace-nowrap">
@@ -54,7 +54,7 @@
               [id]="'payed-' + idx"
               type="checkbox"
               [checked]="payment.isPayed"
-              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+              class="focus:ring-indigo-dark h-4 w-4 text-indigo-600 border-gray-300 rounded"
               (change)="payedChange(payment.id, $event)"
             />
           </div>

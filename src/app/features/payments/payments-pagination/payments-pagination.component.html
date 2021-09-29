@@ -5,7 +5,7 @@
   >
     <span class="sr-only">Anterior</span>
     <!-- chevron-left -->
-    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#69788C" aria-hidden="true">
       <path
         fill-rule="evenodd"
         d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
@@ -18,7 +18,8 @@
     *ngFor="let pageNumber of [1, 2, 3, 4, 5]"
     aria-current="page"
     class="cursor-pointer px-2 py-1 mx-0.5 border-none text-xs font-bold"
-    [ngClass]="{ 'cursor-default bg-blue-600 text-white rounded': pageSelected === pageNumber }"
+    [class.text-gray-dark]="pageSelected !== pageNumber"
+    [ngClass]="{ 'cursor-default bg-blue text-white rounded': pageSelected === pageNumber }"
     (click)="onPaginationClick(pageNumber)"
   >
     {{ pageNumber }}
@@ -30,7 +31,7 @@
   >
     <span class="sr-only">Próximo</span>
     <!-- chevron-right -->
-    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#69788C" aria-hidden="true">
       <path
         fill-rule="evenodd"
         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"

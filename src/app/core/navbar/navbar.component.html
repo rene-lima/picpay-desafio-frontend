@@ -1,4 +1,4 @@
-<nav class="bg-blue-900">
+<nav class="bg-blue-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <app-nav-desktop></app-nav-desktop>
@@ -8,8 +8,6 @@
   </div>
 
   <div class="md:hidden" id="mobile-menu">
-    <div class="pt-4 pb-3 border-t border-gray-700">
-      <app-nav-mobile [user]="user"></app-nav-mobile>
-    </div>
+    <app-nav-mobile [user]="user"></app-nav-mobile>
   </div>
 </nav>

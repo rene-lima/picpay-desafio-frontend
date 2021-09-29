@@ -4,14 +4,16 @@
     name="email"
     type="email"
     formControlName="email"
-    class="h-10 w-full border border-gray-300 rounded p-4 text-gray-600 bg-gray-100 focus:outline-none"
+    class="h-10 w-full border border-black-outline rounded p-4 text-black-emphasis bg-gray focus:outline-none"
   />
-  <label for="email" class="font-body absolute left-0 -top-3.5 ml-3.5 px-1 bg-gray-100 text-base"> Email </label>
+  <label for="email" class="font-body absolute left-0 -top-3.5 ml-3.5 px-1 bg-gray text-base text-black-medium">
+    Email
+  </label>
 </div>
 
 <div
   *ngIf="email?.invalid && (email?.dirty || email?.touched || touchedButton)"
-  class="font-medium text-red-500 text-xs mt-1 ml-1"
+  class="font-medium text-red text-xs mt-1 ml-1"
 >
   <div *ngIf="email?.errors?.required">E-mail é obrigatório.</div>
   <div *ngIf="email?.errors?.email">E-mail precisa ser válido</div>
