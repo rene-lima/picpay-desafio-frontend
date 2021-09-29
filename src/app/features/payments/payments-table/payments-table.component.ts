@@ -3,7 +3,8 @@ import { Payment } from '@models/payments/payment.interface';
 
 @Component({
   selector: 'app-payments-table',
-  templateUrl: './payments-table.component.html'
+  templateUrl: './payments-table.component.html',
+  styleUrls: ['./payments-table.component.scss']
 })
 export class PaymentsTableComponent {
   @Input() payments: Payment[] | null;
