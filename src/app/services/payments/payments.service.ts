@@ -20,6 +20,11 @@ export class PaymentsService {
     return this.apiService.get<Payment[]>('tasks', params);
   }
 
+  filterByName(filter = ''): Observable<Payment[]> {
+    const params = new HttpParams().set('name_like', filter);
+    return this.apiService.get<Payment[]>('tasks', params);
+  }
+
   editPaymentStatus(id: number, isPayed: boolean): Observable<Partial<Payment>> {
     return this.apiService.patch<Partial<Payment>>(`tasks/${id}`, {
       isPayed

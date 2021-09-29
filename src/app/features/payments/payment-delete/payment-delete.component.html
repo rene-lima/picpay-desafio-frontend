@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Excluir pagamento</h1>
+
+<div mat-dialog-content>
+  <div class="p-1">
+    <p>Usuário: {{ data.name }}</p>
+    <p>Data: {{ data.date | date: 'dd/MM/yyyy' }}</p>
+    <p>Valor: {{ data.value | currency: 'BRL':true }}</p>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <div class="flex gap-3">
+    <button
+      type="button"
+      class="flex gap-1 bg-gray-300 py-2 px-3 rounded leading-4 font-semibold hover:bg-gray-200 focus:outline-none"
+      (click)="cancel()"
+    >
+      Cancelar
+    </button>
+    <app-button type="button" (clicked)="save()" buttonLabel="Salvar"></app-button>
+  </div>
+</div>

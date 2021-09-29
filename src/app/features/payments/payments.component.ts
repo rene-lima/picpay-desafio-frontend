@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Payment } from '@models/payments/payment.interface';
 import { PaymentsService } from '@services/payments/payments.service';
 import { Observable } from 'rxjs';
+
+import { PaymentAddComponent } from './payment-add/payment-add.component';
+import { PaymentDeleteComponent } from './payment-delete/payment-delete.component';
 
 @Component({
   selector: 'app-payments',
@@ -15,7 +19,7 @@ export class PaymentsComponent implements OnInit {
   currentSortOrder: 'desc' | 'asc' = 'desc';
   limitRows = 5;
 
-  constructor(private paymentsService: PaymentsService) {}
+  constructor(private paymentsService: PaymentsService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
@@ -27,26 +31,28 @@ export class PaymentsComponent implements OnInit {
   }
 
   addPayment() {
-    console.log('add payment');
+    this.dialog.open(PaymentAddComponent);
   }
 
   onEdit(payment: Payment) {
-    console.log(payment);
+    const dialogRef = this.dialog.open(PaymentAddComponent, { data: payment });
+
+    dialogRef.afterClosed().subscribe((_) => {
+      this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
+    });
   }
 
   onDelete(payment: Payment) {
-    console.log(payment);
+    const dialogRef = this.dialog.open(PaymentDeleteComponent, { data: payment });
+
+    dialogRef.afterClosed().subscribe((_) => {
+      this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
+    });
   }
 
   searchByName(search: string) {
     this.currentFilter = search;
-    this.$paymentData = this.paymentsService.get(
-      this.currentPage,
-      this.currentFilter,
-      this.currentSortOrder,
-      this.currentSortField,
-      this.limitRows
-    );
+    this.$paymentData = this.paymentsService.filterByName(this.currentFilter);
   }
 
   onSort(sortField: string) {

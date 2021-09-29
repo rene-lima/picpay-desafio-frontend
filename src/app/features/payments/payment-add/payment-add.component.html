@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{ isEditing ? 'Editar ' : 'Adicionar' }} pagamento</h1>
+
+<div mat-dialog-content>
+  <div class="p-1">
+    <form [formGroup]="paymentAddForm">
+      <app-payment-add-form [parent]="paymentAddForm"></app-payment-add-form>
+    </form>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <div class="flex gap-3">
+    <button
+      type="button"
+      class="flex gap-1 bg-gray-300 py-2 px-3 font-medium rounded hover:bg-gray-200 focus:outline-none"
+      (click)="cancel()"
+    >
+      Cancelar
+    </button>
+    <app-button type="button" (clicked)="onSubmit(paymentAddForm)" buttonLabel="Salvar"></app-button>
+  </div>
+</div>
