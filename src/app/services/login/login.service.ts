@@ -1,8 +1,8 @@
 import { HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '@models/login/user.interface';
 import { LoginForm } from '@models/login/login.interface';
+import { User } from '@models/login/user.interface';
 import { ApiService } from '@services/api/api.service';
 import { Observable } from 'rxjs';
 
@@ -17,17 +17,17 @@ export class LoginService {
   login({ email, password }: LoginForm): Observable<User[]> {
     const httpParams = new HttpParams().set('email', email).set('password', password);
 
-    return this.apiService.get<User[]>('account', httpParams).pipe();
+    return this.apiService.get<User[]>('account', httpParams);
   }
 
   isAuthenticated() {
     if (localStorage.getItem('user_token')) {
       this.setUserLogged(true);
       return true;
-    } else {
-      this.setUserLogged(false);
-      return false;
     }
+
+    this.setUserLogged(false);
+    return false;
   }
 
   setUserLogged(logged: boolean) {
