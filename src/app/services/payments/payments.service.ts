@@ -31,12 +31,12 @@ export class PaymentsService {
     });
   }
 
-  edit(id: number, payment: Payment): Observable<Payment> {
-    return this.apiService.patch<Payment>(`tasks/${id}`, payment);
+  edit(id: number, payment: Partial<Payment>): Observable<Partial<Payment>> {
+    return this.apiService.patch<Partial<Payment>>(`tasks/${id}`, payment);
   }
 
-  create(payment: Payment): Observable<void> {
-    return this.apiService.post<Payment>('tasks', payment);
+  create(payment: Partial<Payment>): Observable<void> {
+    return this.apiService.post<Partial<Payment>>('tasks', payment);
   }
 
   delete(id: number): Observable<void> {
