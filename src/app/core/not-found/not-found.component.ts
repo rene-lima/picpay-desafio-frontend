@@ -11,6 +11,4 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class NotFoundComponent {
-  constructor() {}
-}
+export class NotFoundComponent {}

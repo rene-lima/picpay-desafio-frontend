@@ -1,5 +1,11 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LogoModule } from '@shared/logo/logo.module';
 
+import { NavDesktopComponent } from './nav-desktop/nav-desktop.component';
+import { NavDropdownComponent } from './nav-dropdown/nav-dropdown.component';
+import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {
@@ -8,7 +14,8 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
+      declarations: [NavbarComponent, NavMobileComponent, NavDropdownComponent, NavDesktopComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule, LogoModule]
     }).compileComponents();
   });
 
