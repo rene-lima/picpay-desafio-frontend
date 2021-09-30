@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-payments-pagination',
   templateUrl: './payments-pagination.component.html'
 })
 export class PaymentsPaginationComponent {
+  @Input() pageSelected = 1;
   @Output() paginationClicked = new EventEmitter<number>();
-  pageSelected = 1;
 
   constructor() {}
 

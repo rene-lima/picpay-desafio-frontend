@@ -2,6 +2,7 @@
   <a
     class="cursor-pointer px-2 py-2 border-none text-sm font-medium text-gray-500 hover:bg-gray-50"
     (click)="onPreviousClick()"
+    id="previous"
   >
     <span class="sr-only">Anterior</span>
     <!-- chevron-left -->
@@ -15,8 +16,9 @@
   </a>
 
   <a
-    *ngFor="let pageNumber of [1, 2, 3, 4, 5]"
-    aria-current="page"
+    *ngFor="let pageNumber of [1, 2, 3, 4, 5]; let idx = index"
+    [id]="'page-' + idx"
+    [attr.aria-current]="pageSelected === pageNumber ? 'page' : null"
     class="cursor-pointer px-2 py-1 mx-0.5 border-none text-xs font-bold"
     [class.text-gray-dark]="pageSelected !== pageNumber"
     [ngClass]="{ 'cursor-default bg-blue text-white rounded': pageSelected === pageNumber }"
@@ -28,6 +30,7 @@
   <a
     class="cursor-pointer px-2 py-2 border-none text-sm font-medium text-gray-500 hover:bg-gray-50"
     (click)="onNextClick()"
+    id="next"
   >
     <span class="sr-only">Próximo</span>
     <!-- chevron-right -->
