@@ -1,18 +1,17 @@
-import { TestBed, waitForAsync } from '@angular/core/testing'
 import { AppComponent } from './app.component'
 
-describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AppComponent]
-      }).compileComponents()
-    })
-  )
+describe('<app-root>', () => {
+  let app: AppComponent
+
+  beforeEach(() => {
+    app = new AppComponent()
+  })
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
+  })
+
+  it('should have a title `desafio-picpay/hugo-andreas-albrecht` by default', () => {
+    expect(app.title).toEqual('desafio-picpay/hugo-andreas-albrecht')
   })
 })
