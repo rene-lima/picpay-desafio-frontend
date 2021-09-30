@@ -13,7 +13,7 @@ export class PaymentDeleteComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  save() {
+  onDelete() {
     this.paymentService.delete(this.data.id).subscribe((_) => {
       this.dialogRef.close();
     });

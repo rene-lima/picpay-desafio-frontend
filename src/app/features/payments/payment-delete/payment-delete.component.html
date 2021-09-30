@@ -12,11 +12,12 @@
   <div class="flex gap-3">
     <button
       type="button"
+      id="cancel"
       class="flex gap-1 bg-gray-button py-2 px-3 rounded font-semibold hover:bg-gray focus:outline-none"
       (click)="cancel()"
     >
       Cancelar
     </button>
-    <app-button type="button" (clicked)="save()" buttonLabel="Salvar"></app-button>
+    <app-button type="button" buttonId="delete" (clicked)="onDelete()" buttonLabel="Salvar"></app-button>
   </div>
 </div>
