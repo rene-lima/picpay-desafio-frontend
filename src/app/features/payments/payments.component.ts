@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Payment } from '@models/payments/payment.interface';
 import { PaymentsService } from '@services/payments/payments.service';
 import { Observable } from 'rxjs';
@@ -37,17 +37,13 @@ export class PaymentsComponent implements OnInit {
   onEdit(payment: Payment) {
     const dialogRef = this.dialog.open(PaymentAddComponent, { data: payment });
 
-    dialogRef.afterClosed().subscribe((_) => {
-      this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
-    });
+    this.onDialogClose<PaymentAddComponent>(dialogRef);
   }
 
   onDelete(payment: Payment) {
     const dialogRef = this.dialog.open(PaymentDeleteComponent, { data: payment });
 
-    dialogRef.afterClosed().subscribe((_) => {
-      this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
-    });
+    this.onDialogClose<PaymentDeleteComponent>(dialogRef);
   }
 
   searchByName(search: string) {
@@ -81,5 +77,11 @@ export class PaymentsComponent implements OnInit {
 
   onPaymentChanged({ id, isPayed }: { id: number; isPayed: boolean }) {
     this.paymentsService.editPaymentStatus(id, isPayed).subscribe((response) => console.log(response));
+  }
+
+  onDialogClose<T>(dialogRef: MatDialogRef<T>) {
+    dialogRef.afterClosed().subscribe((_) => {
+      this.$paymentData = this.paymentsService.get(this.currentPage, '', '', '', this.limitRows);
+    });
   }
 }
