@@ -1,10 +1,41 @@
-* {
-  box-sizing: border-box;
+// Fontes:
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.pf-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-html,
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
+.pf-page-header {
+  margin-top: 90px;
+  .pf-page-title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #333333;
+  }
+}
+
+// Modificações no Bootstrap:
+.container {
+  max-width: 95% !important;
+}
+.btn {
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1.25px;
+  font-size: 0.75rem;
+}
+
+.btn-primary {
+  background-color: #007DFE;
+}
+
+.bg-primary {
+  background-color: #002D69 !important;
 }

@@ -20,18 +20,17 @@ export class PaymentService {
   public getPayments(
     page: number,
     limit: number,
-    sort?: string,
-    order?: string,
-    query?: string
+    sort: string = 'id',
+    order: string = 'asc',
+    query: string = ''
   ): Observable<Payment[]> {
     const url = this.prefixUrl;
-    const params: HttpParams = new HttpParams();
-    params.append("_page", page);
-    params.append("_limit", limit);
-
-    if (sort) params.append("_sort", sort);
-    if (sort) params.append("_order", order);
-    if (query) params.append("q", query);
+    const params: HttpParams = new HttpParams()
+      .set("_page", page)
+      .set("_limit", limit)
+      .set("_sort", sort)
+      .set("_order", order)
+      .set("q", query);
 
     return this.http.get<Payment[]>(url, {
       params: params,

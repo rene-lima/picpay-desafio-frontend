@@ -1,0 +1,62 @@
+.pf-login-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+  .pf-login {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 35%;
+    padding: 0 8%;
+    background-color: #F2F2F2;
+
+    img {
+      width: 30%;
+      margin-bottom: 8px;
+    }
+
+    .pf-login-title {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #333333;
+    }
+
+    form {
+      width: 100%;
+      .pf-login-input {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        position: relative;
+        margin-bottom: 16px;
+      }
+      label {
+        position: absolute;
+        left: 10px;
+        top: -12px;
+        background-color: #F2F2F2;
+        width: fit-content;
+        padding: 0 5px;
+        font-size: 0.8rem;
+      }
+      input {
+        border: none !important;
+        background-color: #F2F2F2 !important;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  
+  .pf-info {
+    width: 65%;
+    img {
+      width: 70%;
+    }
+  }
+}

@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="pf-login-page">
+  <div class="pf-login">
+    <img src="../../../assets/images/payfriends-logo.svg">
+    <span class="pf-login-title">Bem vindo de volta</span>
+    <form>
+      <div class="mt-4 mb-4 pf-login-input">
+        <label for="input-email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="input-email">
+      </div>
+      <div class="mb-4 pf-login-input">
+        <label for="input-password" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="input-password">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="login()">ENTRAR</button>
+    </form>
+  </div> 
+  <div class="pf-align-center pf-info">
+    <img src="../../../assets/images/login.svg">
+  </div>
+</div>
