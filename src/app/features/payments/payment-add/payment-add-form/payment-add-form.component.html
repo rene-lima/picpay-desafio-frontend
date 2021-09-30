@@ -1,8 +1,9 @@
 <div [formGroup]="parent" class="grid grid-cols-6 gap-6">
   <div class="col-span-6 sm:col-span-3">
-    <label for="first-name" class="block text-sm font-medium text-black-medium">Usuário</label>
+    <label for="username" class="block text-sm font-medium text-black-medium">Usuário</label>
     <input
       type="text"
+      id="username"
       formControlName="username"
       class="px-3 py-2 rounded text-sm border border-gray-border focus:outline-none pr-10"
     />
@@ -11,40 +12,43 @@
       *ngIf="username?.invalid && (username?.dirty || username?.touched)"
       class="font-medium text-red text-xs mt-1 ml-1"
     >
-      <div *ngIf="username?.errors?.required">Username é obrigatório.</div>
+      <div id="username-required" *ngIf="username?.errors?.required">Username é obrigatório.</div>
     </div>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <label for="last-name" class="block text-sm font-medium text-black-medium">Valor</label>
+    <label for="value" class="block text-sm font-medium text-black-medium">Valor</label>
     <input
       type="number"
+      id="value"
       formControlName="value"
       class="px-3 py-2 rounded text-sm border border-gray-border focus:outline-none pr-10"
     />
 
     <div *ngIf="value?.invalid && (value?.dirty || value?.touched)" class="font-medium text-red text-xs mt-1 ml-1">
-      <div *ngIf="value?.errors?.required">Valor é obrigatório.</div>
+      <div id="value-required" *ngIf="value?.errors?.required">Valor é obrigatório.</div>
     </div>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <label for="first-name" class="block text-sm font-medium text-black-medium">Data</label>
+    <label for="date" class="block text-sm font-medium text-black-medium">Data</label>
     <input
       type="date"
+      id="date"
       formControlName="date"
       class="px-3 py-2 rounded text-sm border border-gray-border focus:outline-none pr-10"
     />
 
     <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="font-medium text-red text-xs mt-1 ml-1">
-      <div *ngIf="date?.errors?.required">Data é obrigatória.</div>
+      <div id="date-required" *ngIf="date?.errors?.required">Data é obrigatória.</div>
     </div>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <label for="last-name" class="block text-sm font-medium text-black-medium">Título</label>
+    <label for="title" class="block text-sm font-medium text-black-medium">Título</label>
     <input
       type="text"
+      id="title"
       formControlName="title"
       class="px-3 py-2 rounded text-sm border border-gray-border focus:outline-none pr-10"
     />
