@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { ButtonComponent } from './button.component';
 
@@ -20,5 +21,18 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit when button is clicked', () => {
+    // spy on event emitter
+    const submittedSpy = spyOn(component.clicked, 'emit');
+
+    // query button and click it
+    const anchorElement = fixture.debugElement.query(By.css('#button'));
+    anchorElement.triggerEventHandler('click', null);
+    const innerText = anchorElement.nativeElement.innerText;
+
+    expect(submittedSpy).toHaveBeenCalled();
+    expect(component.buttonLabel).toBeUndefined();
   });
 });

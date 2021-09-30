@@ -18,7 +18,10 @@ describe('LogoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have dark logo as default', () => {
+    const fixture = TestBed.createComponent(LogoComponent);
+    const app = fixture.debugElement.componentInstance;
+
+    expect(app.isWhiteLogo).toBeFalsy();
   });
 });
