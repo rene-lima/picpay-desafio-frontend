@@ -1,0 +1,25 @@
+<po-modal p-size="auto" [p-title]="title" [p-primary-action]="actions[0]" [p-secondary-action]="actions[1]">
+  <form [formGroup]="form">
+    <div class="po-row">
+      <po-input
+        formControlName="name"
+        class="po-xl-5 po-lg-5 po-md-5 po-sm-12"
+        p-placeholder="Nome completo"
+      ></po-input>
+
+      <po-input formControlName="username" class="po-xl-4 po-lg-4 po-md-4 po-sm-12" p-placeholder="Usuário"></po-input>
+
+      <po-number formControlName="value" class="po-xl-3 po-lg-3 po-md-3 po-sm-12" p-placeholder="Valor"></po-number>
+    </div>
+
+    <div class="po-row">
+      <po-datepicker
+        formControlName="date"
+        class="po-xl-6 po-lg-6 po-md-6 po-sm-12"
+        p-placeholder="Data"
+      ></po-datepicker>
+
+      <po-input formControlName="title" class="po-xl-6 po-lg-6 po-md-6 po-sm-12" p-placeholder="Título"></po-input>
+    </div>
+  </form>
+</po-modal>
