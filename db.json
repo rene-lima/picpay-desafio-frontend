@@ -295,7 +295,7 @@
       "name": "Nicoline Squier",
       "username": "nsquiert",
       "title": "Senior Cost Accountant",
-      "value": 380.0,
+      "value": 380,
       "date": "2020-06-28T09:27:25Z",
       "image": "https://robohash.org/etperspiciatisminima.png?size=150x150&set=set1",
       "isPayed": false
@@ -725,7 +725,7 @@
       "name": "Cesare Collip",
       "username": "ccollip20",
       "title": "Office Assistant I",
-      "value": 123.0,
+      "value": 123,
       "date": "2021-04-19T01:53:14Z",
       "image": "https://robohash.org/velnumquamqui.png?size=150x150&set=set1",
       "isPayed": false

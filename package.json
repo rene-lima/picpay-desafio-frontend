@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server --watch ./src/assets/data/db.json --port 3000"
+    "api": "json-server --watch db.json --port 3000"
   },
   "private": true,
   "dependencies": {
