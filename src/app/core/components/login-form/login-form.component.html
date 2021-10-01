@@ -1,0 +1,26 @@
+<section class="container">
+  <div class="form-wrapper">
+    <div class="welcome-back">
+      <img src="../../../../assets/images/primary-logo.svg" alt="PayFirst" />
+      <h1>Bem vindo de volta</h1>
+    </div>
+
+    <form [formGroup]="form" class="po-row">
+      <po-input class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0" formControlName="email" p-label="Email"></po-input>
+
+      <po-password
+        class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0"
+        formControlName="password"
+        p-label="Senha"
+      ></po-password>
+
+      <po-button
+        class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0 po-mt-2"
+        [p-label]="'entrar' | uppercase"
+        p-type="primary"
+        [p-disabled]="form.invalid"
+        (p-click)="doLogin()"
+      ></po-button>
+    </form>
+  </div>
+</section>
