@@ -1,0 +1,19 @@
+<nav class="table-actions-container">
+  <div class="search-container">
+    <po-input p-icon="po-icon po-icon-search" p-placeholder="Pesquisar por usuário"></po-input>
+
+    <po-button p-type="link" p-label="Filtrar" p-icon="po-icon po-icon-parameters"></po-button>
+  </div>
+
+  <div class="pagination-container">
+    <i class="po-icon po-icon-first-page pagination-first-page po-mr-1" (click)="whenFirstPageSelected()"></i>
+    <i class="po-icon po-icon-arrow-left pagination-previous-page po-mr-1" (click)="whenPreviousPageSelected()"></i>
+
+    <div class="pagination-page-index">
+      <span *ngFor="let page of pages; let i = index" class="po-mr-1" (click)="whenSelectPage(i + 1)">{{ i + 1 }}</span>
+    </div>
+
+    <i class="po-icon po-icon-arrow-right pagination-next-page po-mr-1" (click)="whenNextPageSelected()"></i>
+    <i class="po-icon po-icon-last-page pagination-last-page po-mr-1" (click)="whenLastPageSelected()"></i>
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+@import '../../../../styles/variables';
+
+.table-actions-container,
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.table-actions-container {
+  justify-content: space-between;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .po-icon, span {
+    font-size: 1.5rem;
+    color: $typography;
+    cursor: pointer;
+  }
+}

@@ -2,7 +2,7 @@ import { QueryFilter } from '../query-filter.interface'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { HttpGet } from 'app/shared/utils/http/get/http-get'
 
-fdescribe('HttpGet', () => {
+describe('HttpGet', () => {
   let httpGet: HttpGet<{ id: string }>
   let httpClient: jasmine.SpyObj<HttpClient>
 
