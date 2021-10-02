@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
+// Ícones:
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 body {
   background-color: #F2F2F2;
 }
@@ -28,6 +31,13 @@ body {
     text-align: end;
     margin-top: -15px;
   }
+}
+
+.btn-icon {
+  font-size: 1rem !important;
+  padding: 0px 6px;
+  margin: 0 2px;
+  color: #333333;
 }
 
 // Modificações no Bootstrap:
