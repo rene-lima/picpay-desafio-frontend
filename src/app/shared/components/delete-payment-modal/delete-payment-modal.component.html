@@ -1,0 +1,15 @@
+<po-modal
+  p-size="auto"
+  p-title="Exluir pagamento"
+  [p-primary-action]="actions[0]"
+  [p-secondary-action]="actions[1]"
+  data-cy="delete-payment-modal-container"
+>
+  <div>
+    <p data-cy="delete-payment-modal-user"><strong>Usuário: </strong>{{ paymentToBeDeleted?.name }}</p>
+
+    <p data-cy="delete-payment-modal-date"><strong>Data: </strong>{{ paymentToBeDeleted?.date }}</p>
+
+    <p data-cy="delete-payment-modal-value"><strong>Valor: </strong>{{ paymentToBeDeleted?.value | brl }}</p>
+  </div>
+</po-modal>
