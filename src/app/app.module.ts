@@ -12,10 +12,11 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentViewComponent } from './pages/payment-view/payment-view.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent
+    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent
    ],
   imports: [
     BrowserModule,
