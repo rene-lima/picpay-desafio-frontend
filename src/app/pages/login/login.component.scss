@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap');
+
 $light-grey: #E5E5E5;
+$medium-grey: #333;
+$dark-blue: #002D69;
+$light-blue: #6BA5E4;
 $font-size-md: 24px;
 $font-size-lg: 30px; 
+
+:host {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
 
 #login-section {
     background-color: $light-grey;
@@ -11,11 +21,18 @@ $font-size-lg: 30px;
     flex-direction: column;
     justify-content: center;
 
-    #logo { 
+    #logo {
         font-size: $font-size-md;
+        color: $light-blue;
+
+        span {
+            font-weight: bold;
+            color: $dark-blue;    
+        } 
     }
 
-    p {
+    h1 {
+        margin-bottom: 32px;
         font-size: $font-size-lg;
     }
 }
