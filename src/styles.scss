@@ -1,6 +1,10 @@
 // Fontes:
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  background-color: #F2F2F2;
+}
 
 .pf-align-center {
   display: flex;
@@ -10,12 +14,19 @@
 
 .pf-page-header {
   margin-top: 90px;
+  margin-bottom: 20px;
+  padding: 0;
   .pf-page-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 1.6rem;
     color: #333333;
+  }
+
+  .pf-header-buttons {
+    text-align: end;
+    margin-top: -15px;
   }
 }
 
@@ -25,7 +36,7 @@
 }
 .btn {
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 1.25px;
@@ -33,9 +44,38 @@
 }
 
 .btn-primary {
-  background-color: #007DFE;
+  background-color: #007dfe;
 }
 
 .bg-primary {
-  background-color: #002D69 !important;
+  background-color: #002d69 !important;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 5px;
+  background: #dee2e6;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #aaa;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #aaa;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #777;
+}
+
+:root{
+  scrollbar-width: thin;
+}
+
+* {
+  scrollbar-width: thin;
 }

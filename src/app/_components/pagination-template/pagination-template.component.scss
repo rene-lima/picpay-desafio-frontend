@@ -1,0 +1,28 @@
+.result-list {
+  color: #555555;
+  font-size: 0.8rem;
+}
+
+.pagination {
+  border: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  li > a {
+    display: flex;
+    border: none;
+    border-radius: 5px !important;
+    color: #69788C;
+    margin-left: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 0;
+    height: 22px;
+    width: 22px;
+    align-items: center;
+    font-size: 1rem;
+  }
+  a.active {
+    background-color: #007DFE !important;
+    color: #fff !important;
+  }
+}

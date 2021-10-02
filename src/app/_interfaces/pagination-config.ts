@@ -1,4 +1,6 @@
 export interface PaginationConfig {
+  id?: string;
   currentPage: number;
-  limit: number;
+  itemsPerPage?: number;
+  totalItems?: number;
 }
