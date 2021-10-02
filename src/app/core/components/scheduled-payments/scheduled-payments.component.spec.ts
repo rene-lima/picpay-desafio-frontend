@@ -1,3 +1,4 @@
+import { DEFAULT_REQUESTS_TIMEOUT } from './../../../shared/utils/contants'
 import { fakeAsync, tick } from '@angular/core/testing'
 import { of } from 'rxjs'
 import { GetPaymentsService } from 'app/core/services/payments/get-payments/get-payments.service'
@@ -35,7 +36,7 @@ describe('<app-scheduled-payments>', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should fetch data from get payments service and populate payments array with response', fakeAsync(() => {
+  it('should fetch data from getPaymentsService and populate payments array with response', fakeAsync(() => {
     component.ngOnInit()
 
     tick()
@@ -55,5 +56,25 @@ describe('<app-scheduled-payments>', () => {
     expect(component.payments.length).toBe(1)
     expect(component.totalPaymentsLength).toBe(1)
     expect(component.payments[0].username).toEqual('lcrolly3')
+  }))
+
+  it('should fetch data from getPaymentsService with username filter', fakeAsync(() => {
+    component.ngOnInit()
+
+    component.whenUsernameHasBeenTyped('test-mock-username')
+
+    tick(DEFAULT_REQUESTS_TIMEOUT)
+
+    expect(getPaymentsService.getPayments).toHaveBeenCalledWith([{ field: 'username', value: 'test-mock-username' }])
+  }))
+
+  it('should NOT fetch data from getPaymentsService with username filter if hasnt username to be filtered', fakeAsync(() => {
+    component.ngOnInit()
+
+    component.whenUsernameHasBeenTyped('')
+
+    tick(DEFAULT_REQUESTS_TIMEOUT)
+
+    expect(getPaymentsService.getPayments).toHaveBeenCalledWith(undefined)
   }))
 })

@@ -1,9 +1,12 @@
+import { DEFAULT_REQUESTS_TIMEOUT } from './../../../shared/utils/contants'
+import { debounceTime, switchMap } from 'rxjs/operators'
 import { DEFAULT_PERPAGE_REGISTERS } from 'app/shared/utils/contants'
 import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 import { Component, OnInit } from '@angular/core'
 import { PoTableColumn } from '@po-ui/ng-components'
 import { Payment } from 'app/core/entities/payment/payment.interface'
 import { GetPaymentsService } from 'app/core/services/payments/get-payments/get-payments.service'
+import { Observable, Subject } from 'rxjs'
 
 @Component({
   selector: 'app-scheduled-payments',
@@ -17,6 +20,8 @@ export class ScheduledPaymentsComponent implements OnInit {
   payments?: Payment[] = []
 
   totalPaymentsLength: number = 0
+
+  filterPaymentByUsername$ = new Subject<string>()
 
   readonly registersPerPage = DEFAULT_PERPAGE_REGISTERS
 
@@ -32,7 +37,20 @@ export class ScheduledPaymentsComponent implements OnInit {
   constructor(private readonly getPaymentsService: GetPaymentsService) {}
 
   ngOnInit(): void {
+    this.filterPaymentByUsername$
+      .pipe(
+        debounceTime(DEFAULT_REQUESTS_TIMEOUT),
+        switchMap(usernameToBeFiltered => this.getFilteredPaymentsByUsername(usernameToBeFiltered as string))
+      )
+      .subscribe(res => this.mapData(res))
+
     this.getPayments()
+  }
+
+  private mapData({ payments, totalPayments }: { payments: Payment[]; totalPayments: number }): void {
+    this.payments = payments
+    this.totalPaymentsLength = totalPayments
+    this.isLoading = false
   }
 
   getPayments(clickedPageIndex?: number): void {
@@ -43,12 +61,22 @@ export class ScheduledPaymentsComponent implements OnInit {
     }
 
     this.isLoading = true
-    this.getPaymentsService
-      .getPayments(filters.length ? filters : undefined)
-      .subscribe(({ payments, totalPayments }) => {
-        this.payments = payments
-        this.totalPaymentsLength = totalPayments
-        this.isLoading = false
-      })
+    this.getPaymentsService.getPayments(filters.length ? filters : undefined).subscribe(res => this.mapData(res))
+  }
+
+  private getFilteredPaymentsByUsername(
+    usernameToBeFiltered: string
+  ): Observable<{ payments: Payment[]; totalPayments: number }> {
+    let filters: QueryFilter[] = []
+
+    if (usernameToBeFiltered) {
+      filters = [{ field: 'username', value: usernameToBeFiltered }]
+    }
+
+    return this.getPaymentsService.getPayments(filters.length ? filters : undefined)
+  }
+
+  whenUsernameHasBeenTyped(usernameToBeFiltered: string): void {
+    this.filterPaymentByUsername$.next(usernameToBeFiltered)
   }
 }

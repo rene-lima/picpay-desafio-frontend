@@ -3,17 +3,25 @@ import { TableActionsComponent } from './table-actions.component'
 describe('<app-table-actions>', () => {
   let component: TableActionsComponent
   let clickedPageIndexEmitterSpy: jasmine.Spy
+  let usernameToBeFilteredSpy: jasmine.Spy
 
   beforeEach(() => {
     component = new TableActionsComponent()
 
     clickedPageIndexEmitterSpy = spyOn(component.clickedPageIndex, 'emit')
+    usernameToBeFilteredSpy = spyOn(component.usernameToBeFiltered, 'emit')
 
     component.totalPaymentsLength = { value: 100, perPage: 5 }
   })
 
   it('should create', () => {
     expect(component).toBeTruthy()
+  })
+
+  it('should emit the username to be filtered', () => {
+    component.whenChangeUsernameFilter('test-username-mock')
+
+    expect(usernameToBeFilteredSpy).toHaveBeenCalledWith('test-username-mock')
   })
 
   it('should calculate total pages with value of total payments and per page number', () => {

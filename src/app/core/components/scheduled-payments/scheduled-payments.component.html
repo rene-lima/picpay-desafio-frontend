@@ -2,6 +2,7 @@
   <app-table-actions
     [totalPaymentsLength]="{ value: totalPaymentsLength, perPage: registersPerPage }"
     (clickedPageIndex)="getPayments($event)"
+    (usernameToBeFiltered)="whenUsernameHasBeenTyped($event)"
   ></app-table-actions>
 
   <po-table [p-columns]="columns" [p-items]="payments" [p-loading]="isLoading">

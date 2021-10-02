@@ -1,9 +1,14 @@
 <nav class="table-actions-container">
-  <div class="search-container">
-    <po-input p-icon="po-icon po-icon-search" p-placeholder="Pesquisar por usuário"></po-input>
+  <form [formGroup]="form" class="search-container">
+    <po-input
+      (p-change-model)="whenChangeUsernameFilter($event)"
+      formControlName="username"
+      p-icon="po-icon po-icon-search"
+      p-placeholder="Pesquisar por usuário"
+    ></po-input>
 
     <po-button p-type="link" p-label="Filtrar" p-icon="po-icon po-icon-parameters"></po-button>
-  </div>
+  </form>
 
   <div class="pagination-container">
     <i class="po-icon po-icon-first-page pagination-first-page po-mr-1" (click)="whenFirstPageSelected()"></i>
