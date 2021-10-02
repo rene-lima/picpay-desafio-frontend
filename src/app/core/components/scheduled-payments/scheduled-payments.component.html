@@ -10,14 +10,18 @@
       <po-info *ngIf="column.property === 'username'" [p-label]="row?.name" [p-value]="row?.username"></po-info>
 
       <div *ngIf="column.property === 'date'">
-        {{ row?.date }}
+        {{ row?.date | dateWithTime }}
       </div>
 
       <span *ngIf="column.property === 'value'">
         {{ row?.value | brl }}
       </span>
 
-      <po-checkbox *ngIf="column.property === 'isPayed'" [(ngModel)]="row.isPayed"></po-checkbox>
+      <po-checkbox
+        *ngIf="column.property === 'isPayed'"
+        [(ngModel)]="row.isPayed"
+        (p-change)="updateIfPaymentIsPayed(row, $event)"
+      ></po-checkbox>
 
       <div *ngIf="column.property === 'actions'">
         <po-button

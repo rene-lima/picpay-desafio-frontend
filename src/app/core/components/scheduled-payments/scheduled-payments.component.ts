@@ -1,4 +1,6 @@
-import { DEFAULT_REQUESTS_TIMEOUT } from './../../../shared/utils/contants'
+import { EditPaymentService } from 'app/core/services/payments/edit-payment/edit-payment.service'
+import { FormGroup, FormControl } from '@angular/forms'
+import { DEFAULT_REQUESTS_TIMEOUT } from 'app/shared/utils/contants'
 import { debounceTime, switchMap } from 'rxjs/operators'
 import { DEFAULT_PERPAGE_REGISTERS } from 'app/shared/utils/contants'
 import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
@@ -12,7 +14,7 @@ import { Observable, Subject } from 'rxjs'
   selector: 'app-scheduled-payments',
   templateUrl: './scheduled-payments.component.html',
   styles: ['.table-container { display: flex; flex-direction: column; }'],
-  providers: [GetPaymentsService]
+  providers: [GetPaymentsService, EditPaymentService]
 })
 export class ScheduledPaymentsComponent implements OnInit {
   isLoading = false
@@ -34,7 +36,14 @@ export class ScheduledPaymentsComponent implements OnInit {
     { property: 'actions', label: 'Opções', width: '10%', type: 'cellTemplate' }
   ]
 
-  constructor(private readonly getPaymentsService: GetPaymentsService) {}
+  form = new FormGroup({
+    isPayed: new FormControl()
+  })
+
+  constructor(
+    private readonly getPaymentsService: GetPaymentsService,
+    private readonly editPaymentService: EditPaymentService
+  ) {}
 
   ngOnInit(): void {
     this.filterPaymentByUsername$
@@ -57,7 +66,7 @@ export class ScheduledPaymentsComponent implements OnInit {
     let filters: QueryFilter[] = []
 
     if (clickedPageIndex) {
-      filters = [{ field: '_page', value: clickedPageIndex.toString() }]
+      filters = [{ field: '_page', value: String(clickedPageIndex) }]
     }
 
     this.isLoading = true
@@ -70,7 +79,7 @@ export class ScheduledPaymentsComponent implements OnInit {
     let filters: QueryFilter[] = []
 
     if (usernameToBeFiltered) {
-      filters = [{ field: 'username', value: usernameToBeFiltered }]
+      filters = [{ field: 'username_like', value: usernameToBeFiltered }]
     }
 
     return this.getPaymentsService.getPayments(filters.length ? filters : undefined)
@@ -78,5 +87,15 @@ export class ScheduledPaymentsComponent implements OnInit {
 
   whenUsernameHasBeenTyped(usernameToBeFiltered: string): void {
     this.filterPaymentByUsername$.next(usernameToBeFiltered)
+  }
+
+  updateIfPaymentIsPayed(payment: Payment, isPayed: boolean): void {
+    payment.isPayed = isPayed
+    const updatePayment: Payment = { ...payment }
+
+    this.isLoading = true
+    this.editPaymentService.Put(updatePayment, String(payment.id)).subscribe(() => {
+      this.isLoading = false
+    })
   }
 }
