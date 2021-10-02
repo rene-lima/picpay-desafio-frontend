@@ -1,0 +1,40 @@
+<div class="table-container">
+  <app-table-actions
+    [totalPaymentsLength]="{ value: totalPaymentsLength, perPage: registersPerPage }"
+    (clickedPageIndex)="getPayments($event)"
+  ></app-table-actions>
+
+  <po-table [p-columns]="columns" [p-items]="payments" [p-loading]="isLoading">
+    <ng-template p-table-cell-template let-column="column" let-row="row">
+      <po-info *ngIf="column.property === 'username'" [p-label]="row?.name" [p-value]="row?.username"></po-info>
+
+      <div *ngIf="column.property === 'date'">
+        {{ row?.date }}
+      </div>
+
+      <span *ngIf="column.property === 'value'">
+        {{ row?.value | brl }}
+      </span>
+
+      <po-checkbox *ngIf="column.property === 'isPayed'" [(ngModel)]="row.isPayed"></po-checkbox>
+
+      <div *ngIf="column.property === 'actions'">
+        <po-button
+          p-type="link"
+          p-icon="po-icon po-icon-edit"
+          (p-click)="paymentModal.openWithEditMode(row)"
+        ></po-button>
+
+        <po-button
+          p-type="link"
+          p-icon="po-icon po-icon-clear-content"
+          (p-click)="deletePaymentModal.open(row)"
+        ></po-button>
+      </div>
+    </ng-template>
+  </po-table>
+</div>
+
+<app-payment-modal #paymentModal></app-payment-modal>
+
+<app-delete-payment-modal #deletePaymentModal></app-delete-payment-modal>

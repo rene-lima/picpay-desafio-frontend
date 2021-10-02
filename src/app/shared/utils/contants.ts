@@ -1,0 +1,1 @@
+export const DEFAULT_PERPAGE_REGISTERS = 5
