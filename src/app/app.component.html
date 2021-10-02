@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<main class="container-default" [ngClass]="{ 'container-when-user-authenticated': true }">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</main>
