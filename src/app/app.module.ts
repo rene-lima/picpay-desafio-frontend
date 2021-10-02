@@ -5,14 +5,24 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageIconComponent } from './icons/login-page-icon/login-page-icon.component';
+import { FormComponent } from './components/form/form.component';
+import { MatInputModule } from '@angular/material/input'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, LoginPageIconComponent,
+    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent
    ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
