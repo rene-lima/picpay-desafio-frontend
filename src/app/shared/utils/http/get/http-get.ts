@@ -10,7 +10,7 @@ export class HttpGet<Out> {
   setQueryFilter(filters: QueryFilter[]): void {
     this.httpParams = new HttpParams()
 
-    filters.forEach(filter => {
+    filters?.forEach(filter => {
       this.httpParams = this.httpParams.set(filter.field, filter.value)
     })
   }
