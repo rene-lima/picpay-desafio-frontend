@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { QueryFilter } from '../query-filter.interface'
 
@@ -15,7 +15,7 @@ export class HttpGet<Out> {
     })
   }
 
-  Get(): Observable<Out> {
-    return this.http.get<Out>(this.endpoint, { params: this.httpParams })
+  Get(): Observable<HttpResponse<Out>> {
+    return this.http.get<Out>(this.endpoint, { observe: 'response', params: this.httpParams })
   }
 }

@@ -15,8 +15,8 @@ export class AuthService extends HttpGet<User[]> {
 
   authenticateUser(filters: QueryFilter[]): void {
     this.setQueryFilter(filters)
-    this.Get().subscribe(user => {
-      this.userIsAuthenticated.emit(user.length ? true : false)
+    this.Get().subscribe(res => {
+      this.userIsAuthenticated.emit(res.body.length ? true : false)
     })
   }
 }
