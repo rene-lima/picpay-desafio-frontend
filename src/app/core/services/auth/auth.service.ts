@@ -1,3 +1,4 @@
+import { Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import config from 'app/config/config'
@@ -13,7 +14,7 @@ import { Subject } from 'rxjs'
 export class AuthService extends HttpGet<User[]> {
   readonly userIsAuthenticated = new Subject<boolean>()
 
-  constructor(http: HttpClient, private readonly storageService: StorageService) {
+  constructor(http: HttpClient, private readonly storageService: StorageService, private readonly router: Router) {
     super(http, `${config.apiBaseUrl}/account`)
   }
 
@@ -41,5 +42,6 @@ export class AuthService extends HttpGet<User[]> {
   logoutUser(): void {
     this.storageService.clear()
     this.userIsAuthenticated.next(false)
+    this.router.navigateByUrl('/')
   }
 }

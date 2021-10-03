@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { fakeAsync, tick } from '@angular/core/testing'
+import { Router } from '@angular/router'
 import { StorageService } from 'app/core/services/storage/storage.service'
 import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 import { of } from 'rxjs'
@@ -9,6 +10,7 @@ describe('AuthService', () => {
   let service: AuthService
   let http: jasmine.SpyObj<HttpClient>
   let storageService: jasmine.SpyObj<StorageService>
+  let router: jasmine.SpyObj<Router>
 
   const filters: QueryFilter[] = [
     {
@@ -24,8 +26,9 @@ describe('AuthService', () => {
   beforeEach(() => {
     http = jasmine.createSpyObj<HttpClient>(['get'])
     storageService = jasmine.createSpyObj<StorageService>(['get', 'clear', 'set'])
+    router = jasmine.createSpyObj<Router>(['navigateByUrl'])
 
-    service = new AuthService(http, storageService)
+    service = new AuthService(http, storageService, router)
   })
 
   it('should be created', () => {
@@ -61,12 +64,13 @@ describe('AuthService', () => {
     expect(spy).toHaveBeenCalledWith(true)
   }))
 
-  it('should emit userIsAuthenticated as false if user loged out and clear session storage', () => {
+  it('should emit userIsAuthenticated as false if user loged out, clear session storage and navigate to login', () => {
     const spy = spyOn(service.userIsAuthenticated, 'next')
 
     service.logoutUser()
 
     expect(storageService.clear).toHaveBeenCalled()
     expect(spy).toHaveBeenCalledWith(false)
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/')
   })
 })

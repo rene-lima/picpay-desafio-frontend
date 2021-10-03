@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { PoDropdownAction } from '@po-ui/ng-components'
+import { AuthService } from 'app/core/services/auth/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor() {}
+  actions: PoDropdownAction[] = [
+    { label: 'Perfil', action: () => {} },
+    { label: 'Sair', action: () => this.authService.logoutUser() }
+  ]
+
+  constructor(private readonly authService: AuthService) {}
 }
