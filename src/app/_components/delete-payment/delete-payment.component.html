@@ -1,1 +1,28 @@
-<p>delete-payment works!</p>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Excluir pagamento</h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Fechar"
+    (click)="bsModalRef?.hide()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div>
+    <p>Usuário: {{ payment.name }}</p>
+    <p>Data: {{ payment.date | date: "dd MMM yyyy":"":"pt-BR" }}</p>
+    <p>Valor: {{ payment.value | currency: "BRL" }}</p>
+  </div>
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-12 d-grid d-flex justify-content-end">
+      <button class="btn btn-light col-md-6" (click)="cancel()">
+        CANCELAR
+      </button>
+      <button class="btn btn-primary col-md-6 ms-2" (click)="deletePayment()">
+        EXCLUIR
+      </button>
+    </div>
+  </div>
+</div>

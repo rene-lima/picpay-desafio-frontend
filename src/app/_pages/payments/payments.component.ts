@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
 import { PaginationInstance } from "ngx-pagination";
 import { AddPaymentComponent } from "src/app/_components/add-payment/add-payment.component";
+import { DeletePaymentComponent } from "src/app/_components/delete-payment/delete-payment.component";
 import { EditPaymentComponent } from "src/app/_components/edit-payment/edit-payment.component";
 import { Payment } from "src/app/_models/payment/payment";
 import { PaymentService } from "src/app/_services/payment/payment.service";
@@ -61,7 +62,7 @@ export class PaymentsComponent implements OnInit {
     });
   }
 
-  showEditModalPayment(payment: Payment) {
+  showEditPaymentModal(payment: Payment) {
     const initialState: ModalOptions = {
       initialState: {
         payment: payment,
@@ -71,5 +72,20 @@ export class PaymentsComponent implements OnInit {
       EditPaymentComponent,
       initialState
     );
+  }
+
+  showDeletePaymentModal(payment: Payment) {
+    const initialState: ModalOptions = {
+      initialState: {
+        payment: payment,
+      },
+    };
+    this.bsModalRef = this.modalService.show(
+      DeletePaymentComponent,
+      initialState
+    );
+    this.bsModalRef.onHide.subscribe(() => {
+      this.loadPayments();
+    });
   }
 }

@@ -69,11 +69,15 @@
           <button
             type="button"
             class="btn btn-icon"
-            (click)="showEditModalPayment(payment)"
+            (click)="showEditPaymentModal(payment)"
           >
             <i class="bi bi-pencil"></i>
           </button>
-          <button type="button" class="btn btn-icon">
+          <button
+            type="button"
+            class="btn btn-icon"
+            (click)="showDeletePaymentModal(payment)"
+          >
             <i class="bi bi-x-circle"></i>
           </button>
         </td>
