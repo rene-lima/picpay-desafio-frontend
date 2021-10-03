@@ -64,7 +64,6 @@ export class PaymentModalComponent {
   private saveNewPayment(): void {
     if (this.form.invalid) return
 
-    console.log(this.form.get('date').value)
     this.form.value['date'] = new Date(this.form.get('date').value).toISOString()
 
     this.createPaymentService.Post({ ...this.form.value, isPayed: false }).subscribe(() => {
