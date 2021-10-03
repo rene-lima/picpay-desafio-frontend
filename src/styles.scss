@@ -1,5 +1,5 @@
 @import './styles/_variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
   font-size: 62.5%;
@@ -14,7 +14,7 @@
 *,
 button,
 input {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   border: 0;
   outline: 0;
 }
@@ -28,4 +28,12 @@ body {
 
 h1, h2, h3, h4, h5, h6, span, p, strong {
   color: $typography;
-} 
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}

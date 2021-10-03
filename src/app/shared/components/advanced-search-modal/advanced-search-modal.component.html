@@ -1,0 +1,13 @@
+<po-modal p-size="md" p-title="Pesquisa avançada" [p-primary-action]="actions[0]" [p-secondary-action]="actions[1]">
+  <form [formGroup]="form" class="po-row flex align-center">
+    <po-input class="po-xl-4 po-lg-4 po-md-12 po-sm-12" p-label="Título" formControlName="title"></po-input>
+
+    <po-datepicker class="po-xl-4 po-lg-4 po-md-12 po-sm-12" p-label="Data" formControlName="date"></po-datepicker>
+
+    <po-checkbox
+      class="po-xl-4 po-lg-4 po-md-12 po-sm-12 po-pt-4"
+      p-label="Pago"
+      formControlName="isPayed"
+    ></po-checkbox>
+  </form>
+</po-modal>
