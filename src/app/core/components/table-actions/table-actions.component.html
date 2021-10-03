@@ -1,24 +1,40 @@
-<nav class="table-actions-container">
-  <form [formGroup]="form" class="search-container">
-    <po-input
-      (p-change-model)="whenChangeUsernameFilter($event)"
-      formControlName="username"
-      p-icon="po-icon po-icon-search"
-      p-placeholder="Pesquisar por usuário"
-    ></po-input>
+<form [formGroup]="form">
+  <nav class="table-actions-container">
+    <div class="search-container">
+      <po-input
+        (p-change-model)="whenChangeUsernameFilter($event)"
+        formControlName="username"
+        p-icon="po-icon po-icon-search"
+        p-placeholder="Pesquisar por usuário"
+      ></po-input>
 
-    <po-button p-type="link" p-label="Filtrar" p-icon="po-icon po-icon-parameters"></po-button>
-  </form>
-
-  <div class="pagination-container">
-    <i class="po-icon po-icon-first-page pagination-first-page po-mr-1" (click)="whenFirstPageSelected()"></i>
-    <i class="po-icon po-icon-arrow-left pagination-previous-page po-mr-1" (click)="whenPreviousPageSelected()"></i>
-
-    <div class="pagination-page-index">
-      <span *ngFor="let page of pages; let i = index" class="po-mr-1" (click)="whenSelectPage(i + 1)">{{ i + 1 }}</span>
+      <po-button p-type="link" p-label="Filtrar" p-icon="po-icon po-icon-parameters"></po-button>
     </div>
 
-    <i class="po-icon po-icon-arrow-right pagination-next-page po-mr-1" (click)="whenNextPageSelected()"></i>
-    <i class="po-icon po-icon-last-page pagination-last-page po-mr-1" (click)="whenLastPageSelected()"></i>
-  </div>
-</nav>
+    <div class="pagination-container">
+      <span class="po-mr-2">Exibir</span>
+
+      <po-select
+        p-placeholder="Exibir"
+        class="po-mr-4"
+        formControlName="perPage"
+        [p-options]="perPageOptions"
+        (p-change)="whenPerPageValueIsSelected()"
+      ></po-select>
+
+      <div class="pagination-buttons po-ml-4">
+        <i class="po-icon po-icon-first-page pagination-first-page po-mr-1" (click)="whenFirstPageSelected()"></i>
+        <i class="po-icon po-icon-arrow-left pagination-previous-page po-mr-1" (click)="whenPreviousPageSelected()"></i>
+
+        <div class="pagination-page-index">
+          <span *ngFor="let page of pages; let i = index" class="po-mr-1" (click)="whenSelectPage(i + 1)">{{
+            i + 1
+          }}</span>
+        </div>
+
+        <i class="po-icon po-icon-arrow-right pagination-next-page po-mr-1" (click)="whenNextPageSelected()"></i>
+        <i class="po-icon po-icon-last-page pagination-last-page po-mr-1" (click)="whenLastPageSelected()"></i>
+      </div>
+    </div>
+  </nav>
+</form>

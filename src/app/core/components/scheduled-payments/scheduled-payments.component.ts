@@ -1,14 +1,14 @@
-import { EditPaymentService } from 'app/core/services/payments/edit-payment/edit-payment.service'
-import { FormGroup, FormControl } from '@angular/forms'
-import { DEFAULT_REQUESTS_TIMEOUT } from 'app/shared/utils/contants'
-import { debounceTime, switchMap } from 'rxjs/operators'
-import { DEFAULT_PERPAGE_REGISTERS } from 'app/shared/utils/contants'
-import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 import { Component, OnInit } from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
 import { PoTableColumn } from '@po-ui/ng-components'
-import { Payment } from 'app/core/entities/payment/payment.interface'
+import { Pagination } from 'app/core/entities/pagination/pagination.interface'
+import { Payment, PaymentResponse } from 'app/core/entities/payment/payment.interface'
+import { EditPaymentService } from 'app/core/services/payments/edit-payment/edit-payment.service'
 import { GetPaymentsService } from 'app/core/services/payments/get-payments/get-payments.service'
+import { DEFAULT_REQUESTS_TIMEOUT } from 'app/shared/utils/contants'
+import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 import { Observable, Subject } from 'rxjs'
+import { debounceTime, switchMap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-scheduled-payments',
@@ -24,8 +24,6 @@ export class ScheduledPaymentsComponent implements OnInit {
   totalPaymentsLength: number = 0
 
   filterPaymentByUsername$ = new Subject<string>()
-
-  readonly registersPerPage = DEFAULT_PERPAGE_REGISTERS
 
   columns: PoTableColumn[] = [
     { property: 'username', label: 'Usuário', width: '15%', type: 'cellTemplate' },
@@ -56,26 +54,27 @@ export class ScheduledPaymentsComponent implements OnInit {
     this.getPayments()
   }
 
-  private mapData({ payments, totalPayments }: { payments: Payment[]; totalPayments: number }): void {
+  private mapData({ payments, totalPayments }: PaymentResponse): void {
     this.payments = payments
     this.totalPaymentsLength = totalPayments
     this.isLoading = false
   }
 
-  getPayments(clickedPageIndex?: number): void {
+  getPayments(paginationOptions?: Pagination): void {
     let filters: QueryFilter[] = []
 
-    if (clickedPageIndex) {
-      filters = [{ field: '_page', value: String(clickedPageIndex) }]
+    if (paginationOptions) {
+      filters = [
+        { field: '_page', value: String(paginationOptions.pageIndex) },
+        { field: '_limit', value: String(paginationOptions.perPage) }
+      ]
     }
 
     this.isLoading = true
     this.getPaymentsService.getPayments(filters.length ? filters : undefined).subscribe(res => this.mapData(res))
   }
 
-  private getFilteredPaymentsByUsername(
-    usernameToBeFiltered: string
-  ): Observable<{ payments: Payment[]; totalPayments: number }> {
+  private getFilteredPaymentsByUsername(usernameToBeFiltered: string): Observable<PaymentResponse> {
     let filters: QueryFilter[] = []
 
     if (usernameToBeFiltered) {

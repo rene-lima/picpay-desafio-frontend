@@ -51,11 +51,14 @@ describe('<app-scheduled-payments>', () => {
   }))
 
   it('should fetch data with filters receveid when user select the page', fakeAsync(() => {
-    component.getPayments(4)
+    component.getPayments({ pageIndex: 4, perPage: 5 })
 
     tick()
 
-    expect(getPaymentsService.getPayments).toHaveBeenCalledWith([{ field: '_page', value: '4' }])
+    expect(getPaymentsService.getPayments).toHaveBeenCalledWith([
+      { field: '_page', value: '4' },
+      { field: '_limit', value: '5' }
+    ])
     expect(component.payments.length).toBe(1)
     expect(component.totalPaymentsLength).toBe(1)
     expect(component.payments[0].username).toEqual('lcrolly3')

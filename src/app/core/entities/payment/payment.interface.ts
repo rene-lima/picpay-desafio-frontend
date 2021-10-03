@@ -9,4 +9,9 @@ export interface Payment {
   isPayed: boolean
 }
 
+export interface PaymentResponse {
+  payments: Payment[]
+  totalPayments: number
+}
+
 export type CreatePayment = Omit<Payment, 'id' | 'image'>

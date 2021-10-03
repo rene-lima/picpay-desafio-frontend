@@ -2,16 +2,16 @@ import { TableActionsComponent } from './table-actions.component'
 
 describe('<app-table-actions>', () => {
   let component: TableActionsComponent
-  let clickedPageIndexEmitterSpy: jasmine.Spy
+  let selectedPaginationOptionsEmitter: jasmine.Spy
   let usernameToBeFilteredSpy: jasmine.Spy
 
   beforeEach(() => {
     component = new TableActionsComponent()
 
-    clickedPageIndexEmitterSpy = spyOn(component.clickedPageIndex, 'emit')
+    selectedPaginationOptionsEmitter = spyOn(component.selectedPaginationOptions, 'emit')
     usernameToBeFilteredSpy = spyOn(component.usernameToBeFiltered, 'emit')
 
-    component.totalPaymentsLength = { value: 100, perPage: 5 }
+    component.totalPaymentsLength = 100
   })
 
   it('should create', () => {
@@ -24,61 +24,94 @@ describe('<app-table-actions>', () => {
     expect(usernameToBeFilteredSpy).toHaveBeenCalledWith('test-username-mock')
   })
 
-  it('should calculate total pages with value of total payments and per page number', () => {
+  it('should calculate total pages with value of total payments and with page number', () => {
     expect(component['_totalPages']).toBe(20)
 
-    component.totalPaymentsLength = { value: 101, perPage: 5 }
+    component.totalPaymentsLength = 101
 
     expect(component['_totalPages']).toBe(21)
   })
 
-  it('should set currentPageIndex with value received emit selected page', () => {
+  it('should set currentPageIndex with value received emit selected pagination options', () => {
     component.whenSelectPage(3)
 
-    expect(clickedPageIndexEmitterSpy).toHaveBeenCalledWith(3)
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 3,
+      perPage: 5
+    })
   })
 
-  it('should set currentPageIndex equals 1 and emit value when first page is selected', () => {
+  it('should set currentPageIndex equals 1 and emit selected pagination options when first page is selected', () => {
     component.whenFirstPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).toHaveBeenCalledWith(1)
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 1,
+      perPage: 5
+    })
   })
 
-  it('should set currentPageIndex equals page length and emit value when last page is selected', () => {
+  it('should set currentPageIndex equals page length and emit selected pagination options when last page is selected', () => {
     component.whenLastPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).toHaveBeenCalledWith(20)
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 20,
+      perPage: 5
+    })
   })
 
-  it('should set currentPageIndex equals currentPage - 1 and emit value when previous page is selected', () => {
+  it('should set currentPageIndex equals currentPage - 1 and emit selected pagination options when previous page is selected', () => {
     component.whenSelectPage(4)
 
     component.whenPreviousPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).toHaveBeenCalledWith(3)
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 3,
+      perPage: 5
+    })
   })
 
-  it('should NOT set currentPageIndex equals currentPage - 1 and emit value when previous page is selected if currentPageIndex is 1', () => {
+  it('should NOT set currentPageIndex equals currentPage - 1 and emit selected pagination options when previous page is selected if currentPageIndex is 1', () => {
     component.whenSelectPage(1)
 
     component.whenPreviousPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).not.toHaveBeenCalledWith(0)
+    expect(selectedPaginationOptionsEmitter).not.toHaveBeenCalledWith({
+      pageIndex: 0,
+      perPage: 5
+    })
   })
 
-  it('should set currentPageIndex equals currentPage + 1 and emit value when next page is selected', () => {
+  it('should set currentPageIndex equals currentPage + 1 and emit selected pagination options when next page is selected', () => {
     component.whenSelectPage(4)
 
     component.whenNextPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).toHaveBeenCalledWith(5)
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 5,
+      perPage: 5
+    })
   })
 
-  it('should NOT set currentPageIndex equals currentPage + 1 and emit value when next page is selected if currentPageIndex + 1 bigger then total pages', () => {
+  it('should NOT set currentPageIndex equals currentPage + 1 and emit selected pagination options when next page is selected if currentPageIndex + 1 bigger then total pages', () => {
     component.whenSelectPage(20)
 
     component.whenNextPageSelected()
 
-    expect(clickedPageIndexEmitterSpy).not.toHaveBeenCalledWith(21)
+    expect(selectedPaginationOptionsEmitter).not.toHaveBeenCalledWith({
+      pageIndex: 21,
+      perPage: 5
+    })
+  })
+
+  it('should emit selected pagination options when per page is changed', () => {
+    component['currentPageIndexSelected'] = 1
+    component.form.get('perPage').setValue(10)
+
+    component.whenPerPageValueIsSelected()
+
+    expect(selectedPaginationOptionsEmitter).toHaveBeenCalledWith({
+      pageIndex: 1,
+      perPage: 10
+    })
   })
 })

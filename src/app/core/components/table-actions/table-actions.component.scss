@@ -1,7 +1,9 @@
 @import '../../../../styles/variables';
 
 .table-actions-container,
-.search-container {
+.search-container,
+.pagination-container,
+.pagination-buttons {
   display: flex;
   align-items: center;
 }
@@ -11,13 +13,16 @@
 }
 
 .pagination-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
   .po-icon, span {
     font-size: 1.5rem;
+    font-weight: $semiBold;
     color: $typography;
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $primary;
+    }
   }
 }
+

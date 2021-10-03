@@ -1,7 +1,7 @@
 <div class="table-container">
   <app-table-actions
-    [totalPaymentsLength]="{ value: totalPaymentsLength, perPage: registersPerPage }"
-    (clickedPageIndex)="getPayments($event)"
+    [totalPaymentsLength]="totalPaymentsLength"
+    (selectedPaginationOptions)="getPayments($event)"
     (usernameToBeFiltered)="whenUsernameHasBeenTyped($event)"
   ></app-table-actions>
 
@@ -40,6 +40,10 @@
   </po-table>
 </div>
 
-<app-payment-modal #paymentModal></app-payment-modal>
+<app-payment-modal
+  #paymentModal
+  (newPaymentWasRegistered)="getPayments()"
+  (paymentWasEdited)="getPayments()"
+></app-payment-modal>
 
-<app-delete-payment-modal #deletePaymentModal></app-delete-payment-modal>
+<app-delete-payment-modal #deletePaymentModal (paymentWasDeleted)="getPayments()"></app-delete-payment-modal>
