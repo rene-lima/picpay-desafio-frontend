@@ -10,13 +10,17 @@ import { FormComponent } from './components/form/form.component';
 import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentViewComponent } from './pages/payment-view/payment-view.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PaymentListComponent } from './components/payment-list/payment-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent
+    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent, PaymentListComponent
    ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
