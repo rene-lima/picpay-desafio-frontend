@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { ProfileDetailsComponent } from './../profile-details/profile-details.component'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { PoDropdownAction } from '@po-ui/ng-components'
 import { User } from 'app/core/entities/user/user.interface'
 import { AuthService } from 'app/core/services/auth/auth.service'
@@ -12,16 +13,21 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild(ProfileDetailsComponent, { static: true }) profileDetails?: ProfileDetailsComponent
+
   actions: PoDropdownAction[] = [
-    { label: 'Perfil', action: () => {} },
+    { label: 'Perfil', action: () => this.profileDetails.open() },
     { label: 'Sair', action: () => this.authService.logoutUser() }
   ]
 
-  getUser: Observable<User>
+  user: User
 
   constructor(private readonly authService: AuthService, private storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.getUser = this.storageService.get('user').pipe(map((user: string) => JSON.parse(user) as User))
+    this.storageService
+      .get('user')
+      .pipe(map((user: string) => JSON.parse(user) as User))
+      .subscribe(user => (this.user = user))
   }
 }

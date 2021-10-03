@@ -1,4 +1,4 @@
-<header *ngIf="getUser | async as user" class="header-container">
+<header *ngIf="user" class="header-container">
   <img src="../../../../assets/images/white-logo.svg" alt="PayFirst Logo" />
 
   <div class="header-user-content">
@@ -6,3 +6,5 @@
     <po-avatar [p-src]="user.image"></po-avatar>
   </div>
 </header>
+
+<app-profile-details [user]="user"></app-profile-details>

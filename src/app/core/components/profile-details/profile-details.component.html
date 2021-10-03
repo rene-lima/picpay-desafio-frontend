@@ -1,0 +1,9 @@
+<po-page-slide p-size="sm" p-title="Meu perfil">
+  <div class="po-row">
+    <po-avatar [p-src]="user?.image" p-size="xl" class="po-xl-3"></po-avatar>
+    <po-container class="po-xl-9">
+      <po-info p-label="Usuário" [p-value]="user?.name"></po-info>
+      <po-info p-label="Email" [p-value]="user?.email"></po-info>
+    </po-container>
+  </div>
+</po-page-slide>
