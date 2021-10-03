@@ -8,7 +8,20 @@
         p-placeholder="Pesquisar por usuário"
       ></po-input>
 
-      <po-button p-type="link" p-label="Filtrar" p-icon="po-icon po-icon-parameters"></po-button>
+      <po-button
+        p-type="link"
+        p-label="Filtrar"
+        p-icon="po-icon po-icon-parameters"
+        (p-click)="advancedSearchModal.open()"
+      ></po-button>
+
+      <po-button
+        *ngIf="hasAdvancedFilters"
+        p-type="link"
+        p-label="Remover filtros"
+        p-icon="po-icon po-icon-delete"
+        (p-click)="whenUserRemoveAdvancedFilters()"
+      ></po-button>
     </div>
 
     <div class="pagination-container">
@@ -42,3 +55,8 @@
     </div>
   </nav>
 </form>
+
+<app-advanced-search-modal
+  #advancedSearchModal
+  (selectedFiltersToSearch)="whenUserDoAdvancedSearch($event)"
+></app-advanced-search-modal>

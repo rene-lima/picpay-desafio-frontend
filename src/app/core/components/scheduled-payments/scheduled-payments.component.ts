@@ -60,7 +60,7 @@ export class ScheduledPaymentsComponent implements OnInit {
     this.isLoading = false
   }
 
-  getPayments(paginationOptions?: Pagination): void {
+  getPayments(paginationOptions?: Pagination, advancedFilters?: QueryFilter[]): void {
     let filters: QueryFilter[] = []
 
     if (paginationOptions) {
@@ -68,6 +68,10 @@ export class ScheduledPaymentsComponent implements OnInit {
         { field: '_page', value: String(paginationOptions.pageIndex) },
         { field: '_limit', value: String(paginationOptions.perPage) }
       ]
+    }
+
+    if (advancedFilters?.length) {
+      filters = [...filters, ...advancedFilters]
     }
 
     this.isLoading = true

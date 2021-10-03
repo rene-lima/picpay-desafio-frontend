@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { PoSelectOption } from '@po-ui/ng-components'
 import { Pagination } from 'app/core/entities/pagination/pagination.interface'
+import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 
 @Component({
   selector: 'app-table-actions',
@@ -12,6 +13,8 @@ export class TableActionsComponent {
   @Output() selectedPaginationOptions = new EventEmitter<Pagination>()
 
   @Output() usernameToBeFiltered = new EventEmitter<string>()
+
+  @Output() selectedAdvancedFilters = new EventEmitter<QueryFilter[]>()
 
   @Input()
   set totalPaymentsLength(value: number) {
@@ -33,6 +36,8 @@ export class TableActionsComponent {
     { label: '5', value: 5 },
     { label: '10', value: 10 }
   ]
+
+  hasAdvancedFilters = false
 
   currentPageIndexSelected = 1
 
@@ -99,6 +104,16 @@ export class TableActionsComponent {
     this._totalPages = Math.ceil(this._totalPaymentsLength / this.form.get('perPage').value)
 
     this.whenFirstPageSelected()
+  }
+
+  whenUserDoAdvancedSearch(filters: QueryFilter[]): void {
+    this.selectedAdvancedFilters.emit(filters)
+    this.hasAdvancedFilters = true
+  }
+
+  whenUserRemoveAdvancedFilters(): void {
+    this.selectedAdvancedFilters.emit([])
+    this.hasAdvancedFilters = false
   }
 
   private calcVisiblePages(): number[] {

@@ -64,6 +64,23 @@ describe('<app-scheduled-payments>', () => {
     expect(component.payments[0].username).toEqual('lcrolly3')
   }))
 
+  it('should fetch data with advanced filters receveid', fakeAsync(() => {
+    component.getPayments(null, [
+      { field: 'title_like', value: 'test-title' },
+      { field: 'isPayed', value: 'true' }
+    ])
+
+    tick()
+
+    expect(getPaymentsService.getPayments).toHaveBeenCalledWith([
+      { field: 'title_like', value: 'test-title' },
+      { field: 'isPayed', value: 'true' }
+    ])
+    expect(component.payments.length).toBe(1)
+    expect(component.totalPaymentsLength).toBe(1)
+    expect(component.payments[0].username).toEqual('lcrolly3')
+  }))
+
   it('should fetch data from getPaymentsService with username filter', fakeAsync(() => {
     component.ngOnInit()
 

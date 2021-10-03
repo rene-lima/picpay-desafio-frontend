@@ -1,15 +1,16 @@
+import { QueryFilter } from 'app/shared/utils/http/query-filter.interface'
 import { TableActionsComponent } from './table-actions.component'
 
 describe('<app-table-actions>', () => {
   let component: TableActionsComponent
   let selectedPaginationOptionsEmitter: jasmine.Spy
-  let usernameToBeFilteredSpy: jasmine.Spy
+  let selectedAdvancedFiltersEmitter: jasmine.Spy
 
   beforeEach(() => {
     component = new TableActionsComponent()
 
     selectedPaginationOptionsEmitter = spyOn(component.selectedPaginationOptions, 'emit')
-    usernameToBeFilteredSpy = spyOn(component.usernameToBeFiltered, 'emit')
+    selectedAdvancedFiltersEmitter = spyOn(component.selectedAdvancedFilters, 'emit')
 
     component.totalPaymentsLength = 100
   })
@@ -19,9 +20,26 @@ describe('<app-table-actions>', () => {
   })
 
   it('should emit the username to be filtered', () => {
+    const usernameToBeFilteredSpy = spyOn(component.usernameToBeFiltered, 'emit')
     component.whenChangeUsernameFilter('test-username-mock')
 
     expect(usernameToBeFilteredSpy).toHaveBeenCalledWith('test-username-mock')
+  })
+
+  it('should emit advanced filters and set hasAdvancedFilters as true', () => {
+    const filters: QueryFilter[] = [{ field: 'title_like', value: 'test-title' }]
+
+    component.whenUserDoAdvancedSearch(filters)
+
+    expect(selectedAdvancedFiltersEmitter).toHaveBeenCalledWith(filters)
+    expect(component.hasAdvancedFilters).toBeTrue()
+  })
+
+  it('should emit empty advanced filters and set hasAdvancedFilters as false if user remove the filters', () => {
+    component.whenUserRemoveAdvancedFilters()
+
+    expect(selectedAdvancedFiltersEmitter).toHaveBeenCalledWith([])
+    expect(component.hasAdvancedFilters).toBeFalse()
   })
 
   it('should calculate total pages with value of total payments and with page number', () => {
