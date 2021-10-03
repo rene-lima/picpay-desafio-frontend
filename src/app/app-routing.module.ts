@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'payments',
     loadChildren: () => import('./modules/payments/payments.module').then(m => m.PaymentsModule),
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ]
 

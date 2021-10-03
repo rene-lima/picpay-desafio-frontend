@@ -26,16 +26,16 @@ describe('AuthGuard', () => {
     }`)
     )
 
-    guard.canLoad(null, null).subscribe(canLoad => {
-      expect(canLoad).toBeTrue()
+    guard.canActivate(null, null).subscribe(canActivate => {
+      expect(canActivate).toBeTrue()
     })
   }))
 
   it('should return false if user is NOT authenticated', fakeAsync(() => {
     storageService.get.and.returnValue(of(null))
 
-    guard.canLoad(null, null).subscribe(canLoad => {
-      expect(canLoad).toBeFalse()
+    guard.canActivate(null, null).subscribe(canActivate => {
+      expect(canActivate).toBeFalse()
     })
   }))
 })
