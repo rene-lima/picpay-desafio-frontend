@@ -4,11 +4,11 @@ import { Payment } from "src/app/_models/payment/payment";
 import { PaymentService } from "src/app/_services/payment/payment.service";
 
 @Component({
-  selector: "pf-add-payment",
-  templateUrl: "./add-payment.component.html",
-  styleUrls: ["./add-payment.component.scss"],
+  selector: "pf-edit-payment",
+  templateUrl: "./edit-payment.component.html",
+  styleUrls: ["./edit-payment.component.scss"],
 })
-export class AddPaymentComponent implements OnInit {
+export class EditPaymentComponent implements OnInit {
   payment: Payment = new Payment();
 
   constructor(
@@ -16,7 +16,9 @@ export class AddPaymentComponent implements OnInit {
     private paymentService: PaymentService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.payment);
+  }
 
   cancel() {
     this.bsModalRef.hide();
@@ -24,8 +26,12 @@ export class AddPaymentComponent implements OnInit {
 
   savePayment(paymentFormValue: any) {
     console.log(paymentFormValue);
-    this.payment = new Payment(paymentFormValue);
-    this.paymentService.createPayment(this.payment).subscribe(() => {
+    this.payment.title = paymentFormValue.title;
+    this.payment.name = paymentFormValue.name;
+    this.payment.username = paymentFormValue.username;
+    this.payment.date = paymentFormValue.date;
+    this.payment.value = +paymentFormValue.value;
+    this.paymentService.editPayment(this.payment).subscribe(() => {
       this.bsModalRef.hide();
     });
   }

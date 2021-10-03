@@ -7,7 +7,6 @@ import {
   ViewChild,
 } from "@angular/core";
 import { PaginationControlsDirective, PaginationInstance } from "ngx-pagination";
-import { PaginationConfig } from "src/app/_interfaces/pagination-config";
 
 @Component({
   selector: "pf-pagination-template",

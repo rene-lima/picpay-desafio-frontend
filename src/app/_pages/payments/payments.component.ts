@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
 import { PaginationInstance } from "ngx-pagination";
-import { PaginationConfig } from "src/app/_interfaces/pagination-config";
+import { AddPaymentComponent } from "src/app/_components/add-payment/add-payment.component";
+import { EditPaymentComponent } from "src/app/_components/edit-payment/edit-payment.component";
 import { Payment } from "src/app/_models/payment/payment";
 import { PaymentService } from "src/app/_services/payment/payment.service";
 
@@ -21,7 +23,12 @@ export class PaymentsComponent implements OnInit {
 
   payments: Payment[] = [];
 
-  constructor(private paymentService: PaymentService) {}
+  bsModalRef?: BsModalRef;
+
+  constructor(
+    private paymentService: PaymentService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
     this.loadPayments();
@@ -45,5 +52,24 @@ export class PaymentsComponent implements OnInit {
 
   changeItemsPerPage() {
     this.loadPayments();
+  }
+
+  showAddPaymentModal() {
+    this.bsModalRef = this.modalService.show(AddPaymentComponent);
+    this.bsModalRef.onHide.subscribe(() => {
+      this.changePage(1);
+    });
+  }
+
+  showEditModalPayment(payment: Payment) {
+    const initialState: ModalOptions = {
+      initialState: {
+        payment: payment,
+      },
+    };
+    this.bsModalRef = this.modalService.show(
+      EditPaymentComponent,
+      initialState
+    );
   }
 }

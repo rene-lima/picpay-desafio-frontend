@@ -1,1 +1,75 @@
-<p>payment-form works!</p>
+<form [formGroup]="paymentForm">
+  <div class="row mt-2">
+    <div class="col-md-12">
+      <label class="form-label" for="title">Título: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o título do pagamento"
+        id="title"
+        type="text"
+        formControlName="title"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-6">
+      <label class="form-label" for="name">Nome: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o nome completo"
+        id="name"
+        type="text"
+        formControlName="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="username">Nome de usuário: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o nome de usuário"
+        id="username"
+        type="text"
+        formControlName="username"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-6">
+      <label class="form-label" for="date">Data: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o título do pagamento"
+        id="date"
+        type="date"
+        formControlName="date"
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="value">Valor: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o título do pagamento"
+        id="value"
+        type="text"
+        formControlName="value"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-end">
+    <div class="col-md-7 d-grid d-flex justify-content-end">
+      <button class="btn btn-light col-md-6" (click)="cancel()">
+        CANCELAR
+      </button>
+      <button
+        class="btn btn-primary col-md-6 ms-2"
+        (click)="save()"
+        [disabled]="!paymentForm.valid"
+      >
+        SALVAR
+      </button>
+    </div>
+  </div>
+</form>
