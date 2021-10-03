@@ -1,16 +1,18 @@
-import { MyPaymentsComponent } from './pages/my-payments/my-payments.component'
+import { MyPaymentsComponent } from 'app/modules/payments/pages/my-payments/my-payments.component'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { PaymentsComponent } from './payments.component'
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'my-payments'
-  },
-  {
-    path: 'my-payments',
-    component: MyPaymentsComponent
+    component: PaymentsComponent,
+    children: [
+      {
+        path: 'my-payments',
+        component: MyPaymentsComponent
+      }
+    ]
   }
 ]
 

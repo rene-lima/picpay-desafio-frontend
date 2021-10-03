@@ -7,6 +7,7 @@ import { PaymentModalModule } from 'app/shared/components/payment-modal/payment-
 
 @NgModule({
   declarations: [MyPaymentsComponent],
+  exports: [MyPaymentsComponent],
   imports: [CommonModule, ScheduledPaymentsModule, PoPageModule, PaymentModalModule]
 })
 export class MyPaymentsModule {}
