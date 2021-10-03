@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 import { UserLogin } from 'app/core/entities/user/user.interface'
 import { AuthService } from 'app/core/services/auth/auth.service'
 import { QueryFilter } from './../../../shared/utils/http/query-filter.interface'
@@ -10,13 +11,21 @@ import { QueryFilter } from './../../../shared/utils/http/query-filter.interface
   styleUrls: ['./login-form.component.scss'],
   providers: [AuthService]
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   form = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required])
   })
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.authService.userIsAuthenticated.subscribe(authenticated => {
+      if (!authenticated) return
+
+      this.router.navigateByUrl('/payments/my-payments')
+    })
+  }
 
   doLogin(): void {
     if (this.form.invalid) return
