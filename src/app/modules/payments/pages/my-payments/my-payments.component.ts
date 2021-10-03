@@ -4,8 +4,7 @@ import { PoPageAction } from '@po-ui/ng-components'
 
 @Component({
   selector: 'app-my-payments',
-  templateUrl: './my-payments.component.html',
-  styleUrls: ['./my-payments.component.scss']
+  templateUrl: './my-payments.component.html'
 })
 export class MyPaymentsComponent {
   @ViewChild(PaymentModalComponent, { static: true }) modal?: PaymentModalComponent
