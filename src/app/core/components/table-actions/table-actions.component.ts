@@ -1,5 +1,5 @@
-import { FormGroup, FormControl } from '@angular/forms'
 import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
 import { PoSelectOption } from '@po-ui/ng-components'
 import { Pagination } from 'app/core/entities/pagination/pagination.interface'
 
@@ -15,10 +15,12 @@ export class TableActionsComponent {
 
   @Input()
   set totalPaymentsLength(value: number) {
+    this._totalPaymentsLength = value
     this._totalPages = Math.ceil(value / this.form.get('perPage').value)
+    this.calcVisiblePages()
   }
 
-  get pages(): number[] {
+  get visiblePages(): number[] {
     return this._visiblePages
   }
 
@@ -32,9 +34,11 @@ export class TableActionsComponent {
     { label: '10', value: 10 }
   ]
 
-  private _visiblePages: number[] = [1, 2, 3, 4, 5]
+  currentPageIndexSelected = 1
+
+  private _visiblePages: number[]
   private _totalPages: number = 0
-  private currentPageIndexSelected = 1
+  private _totalPaymentsLength: number
 
   constructor() {}
 
@@ -44,6 +48,7 @@ export class TableActionsComponent {
 
   whenSelectPage(index: number): void {
     this.currentPageIndexSelected = index
+    this.calcVisiblePages()
     this.selectedPaginationOptions.emit({
       pageIndex: this.currentPageIndexSelected,
       perPage: this.form.get('perPage').value
@@ -52,6 +57,7 @@ export class TableActionsComponent {
 
   whenFirstPageSelected(): void {
     this.currentPageIndexSelected = 1
+    this.calcVisiblePages()
     this.selectedPaginationOptions.emit({
       pageIndex: 1,
       perPage: this.form.get('perPage').value
@@ -60,6 +66,7 @@ export class TableActionsComponent {
 
   whenLastPageSelected(): void {
     this.currentPageIndexSelected = this._totalPages
+    this.calcVisiblePages()
     this.selectedPaginationOptions.emit({
       pageIndex: this._totalPages,
       perPage: this.form.get('perPage').value
@@ -70,6 +77,7 @@ export class TableActionsComponent {
     if (this.currentPageIndexSelected === 1) return
 
     this.currentPageIndexSelected = this.currentPageIndexSelected - 1
+    this.calcVisiblePages()
     this.selectedPaginationOptions.emit({
       pageIndex: this.currentPageIndexSelected,
       perPage: this.form.get('perPage').value
@@ -80,6 +88,7 @@ export class TableActionsComponent {
     if (this.currentPageIndexSelected + 1 > this._totalPages) return
 
     this.currentPageIndexSelected = this.currentPageIndexSelected + 1
+    this.calcVisiblePages()
     this.selectedPaginationOptions.emit({
       pageIndex: this.currentPageIndexSelected,
       perPage: this.form.get('perPage').value
@@ -87,9 +96,24 @@ export class TableActionsComponent {
   }
 
   whenPerPageValueIsSelected(): void {
-    this.selectedPaginationOptions.emit({
-      pageIndex: this.currentPageIndexSelected,
-      perPage: this.form.get('perPage').value
-    })
+    this._totalPages = Math.ceil(this._totalPaymentsLength / this.form.get('perPage').value)
+
+    this.whenFirstPageSelected()
+  }
+
+  private calcVisiblePages(): number[] {
+    let pages = Array.from({ length: this._totalPages }, (_, i) => i + 1)
+
+    if (this.currentPageIndexSelected < 5) {
+      this._visiblePages = pages.slice(0, 5)
+      return
+    }
+
+    if (this.currentPageIndexSelected === this._totalPages) {
+      this._visiblePages = pages.slice(this._totalPages - 5, this._totalPages)
+      return
+    }
+
+    this._visiblePages = pages.slice(this.currentPageIndexSelected - 2, this.currentPageIndexSelected + 3)
   }
 }

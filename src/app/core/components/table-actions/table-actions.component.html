@@ -27,9 +27,13 @@
         <i class="po-icon po-icon-arrow-left pagination-previous-page po-mr-1" (click)="whenPreviousPageSelected()"></i>
 
         <div class="pagination-page-index">
-          <span *ngFor="let page of pages; let i = index" class="po-mr-1" (click)="whenSelectPage(i + 1)">{{
-            i + 1
-          }}</span>
+          <span
+            *ngFor="let page of visiblePages"
+            class="po-mr-1 page-index"
+            (click)="whenSelectPage(page)"
+            [ngClass]="{ 'active-page': page === currentPageIndexSelected }"
+            >{{ page }}</span
+          >
         </div>
 
         <i class="po-icon po-icon-arrow-right pagination-next-page po-mr-1" (click)="whenNextPageSelected()"></i>

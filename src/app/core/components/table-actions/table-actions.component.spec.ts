@@ -30,6 +30,7 @@ describe('<app-table-actions>', () => {
     component.totalPaymentsLength = 101
 
     expect(component['_totalPages']).toBe(21)
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 
   it('should set currentPageIndex with value received emit selected pagination options', () => {
@@ -39,6 +40,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 3,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 
   it('should set currentPageIndex equals 1 and emit selected pagination options when first page is selected', () => {
@@ -48,6 +51,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 1,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 
   it('should set currentPageIndex equals page length and emit selected pagination options when last page is selected', () => {
@@ -57,6 +62,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 20,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([16, 17, 18, 19, 20])
   })
 
   it('should set currentPageIndex equals currentPage - 1 and emit selected pagination options when previous page is selected', () => {
@@ -68,6 +75,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 3,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 
   it('should NOT set currentPageIndex equals currentPage - 1 and emit selected pagination options when previous page is selected if currentPageIndex is 1', () => {
@@ -79,6 +88,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 0,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 
   it('should set currentPageIndex equals currentPage + 1 and emit selected pagination options when next page is selected', () => {
@@ -90,6 +101,8 @@ describe('<app-table-actions>', () => {
       pageIndex: 5,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([4, 5, 6, 7, 8])
   })
 
   it('should NOT set currentPageIndex equals currentPage + 1 and emit selected pagination options when next page is selected if currentPageIndex + 1 bigger then total pages', () => {
@@ -101,10 +114,12 @@ describe('<app-table-actions>', () => {
       pageIndex: 21,
       perPage: 5
     })
+
+    expect(component.visiblePages).toEqual([16, 17, 18, 19, 20])
   })
 
-  it('should emit selected pagination options when per page is changed', () => {
-    component['currentPageIndexSelected'] = 1
+  it('should emit selected pagination of first page when per page is changed', () => {
+    component['currentPageIndexSelected'] = 2
     component.form.get('perPage').setValue(10)
 
     component.whenPerPageValueIsSelected()
@@ -113,5 +128,7 @@ describe('<app-table-actions>', () => {
       pageIndex: 1,
       perPage: 10
     })
+
+    expect(component.visiblePages).toEqual([1, 2, 3, 4, 5])
   })
 })
