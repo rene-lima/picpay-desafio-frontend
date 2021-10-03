@@ -62,6 +62,7 @@
               class="form-check-input"
               type="checkbox"
               [(ngModel)]="payment.isPayed"
+              (ngModelChange)="toggleIsPayed(payment)"
             />
           </div>
         </td>

@@ -61,6 +61,12 @@ body {
   background-color: #002d69 !important;
 }
 
+.form-check-input[type=checkbox] {
+  background: #007DFE;
+  border: none;
+  border-radius: 2px;
+}
+
 /* Scroll Bar */
 ::-webkit-scrollbar {
   height: 6px;

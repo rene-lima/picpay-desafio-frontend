@@ -2,7 +2,7 @@ import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { registerLocaleData } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import ptBr from "@angular/common/locales/pt";
 import { NgxPaginationModule } from "ngx-pagination";
 import { ModalModule } from "ngx-bootstrap/modal";
@@ -19,7 +19,8 @@ import { AddPaymentComponent } from "./_components/add-payment/add-payment.compo
 import { PaymentFormComponent } from "./_components/payment-form/payment-form.component";
 import { NavbarComponent } from "./_components/navbar/navbar.component";
 import { PaginationTemplateComponent } from "./_components/pagination-template/pagination-template.component";
-import { EditPaymentComponent } from './_components/edit-payment/edit-payment.component';
+import { EditPaymentComponent } from "./_components/edit-payment/edit-payment.component";
+import { JwtInterceptor } from "./_interceptors/jwt.interceptor";
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -44,7 +45,10 @@ registerLocaleData(ptBr);
     NgxPaginationModule,
     ModalModule.forRoot(),
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pt" }],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pt" },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

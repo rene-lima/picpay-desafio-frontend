@@ -55,6 +55,12 @@ export class PaymentsComponent implements OnInit {
     this.loadPayments();
   }
 
+  toggleIsPayed(payment: Payment) {
+    this.paymentService.editIsPayed(payment).subscribe(() => {
+      this.loadPayments();
+    });
+  }
+
   showAddPaymentModal() {
     this.bsModalRef = this.modalService.show(AddPaymentComponent);
     this.bsModalRef.onHide.subscribe(() => {
