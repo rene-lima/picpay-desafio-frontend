@@ -87,7 +87,7 @@ describe('<app-payment-modal>', () => {
 
     component.form.get('name').setValue('Foster Orthmann')
     component.form.get('username').setValue('forthmann1')
-    component.form.get('date').setValue('2021-01-28T14:01:29Z')
+    component.form.get('date').setValue('2021-01-28')
     component.form.get('title').setValue('Professor')
     component.form.get('value').setValue(207.36)
 
@@ -100,7 +100,7 @@ describe('<app-payment-modal>', () => {
       username: 'forthmann1',
       title: 'Professor',
       value: 207.36,
-      date: '2021-01-28T14:01:29Z',
+      date: '2021-01-28T00:00:00.000Z',
       isPayed: false
     } as any
 
@@ -136,7 +136,7 @@ describe('<app-payment-modal>', () => {
       username: 'csummerill2',
       title: 'VP Product Management',
       value: 464.54,
-      date: '2020-02-09T18:20:32Z',
+      date: '2020-02-09',
       image: 'https://robohash.org/natusinciduntsapiente.png?size=150x150&set=set1',
       isPayed: false
     }
@@ -155,7 +155,7 @@ describe('<app-payment-modal>', () => {
       username: 'csummerill2',
       title: 'VP Product Management',
       value: 500.0,
-      date: '2020-02-09T18:20:32Z',
+      date: '2020-02-09T00:00:00.000Z',
       image: 'https://robohash.org/natusinciduntsapiente.png?size=150x150&set=set1',
       isPayed: false
     }
