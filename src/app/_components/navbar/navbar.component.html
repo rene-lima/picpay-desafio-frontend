@@ -1,17 +1,16 @@
 <nav class="navbar fixed-top navbar-dark bg-primary">
   <div class="container-fluid px-4">
-    <a class="navbar-brand">
+    <a class="navbar-brand" routerLink="/">
       <img
         src="../../../assets/images/payfriends-logo-white.svg"
-        alt="Imagem apenas com o texto: Pay Friends."
+        alt="Imagem com o texto: Pay Friends."
         width="100"
       />
     </a>
     <div>
-      <img
-        class="pf-user-img"
-        src="https://robohash.org/asperioresprovidentconsequuntur.png?size=150x150&set=set1"
-      />
+      <button class="btn btn-icon" routerLink="/profile">
+        <img class="pf-user-img" [src]="userAccount?.image" />
+      </button>
       <button class="btn btn-icon mx-2" (click)="logout()">SAIR</button>
     </div>
   </div>

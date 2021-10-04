@@ -1,0 +1,73 @@
+<form [formGroup]="profileForm">
+  <div class="row mt-2">
+    <div class="col-md-6">
+      <label class="form-label" for="name">Nome: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o nome completo"
+        id="name"
+        type="text"
+        formControlName="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="username">E-mail: </label>
+      <input
+        class="form-control"
+        placeholder="Digite o e-mail"
+        id="username"
+        type="email"
+        formControlName="email"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-6">
+      <label class="form-label" for="name">Senha: </label>
+      <input
+        class="form-control"
+        placeholder="Digite sua senha"
+        id="password"
+        type="password"
+        formControlName="password"
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="username">Confirme sua senha: </label>
+      <input
+        class="form-control"
+        placeholder="Digite a senha novamente"
+        required
+        id="confirmPassword"
+        type="password"
+        formControlName="confirmPassword"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          profileForm.errors?.mismatch &&
+          (profileForm.controls['confirmPassword'].dirty ||
+            profileForm.controls['confirmPassword'].touched)
+        "
+      >
+        As senhas não informadas não são iguais.
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-end">
+    <div class="col-md-4 d-grid d-flex justify-content-end">
+      <button class="btn btn-light col-md-6" (click)="cancel()">
+        CANCELAR
+      </button>
+      <button
+        class="btn btn-primary col-md-6 ms-2"
+        (click)="save()"
+        [disabled]="!profileForm.valid"
+      >
+        SALVAR
+      </button>
+    </div>
+  </div>
+</form>

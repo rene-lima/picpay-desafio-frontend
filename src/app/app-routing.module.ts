@@ -5,10 +5,12 @@ import { LoginComponent } from "./_pages/login/login.component";
 import { PaymentsComponent } from "./_pages/payments/payments.component";
 import { NotFoundComponent } from "./_pages/not-found/not-found.component";
 import { AuthGuard } from "./_guards/auth.guard";
+import { ProfileComponent } from "./_pages/profile/profile.component";
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "payments", component: PaymentsComponent, canActivate: [AuthGuard] },
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "", redirectTo: "/payments", pathMatch: "full" },
   { path: "**", component: NotFoundComponent },
 ];

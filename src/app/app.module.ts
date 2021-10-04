@@ -21,6 +21,8 @@ import { NavbarComponent } from "./_components/navbar/navbar.component";
 import { PaginationTemplateComponent } from "./_components/pagination-template/pagination-template.component";
 import { EditPaymentComponent } from "./_components/edit-payment/edit-payment.component";
 import { JwtInterceptor } from "./_interceptors/jwt.interceptor";
+import { ProfileComponent } from './_pages/profile/profile.component';
+import { ProfileFormComponent } from './_components/profile-form/profile-form.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -35,6 +37,8 @@ registerLocaleData(ptBr);
     NavbarComponent,
     PaginationTemplateComponent,
     EditPaymentComponent,
+    ProfileComponent,
+    ProfileFormComponent,
   ],
   imports: [
     BrowserModule,

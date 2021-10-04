@@ -1,0 +1,9 @@
+<div class="pf-page-header container">
+  <div class="pf-page-title">
+    <span>Meu perfil</span>
+  </div>
+</div>
+
+<div class="container">
+  <pf-profile-form [account]="userAccount" (cancelEvent)="cancel()" (saveEvent)="editProfile($event)"></pf-profile-form>
+</div>
