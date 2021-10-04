@@ -1,0 +1,43 @@
+{
+  "value": {
+    "email": "usuario@gmail.com",
+    "password": "usuario",
+    "usernameToBeFiltered": "vfeed",  
+    "titleToCreatePayment": "Frontend Engineer",
+    "nameToCreatePayment": "Hugo Albrecht",
+    "valueToCreatePayment": "104.30",
+    "usernameToCreatePayment": "hugopicpay",
+    "dateToCreatePayment": "23042022"
+  },
+  "selector": {
+    "loginWelcome": "[data-cy=login-welcome]",
+    "loginPasswordInput": "[data-cy=login-password-input]",
+    "loginEmailInput": "[data-cy=login-email-input]",
+    "loginButton": "[data-cy=login-button]",
+    "searchUsernameInput": "[data-cy=search-username-input]",
+    "advancedSearchButton": "[data-cy=advanced-search-button]",
+    "removeAdvancedFiltersButton": "[data-cy=remove-advanced-filters-button]",
+    "selectPerpageButton": "[data-cy=select-perpage-button]",
+    "addNewPaymentButton": "po-page-default po-button.ng-star-inserted > .po-button",
+    "paymentModal": "[data-cy=payment-modal]",
+    "paymentModalNameInput": "[data-cy=payment-modal-name-input]",
+    "paymentModalUsernameInput": "[data-cy=payment-modal-username-input]",
+    "paymentModalValueInput": "[data-cy=payment-modal-value-input]",
+    "paymentModalDateInput": "[data-cy=payment-modal-date-input]",
+    "paymentModalTitleInput": "[data-cy=payment-modal-title-input]",
+    "paymentModalSaveButton": ".po-button-modal-first-action > .po-button",
+    "paymentEditButton": ":nth-child(2) > .po-table-row > :nth-child(6) > .po-table-column-cell > span.ng-star-inserted > div.ng-star-inserted > [data-cy=payment-edit-button] > .po-button > .po-button-icon",
+    "paymentDeleteButton": ":nth-child(2) > .po-table-row > :nth-child(6) > .po-table-column-cell > span.ng-star-inserted > div.ng-star-inserted > [data-cy=payment-delete-button] > .po-button > .po-button-icon",
+    "deletePaymentModal": "[data-cy=delete-payment-modal-container]",
+    "deletePaymentModalSaveButton": "[data-cy=delete-payment-modal-container] .po-button-modal-first-action > .po-button",
+    "headerDropdown": "[data-cy=header-dropdown]",
+    "headerDropdownProfileOption": ".po-popup-container > :nth-child(1)",
+    "headerDropdownLogoutOption": ".po-popup-container > :nth-child(2)",
+    "profileDetail": "[data-cy=profile-detail]",
+    "profileName": "[data-cy=profile-name]",
+    "profileEmail": "[data-cy=profile-email]",
+    "advancedSearchModal": "[data-cy=advanced-search-modal]",
+    "advancedSearchModalTitleInput": "[data-cy=advanced-search-modal-title-input]",
+    "advancedSearchModalSaveButton": "[data-cy=advanced-search-modal] .po-button-modal-first-action > .po-button"
+  }  
+}
