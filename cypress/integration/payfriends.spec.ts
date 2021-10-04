@@ -96,7 +96,7 @@ context('PayFriends', () => {
       .should('be.visible')
 
       .get(fixture.selector.profileName)
-      .contains('Hugo Albrecht')
+      .contains('usuario')
 
       .get(fixture.selector.profileEmail)
       .contains(fixture.value.email)
