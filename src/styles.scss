@@ -67,6 +67,31 @@ body {
   border-radius: 2px;
 }
 
+.table>:not(:last-child)>:last-child>* {
+  border-bottom: 1px solid #CFDCE5;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  --bs-table-accent-bg: #F5F8FA
+}
+
+.modal-content {
+  border: none;
+  border-radius: 2px;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #333333;
+}
+
 /* Scroll Bar */
 ::-webkit-scrollbar {
   height: 6px;
