@@ -1705,6 +1705,7 @@
     {
       "id": 0,
       "name": "usuario",
+      "image": "https://robohash.org/illumexpeditadeleniti.png?size=150x150&set=set1",
       "email": "usuario@gmail.com",
       "password": "usuario"
     }
