@@ -5,8 +5,7 @@ import { DeletePaymentService } from 'app/core/services/payments/delete-payment/
 
 @Component({
   selector: 'app-delete-payment-modal',
-  templateUrl: './delete-payment-modal.component.html',
-  providers: [DeletePaymentService]
+  templateUrl: './delete-payment-modal.component.html'
 })
 export class DeletePaymentModalComponent {
   @ViewChild(PoModalComponent, { static: true }) modal?: PoModalComponent

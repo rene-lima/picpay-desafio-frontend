@@ -7,8 +7,7 @@ import { EditPaymentService } from 'app/core/services/payments/edit-payment/edit
 
 @Component({
   selector: 'app-payment-modal',
-  templateUrl: './payment-modal.component.html',
-  providers: [CreatePaymentService, EditPaymentService]
+  templateUrl: './payment-modal.component.html'
 })
 export class PaymentModalComponent {
   @ViewChild(PoModalComponent, { static: true }) modal?: PoModalComponent
