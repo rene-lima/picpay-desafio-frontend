@@ -1,6 +1,6 @@
 <form [formGroup]="form">
-  <nav class="table-actions-container">
-    <div class="search-container">
+  <nav class="table-actions-container flex align-center">
+    <div class="search-container flex align-center">
       <po-input
         (p-change-model)="whenChangeUsernameFilter($event)"
         formControlName="username"
@@ -27,7 +27,7 @@
       ></po-button>
     </div>
 
-    <div class="pagination-container">
+    <div class="pagination-container flex align-center">
       <span class="po-mr-2">Exibir</span>
 
       <po-select
@@ -39,7 +39,7 @@
         data-cy="select-perpage-button"
       ></po-select>
 
-      <div class="pagination-buttons po-ml-4">
+      <div class="pagination-buttons po-ml-4 flex align-center">
         <i class="po-icon po-icon-first-page pagination-first-page po-mr-1" (click)="whenFirstPageSelected()"></i>
         <i class="po-icon po-icon-arrow-left pagination-previous-page po-mr-1" (click)="whenPreviousPageSelected()"></i>
 

@@ -1,7 +1,7 @@
-<header *ngIf="user" class="header-container">
+<header *ngIf="user" class="header-container flex align-center">
   <img src="../../../../assets/images/white-logo.svg" alt="PayFirst Logo" />
 
-  <div class="header-user-content">
+  <div class="flex align-center">
     <po-dropdown p-label="+" [p-actions]="actions" class="po-mr-2" data-cy="header-dropdown"></po-dropdown>
     <po-avatar [p-src]="user.image"></po-avatar>
   </div>

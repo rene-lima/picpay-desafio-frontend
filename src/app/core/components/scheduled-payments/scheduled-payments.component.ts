@@ -13,7 +13,7 @@ import { debounceTime, switchMap } from 'rxjs/operators'
 @Component({
   selector: 'app-scheduled-payments',
   templateUrl: './scheduled-payments.component.html',
-  styles: ['.table-container { display: flex; flex-direction: column; }'],
+  styles: ['.table-container { flex-direction: column; }'],
   providers: [GetPaymentsService, EditPaymentService]
 })
 export class ScheduledPaymentsComponent implements OnInit {
