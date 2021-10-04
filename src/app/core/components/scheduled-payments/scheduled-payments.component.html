@@ -7,7 +7,7 @@
   ></app-table-actions>
 
   <po-table [p-columns]="columns" [p-items]="payments" [p-loading]="isLoading">
-    <ng-template p-table-cell-template let-column="column" let-row="row">
+    <ng-template p-table-cell-template let-column="column" let-row="row" data-cy="payment-row">
       <po-info *ngIf="column.property === 'username'" [p-label]="row?.name" [p-value]="row?.username"></po-info>
 
       <div *ngIf="column.property === 'date'">
@@ -29,12 +29,14 @@
           p-type="link"
           p-icon="po-icon po-icon-edit"
           (p-click)="paymentModal.openWithEditMode(row)"
+          data-cy="payment-edit-button"
         ></po-button>
 
         <po-button
           p-type="link"
           p-icon="po-icon po-icon-clear-content"
           (p-click)="deletePaymentModal.open(row)"
+          data-cy="payment-delete-button"
         ></po-button>
       </div>
     </ng-template>

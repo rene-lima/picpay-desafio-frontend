@@ -1,6 +1,17 @@
-<po-modal p-size="md" p-title="Pesquisa avançada" [p-primary-action]="actions[0]" [p-secondary-action]="actions[1]">
+<po-modal
+  p-size="md"
+  p-title="Pesquisa avançada"
+  [p-primary-action]="actions[0]"
+  [p-secondary-action]="actions[1]"
+  data-cy="advanced-search-modal"
+>
   <form [formGroup]="form" class="po-row flex align-center">
-    <po-input class="po-xl-4 po-lg-4 po-md-12 po-sm-12" p-label="Título" formControlName="title"></po-input>
+    <po-input
+      class="po-xl-4 po-lg-4 po-md-12 po-sm-12"
+      p-label="Título"
+      formControlName="title"
+      data-cy="advanced-search-modal-title-input"
+    ></po-input>
 
     <po-datepicker class="po-xl-4 po-lg-4 po-md-12 po-sm-12" p-label="Data" formControlName="date"></po-datepicker>
 

@@ -2,16 +2,22 @@
   <div class="form-wrapper">
     <div class="welcome-back">
       <img src="../../../../assets/images/primary-logo.svg" alt="PayFirst" />
-      <h1>Bem vindo de volta</h1>
+      <h1 data-cy="login-welcome">Bem vindo de volta</h1>
     </div>
 
     <form [formGroup]="form" class="po-row">
-      <po-input class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0" formControlName="email" p-label="Email"></po-input>
+      <po-input
+        class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0"
+        formControlName="email"
+        p-label="Email"
+        data-cy="login-email-input"
+      ></po-input>
 
       <po-password
         class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-p-0"
         formControlName="password"
         p-label="Senha"
+        data-cy="login-password-input"
       ></po-password>
 
       <po-button
@@ -20,6 +26,7 @@
         p-type="primary"
         [p-disabled]="form.invalid"
         (p-click)="doLogin()"
+        data-cy="login-button"
       ></po-button>
     </form>
   </div>

@@ -6,6 +6,7 @@
         formControlName="username"
         p-icon="po-icon po-icon-search"
         p-placeholder="Pesquisar por usuário"
+        data-cy="search-username-input"
       ></po-input>
 
       <po-button
@@ -13,6 +14,7 @@
         p-label="Filtrar"
         p-icon="po-icon po-icon-parameters"
         (p-click)="advancedSearchModal.open()"
+        data-cy="advanced-search-button"
       ></po-button>
 
       <po-button
@@ -21,6 +23,7 @@
         p-label="Remover filtros"
         p-icon="po-icon po-icon-delete"
         (p-click)="whenUserRemoveAdvancedFilters()"
+        data-cy="remove-advanced-filters-button"
       ></po-button>
     </div>
 
@@ -33,6 +36,7 @@
         formControlName="perPage"
         [p-options]="perPageOptions"
         (p-change)="whenPerPageValueIsSelected()"
+        data-cy="select-perpage-button"
       ></po-select>
 
       <div class="pagination-buttons po-ml-4">
