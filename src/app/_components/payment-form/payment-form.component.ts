@@ -40,12 +40,11 @@ export class PaymentFormComponent implements OnChanges {
   constructor(private fb: FormBuilder) {}
 
   ngOnChanges(): void {
-    console.warn(this.payment)
     this.paymentForm.patchValue({
       name: this.payment.name,
       username: this.payment.username,
       title: this.payment.title,
-      date: formatDate(this.payment.date, 'yyyy-MM-dd', 'pt-BR'),
+      date: formatDate(this.payment.date, "yyyy-MM-dd", "pt-BR"),
       value: this.payment.value,
     });
   }
