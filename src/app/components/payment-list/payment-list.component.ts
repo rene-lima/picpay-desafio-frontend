@@ -3,6 +3,8 @@ import { Payment } from 'src/app/models/payment';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-list',
@@ -16,9 +18,17 @@ export class PaymentListComponent implements AfterViewInit {
   dataSource: MatTableDataSource<Payment>;
   displayedColumns: string[] = ["user", "title", "date", "value", "isPayed"];
 
-  constructor(private paymentService: PaymentService) { }
+  constructor(
+    private paymentService: PaymentService,
+    private formBuilder: FormBuilder
+  ) { }
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  filterForm = this.formBuilder.group({
+    filter: '',
+  })
 
   ngAfterViewInit() {
     this.getListPayment();
@@ -30,6 +40,7 @@ export class PaymentListComponent implements AfterViewInit {
           this.paymentList = [...data];
           this.dataSource = new MatTableDataSource<Payment>(this.paymentList);
           this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }, err => {
           console.log("err", err)
         })

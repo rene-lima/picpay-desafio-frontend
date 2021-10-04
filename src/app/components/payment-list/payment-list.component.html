@@ -1,40 +1,49 @@
-<div>
-  <table mat-table [dataSource]="dataSource">
+<div class="table-block">
+  <div class="filter-input" [formGroup]="filterForm">
+    <mat-form-field appearance="outline">
+      <input formControlName="filter" matInput type="text" placeholder="Pesquisa por Usuário">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary"><mat-icon matPrefix>tune</mat-icon> Filtrar</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="user">
-      <th mat-header-cell *matHeaderCellDef> Usuário </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuário </th>
       <td mat-cell *matCellDef="let payment">
-        <span>{{payment.name}}</span>
-        <span>{{payment.username}}</span>
+        <p>{{payment.name}}</p>
+        <p>{{payment.username}}</p>
       </td>
     </ng-container>
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Titulo </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
       <td mat-cell *matCellDef="let payment">
         <span>{{payment.title}}</span>
       </td>
     </ng-container>
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Data </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
       <td mat-cell *matCellDef="let payment">
-        <span>{{payment.date}}</span>
+        <p>{{payment.date | date: 'dd MMM y'}}</p>
+        <p>{{payment.date | date: 'h:mm a'}}</p>
+
       </td>
     </ng-container>
     <ng-container matColumnDef="value">
-      <th mat-header-cell *matHeaderCellDef> Valor </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
       <td mat-cell *matCellDef="let payment">
-        <span>{{payment.value}}</span>
+        <span>{{payment.value | currency: "BRL"}}</span>
       </td>
     </ng-container>
     <ng-container matColumnDef="isPayed">
-      <th mat-header-cell *matHeaderCellDef> Pago </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pago </th>
       <td mat-cell *matCellDef="let payment">
-        <span>{{payment.isPayed}}</span>
+        <mat-checkbox [disabled]="true" [checked]="payment.isPayed" ></mat-checkbox>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of payment list">
   </mat-paginator>
 </div>

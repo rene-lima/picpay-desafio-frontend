@@ -1,0 +1,46 @@
+@import 'src/assets/styles/global-variables.scss';
+
+.table-block {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px rgba(4, 38, 82, 0.06);
+  display: flex;
+  flex-direction: column;
+
+  table {
+    width: 100%;
+
+    tr {
+      height: 64px;
+  
+      &:nth-child(even) {
+        background-color: $bluegrey;
+      }
+    }
+  }
+  
+  p {
+    margin: 0;
+    &:last-of-type {
+      color: $medium-grey;
+    }
+  }
+
+  .filter-input {
+    margin: 16px 16px 0 16px;
+
+    button {
+      margin-left: 16px;
+    }
+  }
+  
+  .mat-column-user {
+    p {
+      &:last-of-type {
+        &:before {
+          content: "@";
+        }
+      }
+    }
+  }
+}

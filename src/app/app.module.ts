@@ -11,7 +11,10 @@ import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentViewComponent } from './pages/payment-view/payment-view.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -33,7 +36,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatPaginatorModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule,
+    MatSortModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
