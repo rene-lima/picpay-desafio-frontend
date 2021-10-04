@@ -20,9 +20,9 @@ export class PaymentService {
   public getPayments(
     page: number,
     limit: number,
-    sort: string = 'id',
-    order: string = 'asc',
-    query: string = ''
+    query: string = "",
+    sort: string = "id",
+    order: string = "asc"
   ): Observable<Payment[]> {
     const url = this.prefixUrl;
     const params: HttpParams = new HttpParams()
@@ -43,7 +43,7 @@ export class PaymentService {
   }
 
   public editIsPayed(payment: Payment): Observable<Payment> {
-    // Esse método é apenas para demonstrar o uso do PATCH.
+    // Este método é apenas para demonstrar o uso do PATCH.
     const url = `${this.prefixUrl}/${payment.id}`;
     const body = {
       isPayed: payment.isPayed,

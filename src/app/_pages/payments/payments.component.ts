@@ -20,6 +20,10 @@ export class PaymentsComponent implements OnInit {
     totalItems: 170, // TODO: trocar para carregamento dinâmico
   };
 
+  filterQuery: string = '';
+  sortOptions: string[] = [];
+  orderOptions: string[] = [];
+
   qtOptions: number[] = [5, 10, 15];
 
   payments: Payment[] = [];
@@ -39,11 +43,44 @@ export class PaymentsComponent implements OnInit {
     this.paymentService
       .getPayments(
         this.paginationConfig.currentPage,
-        this.paginationConfig.itemsPerPage
+        this.paginationConfig.itemsPerPage,
+        this.filterQuery,
+        this.sortOptions.toString(),
+        this.orderOptions.toString(),
       )
       .subscribe((res: Payment[]) => {
         this.payments = res;
+        this.paginationConfig.totalItems = res.length;
       });
+  }
+
+  toggleSortOrderOptions(option: string) {
+    const index = this.sortOptions.indexOf(option);
+    if (index > -1) {
+      if (this.orderOptions[index] === 'desc') {
+        this.sortOptions.splice(index, 1);
+        this.orderOptions.splice(index, 1);
+      } else {
+        this.orderOptions[index] = 'desc';
+      }
+    } else {
+      this.sortOptions.push(option);
+      this.orderOptions.push('asc');
+    }
+    this.loadPayments();
+  }
+
+  getOptionOrderIcon(option: string) {
+    const index = this.sortOptions.indexOf(option);
+    if (index === -1) {
+      return 'bi bi-arrow-down-up';
+    } else {
+      if (this.orderOptions[index] === 'desc') {
+        return 'bi bi-arrow-down';
+      } else {
+        return 'bi bi-arrow-up';
+      }
+    }
   }
 
   changePage(pageNumber: number) {
