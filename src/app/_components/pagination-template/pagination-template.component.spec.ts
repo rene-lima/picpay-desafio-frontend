@@ -16,6 +16,12 @@ describe('PaginationTemplateComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationTemplateComponent);
     component = fixture.componentInstance;
+    component.config = {
+      id: 'test',
+      currentPage: 1,
+      itemsPerPage: 5,
+      totalItems: 100
+    };
     fixture.detectChanges();
   });
 

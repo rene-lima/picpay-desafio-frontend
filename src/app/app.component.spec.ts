@@ -1,12 +1,20 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AuthService } from './_services/auth/auth.service';
+
+class MockAuthService {
+  
+}
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
       ],
+      providers: [
+        { provide: AuthService, useClass: MockAuthService  }
+      ]
     }).compileComponents();
   }));
 

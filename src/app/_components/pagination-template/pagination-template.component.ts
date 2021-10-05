@@ -14,8 +14,6 @@ import { PaginationControlsDirective, PaginationInstance } from "ngx-pagination"
   styleUrls: ["./pagination-template.component.scss"],
 })
 export class PaginationTemplateComponent implements OnInit {
-  @ViewChild("p", { static: true }) p: PaginationControlsDirective;
-
   @Input()
   public config: PaginationInstance;
 

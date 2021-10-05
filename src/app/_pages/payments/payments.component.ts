@@ -4,6 +4,7 @@ import { PaginationInstance } from "ngx-pagination";
 import { AddPaymentComponent } from "src/app/_components/add-payment/add-payment.component";
 import { DeletePaymentComponent } from "src/app/_components/delete-payment/delete-payment.component";
 import { EditPaymentComponent } from "src/app/_components/edit-payment/edit-payment.component";
+import { PaymentResponse } from "src/app/_interfaces/payment-response";
 import { Payment } from "src/app/_models/payment/payment";
 import { PaymentService } from "src/app/_services/payment/payment.service";
 
@@ -17,7 +18,6 @@ export class PaymentsComponent implements OnInit {
     id: "payments-pagination",
     currentPage: 1,
     itemsPerPage: 5,
-    totalItems: 170, // TODO: trocar para carregamento dinâmico
   };
 
   filterQuery: string = '';
@@ -48,9 +48,9 @@ export class PaymentsComponent implements OnInit {
         this.sortOptions.toString(),
         this.orderOptions.toString(),
       )
-      .subscribe((res: Payment[]) => {
-        this.payments = res;
-        this.paginationConfig.totalItems = res.length;
+      .subscribe((res: PaymentResponse) => {
+        this.payments = res.payments;
+        this.paginationConfig.totalItems = res.totalPayments;
       });
   }
 

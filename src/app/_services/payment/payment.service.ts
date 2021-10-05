@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { PaymentResponse } from "src/app/_interfaces/payment-response";
 import { Payment } from "src/app/_models/payment/payment";
 import { environment } from "src/environments/environment";
 
@@ -23,7 +25,7 @@ export class PaymentService {
     query: string = "",
     sort: string = "id",
     order: string = "asc"
-  ): Observable<Payment[]> {
+  ): Observable<PaymentResponse> {
     const url = this.prefixUrl;
     const params: HttpParams = new HttpParams()
       .set("_page", page)
@@ -32,9 +34,18 @@ export class PaymentService {
       .set("_order", order)
       .set("q", query);
 
-    return this.http.get<Payment[]>(url, {
-      params: params,
-    });
+    return this.http.get<PaymentResponse>(url, {
+        observe: "response",
+        params: params,
+      }).pipe<PaymentResponse>(
+        map(res => {
+          const newRes: PaymentResponse = {
+            payments: res.body as unknown as Payment[],
+            totalPayments: Number(res.headers.get("X-Total-Count")),
+          };
+          return newRes;
+        })
+      );
   }
 
   public editPayment(payment: Payment): Observable<Payment> {
