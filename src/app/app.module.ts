@@ -20,10 +20,11 @@ import { PaymentViewComponent } from './pages/payment-view/payment-view.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaymentListComponent } from './components/payment-list/payment-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent, PaymentListComponent
+    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent, PaymentListComponent, PaymentFormComponent
    ],
   imports: [
     BrowserModule,
