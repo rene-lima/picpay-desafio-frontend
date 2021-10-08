@@ -17,7 +17,7 @@ export class PaymentListComponent implements AfterViewInit {
   paymentList: Payment[];
   filteredPaymentList: Payment[];
   dataSource: MatTableDataSource<Payment>;
-  displayedColumns: string[] = ["user", "title", "date", "value", "isPayed"];
+  displayedColumns: string[] = ["user", "title", "date", "value", "isPayed", "actions"];
 
   constructor(
     private paymentService: PaymentService,
@@ -57,4 +57,11 @@ export class PaymentListComponent implements AfterViewInit {
         })
   }
 
+  editPayment(paymentId: Number) {
+
+  }
+
+  deletePayment(paymentId: Number) {
+
+  }
 }
