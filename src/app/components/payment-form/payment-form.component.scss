@@ -1,14 +1,22 @@
 form {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
 
-    mat-form-field {
-        margin: 5px;
-        width: 40%;
+    display: grid;
+    grid-template-columns: 256px 256px;
+    grid-column-gap: 32px;
+    grid-row-gap: 16px;
+    align-content: start;
+
+    .checkbox-group {
+        grid-row: 3/3;
     }
 
-    div {
-        text-align: right;
+    .button-group {
+        grid-column: 2/2;
+        grid-row: 4/4;
+        display: flex;
+        justify-content: space-between;
     }
 
     button {

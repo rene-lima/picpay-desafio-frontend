@@ -21,10 +21,14 @@
         <mat-label>Titulo</mat-label>
         <input formControlName="title" matInput type="text">
     </mat-form-field>
-
-    <div>
+    
+    <div class="checkbox-group">
+        <mat-checkbox formControlName="isPayed" name="isPayed"></mat-checkbox>
+        <mat-label for="isPayed"> Pago.</mat-label>
+    </div>
+    
+    <div class="button-group">
         <button mat-flat-button (click)="stopOperation()">Cancelar</button>
-
         <button mat-flat-button (click)="createPayment()" color="primary">Salvar</button>
     </div>
 </form>
