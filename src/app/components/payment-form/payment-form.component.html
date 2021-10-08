@@ -4,12 +4,12 @@
 <form [formGroup]="paymentForm"> 
     <mat-form-field appearance="outline">
         <mat-label>Usuário</mat-label>
-        <input formControlName="user" matInput type="text">
+        <input formControlName="username" matInput type="text">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Valor</mat-label>
-        <input formControlName="value" matInput type="text">
+        <input formControlName="value" matInput type="number">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -23,8 +23,8 @@
     </mat-form-field>
 
     <div>
-        <button mat-flat-button>Cancelar</button>
+        <button mat-flat-button (click)="stopOperation()">Cancelar</button>
 
-        <button mat-flat-button color="primary">Salvar</button>
+        <button mat-flat-button (click)="createPayment()" color="primary">Salvar</button>
     </div>
 </form>
