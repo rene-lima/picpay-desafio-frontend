@@ -1,7 +1,12 @@
 
-<h2>Adicionar Pagamento</h2>
+<ng-template [ngIf]="this.data?.edit" [ngIfElse]="addPagamento">
+    <h2>Editar Pagamento</h2>
+</ng-template>
+<ng-template #addPagamento>
+    <h2>Adicionar Pagamento</h2>
+</ng-template>
 
-<form [formGroup]="paymentForm"> 
+<form [formGroup]="paymentForm" *ngIf="paymentForm"> 
     <mat-form-field appearance="outline">
         <mat-label>Usuário</mat-label>
         <input formControlName="username" matInput type="text">
@@ -14,7 +19,9 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Data</mat-label>
-        <input formControlName="date" matInput type="date">
+        <input formControlName="date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -29,6 +36,6 @@
     
     <div class="button-group">
         <button mat-flat-button (click)="stopOperation()">Cancelar</button>
-        <button mat-flat-button (click)="createPayment()" color="primary">Salvar</button>
+        <button mat-flat-button (click)="data?.edit ? editPayment() : createPayment()" color="primary">Salvar</button>
     </div>
 </form>

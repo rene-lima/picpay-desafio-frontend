@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { PaymentFormComponent } from '../payment-form/payment-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-payment-list',
@@ -21,8 +23,10 @@ export class PaymentListComponent implements AfterViewInit {
 
   constructor(
     private paymentService: PaymentService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
   ) { }
+
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -58,7 +62,10 @@ export class PaymentListComponent implements AfterViewInit {
   }
 
   editPayment(paymentId: Number) {
-
+    const dialogRef = this.dialog.open(PaymentFormComponent, {data: {edit: true, paymentId}});
+    dialogRef.afterClosed().subscribe(() => {
+      this.getListPayment();
+    })
   }
 
   deletePayment(paymentId: Number) {
