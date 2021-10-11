@@ -31,6 +31,10 @@ export class PaymentService {
     return this.http.put<Payment>(`http://localhost:3000/tasks/${payment.id}`, JSON.stringify(preparedObject), this.httpOptions)
   }
 
+  deletePayment(paymentId: number): Observable<Payment> {
+    return this.http.delete<Payment>(`http://localhost:3000/tasks/${paymentId}`);
+  }
+
   prepareObject(payment: Payment): Payment {
     payment.name = payment?.name ?? payment.username;
     payment.image = payment?.image ?? "";

@@ -25,10 +25,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaymentListComponent } from './components/payment-list/payment-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
+import { DeletePaymentComponent } from './components/delete-payment/delete-payment.component';
 
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent, PaymentListComponent, PaymentFormComponent
+    AppComponent, LoginComponent, LoginPageIconComponent, FormComponent, PaymentViewComponent, NavbarComponent, PaymentListComponent, PaymentFormComponent, DeletePaymentComponent
    ],
   imports: [
     BrowserModule,

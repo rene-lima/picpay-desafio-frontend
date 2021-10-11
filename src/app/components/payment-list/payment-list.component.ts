@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { PaymentFormComponent } from '../payment-form/payment-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DeletePaymentComponent } from '../delete-payment/delete-payment.component';
 
 @Component({
   selector: 'app-payment-list',
@@ -69,6 +70,9 @@ export class PaymentListComponent implements AfterViewInit {
   }
 
   deletePayment(paymentId: Number) {
-
+    const dialogRef = this.dialog.open(DeletePaymentComponent, {data: {paymentId}});
+    dialogRef.afterClosed().subscribe(() => {
+      this.getListPayment();
+    })
   }
 }
