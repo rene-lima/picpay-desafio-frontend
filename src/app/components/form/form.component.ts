@@ -25,7 +25,9 @@ export class FormComponent implements OnInit {
   }
 
   login() {
-    this.authService.login().subscribe(() => {
+    const userLoginData = {...this.loginForm.value}
+
+    this.authService.login(userLoginData).subscribe(() => {
       if (this.authService.isLoggedIn) {
         const redirectUrl = '/payment-view';
 
