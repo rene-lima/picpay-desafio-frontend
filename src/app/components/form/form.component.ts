@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +10,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              public authService: AuthService,
+              public router: Router) { }
 
   hide = true;
 
@@ -20,4 +24,17 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login() {
+    this.authService.login().subscribe(() => {
+      if (this.authService.isLoggedIn) {
+        const redirectUrl = '/payment-view';
+
+        this.router.navigate([redirectUrl]);
+      }
+    })
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }

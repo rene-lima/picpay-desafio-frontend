@@ -49,7 +49,8 @@ import { DeletePaymentComponent } from './components/delete-payment/delete-payme
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
