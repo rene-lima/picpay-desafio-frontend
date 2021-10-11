@@ -1,3 +1,5 @@
+@import 'src/assets/styles/global-variables';
+
 * {
   box-sizing: border-box;
 }
@@ -11,3 +13,8 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.picpay-primary-btn {
+  background-color: $primary-btn;
+  color: white;
+}
