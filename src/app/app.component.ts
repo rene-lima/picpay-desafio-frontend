@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  
   title: string;
 
   ngOnInit() {
-   this.title = 'Desafio Picpay Front-end';
+   this.title = 'Desafio Picpay Front-end(Melfre Diego)';
   }
 }
