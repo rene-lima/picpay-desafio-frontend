@@ -12,6 +12,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   payments() {
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/pagamentos');
   }
 }
