@@ -1,10 +1,43 @@
 <app-header></app-header>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <section>
   <div class="title-container">
     <h1>Meus Pagamentos</h1>
     <div class="button-container">
       <button class="button" type="submit">ADICIONAR PAGAMENTO</button>
+    </div>
+  </div>
+  <div class="search_pagination-container">
+    <div class="search-container">
+      <input type="text" placeholder="Pesquisar por usuário" name="search">
+      <button type="submit"><img src="./assets/images/search.png" alt="Logo da marca" /></button>
+    </div>
+    <div class="pagination-container">
+      <div class="select">
+        <label for="pages">Exibir</label>
+        <select name="page" id="pages">
+          <option value="1">5</option>
+          <option value="2">10</option>
+          <option value="3">20</option>
+          <option value="4">50</option>
+        </select>
+      </div>
+      <div class="pagination">
+        <a href="#"
+          ><img src="./assets/images/left.png" alt="Seta para a esquerda"
+        /></a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#"
+          ><img src="./assets/images/right.png" alt="Seta para a direita"
+        /></a>
+      </div>
     </div>
   </div>
   <app-transactions-table></app-transactions-table>
