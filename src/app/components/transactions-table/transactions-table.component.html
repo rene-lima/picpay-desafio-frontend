@@ -1,0 +1,46 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns">
+        <div class="column-container">
+          <p>{{ column.name }}</p>
+          <img *ngIf="column.name" src="./assets/arrow.png" alt="Ordenar" />
+        </div>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let transaction of transactions">
+      <td>
+        <p>{{ transaction.name }}</p>
+        <p class="subtitle">@{{ transaction.username }}</p>
+      </td>
+      <td>
+        <p>{{ transaction.title }}</p>
+      </td>
+      <td>
+        <p>{{ transaction.date | date: 'dd MMM y' }}</p>
+        <p class="subtitle">{{ transaction.date | date: 'h:mm a' }}</p>
+      </td>
+      <td>
+        <p>
+          {{ priceFormat(transaction.value) }}
+        </p>
+      </td>
+
+      <td>
+        <label class="checkbox-container">
+          <input type="checkbox" [checked]="transaction.isPayed" />
+          <span class="checkbox-custom"></span>
+        </label>
+      </td>
+      <td>
+        <p class="actions">
+          <img src="./assets/pencil.png" alt="Editar pagamento" />
+          <img src="./assets/delete.png" alt="Deletar pagamento" />
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>

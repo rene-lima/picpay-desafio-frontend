@@ -1,0 +1,21 @@
+section {
+  padding: 64px;
+
+  h1 {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+  }
+
+  .title-container {
+    display: flex;
+    margin: 21px 0;
+    flex-direction: column;
+
+    .button-container {
+      width: 230px;
+      align-self: end;
+    }
+  }
+}

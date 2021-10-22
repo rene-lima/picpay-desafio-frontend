@@ -6,13 +6,20 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
+import { TransactionsTableComponent } from './components/transactions-table/transactions-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, HeaderComponent, PaymentsComponent,
+    AppComponent, LoginComponent, HeaderComponent, PaymentsComponent, TransactionsTableComponent,
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
