@@ -2,9 +2,9 @@
   <thead>
     <tr>
       <th *ngFor="let column of columns">
-        <div class="column-container">
+        <div class="column-container" *ngIf="column.name">
           <p>{{ column.name }}</p>
-          <img *ngIf="column.name" src="./assets/images/arrow.png" alt="Ordenar" />
+          <button><img src="./assets/images/arrow.png" alt="Ordenar" /></button>
         </div>
       </th>
     </tr>
@@ -37,8 +37,8 @@
       </td>
       <td>
         <p class="actions">
-          <img src="./assets/images/pencil.png" alt="Editar pagamento" />
-          <img src="./assets/images/delete.png" alt="Deletar pagamento" />
+          <button><img src="./assets/images/pencil.png" alt="Editar pagamento" /></button>
+          <button><img src="./assets/images/delete.png" alt="Deletar pagamento" /></button>          
         </p>
       </td>
     </tr>
