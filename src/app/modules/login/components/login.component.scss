@@ -1,0 +1,34 @@
+.sc-login {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.f-login {
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    width: 37.5%;
+    padding: 273px 6%;
+}
+
+.f-login img {
+    width: 44%;
+}
+
+.f-login p {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.img-login {
+    width: 62.5%;
+    padding: 200px 3%;
+}
+
+.img-login img {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+}
