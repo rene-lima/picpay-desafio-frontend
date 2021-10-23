@@ -9,34 +9,36 @@
   </div>
   <div class="search_pagination-container">
     <div class="search-container">
-      <input type="text" placeholder="Pesquisar por usuário" name="search">
-      <button><img src="./assets/images/search.png" alt="Icone de pesquisa" /></button>
+      <input type="text" placeholder="Pesquisar por usuário" name="search" />
+      <button>
+        <img src="./assets/images/search.png" alt="Icone de pesquisa" />
+      </button>
     </div>
     <div class="pagination-container">
       <div class="select">
         <label for="pages">Exibir</label>
-        <select name="page" id="pages">
-          <option value="1">5</option>
-          <option value="2">10</option>
-          <option value="3">20</option>
-          <option value="4">50</option>
+        <select name="limit">
+          <option *ngFor="let option of options" [value]="option">
+            {{ option }}
+          </option>
         </select>
       </div>
       <div class="pagination">
         <a href="#"
           ><img src="./assets/images/left.png" alt="Seta para a esquerda"
         /></a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
         <a href="#">5</a>
-        <a href="#">6</a>
         <a href="#"
           ><img src="./assets/images/right.png" alt="Seta para a direita"
         /></a>
       </div>
     </div>
   </div>
-  <app-transactions-table></app-transactions-table>
+  <app-transactions-table
+    [transactions]="transactions"
+  ></app-transactions-table>
 </section>
