@@ -17,28 +17,30 @@
     <div class="pagination-container">
       <div class="select">
         <label for="pages">Exibir</label>
-        <select name="limit">
+        <select name="limit" [(ngModel)]="limit" (change)="setLimit()">
           <option *ngFor="let option of options" [value]="option">
             {{ option }}
           </option>
         </select>
       </div>
       <div class="pagination">
-        <a href="#"
-          ><img src="./assets/images/left.png" alt="Seta para a esquerda"
-        /></a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#"
-          ><img src="./assets/images/right.png" alt="Seta para a direita"
-        /></a>
+        <a (click)="setPage(pager.currentPage - 1)">
+          <img src="./assets/images/left.png" alt="Seta para a esquerda" />
+        </a>
+
+        <a
+          *ngFor="let page of pager.pages"
+          [ngClass]="{ active: pager.currentPage === page }"
+          (click)="setPage(page)"
+        >
+          {{ page }}
+        </a>
+
+        <a (click)="setPage(pager.currentPage + 1)">
+          <img src="./assets/images/right.png" alt="Seta para a direita" />
+        </a>
       </div>
     </div>
   </div>
-  <app-transactions-table
-    [transactions]="transactions"
-  ></app-transactions-table>
+  <app-transactions-table [transactions]="pagedItems"></app-transactions-table>
 </section>

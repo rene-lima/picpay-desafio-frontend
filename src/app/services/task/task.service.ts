@@ -13,8 +13,12 @@ export class TaskService {
 
   private readonly API = `${environment.API}tasks`;
 
-  list() {
+  listAll() {
     return this.http.get<TrasactionsProps[]>(this.API);
+  }
+
+  listPage(page: number = 1, limit: number = 10) {
+    return this.http.get<TrasactionsProps[]>(`${this.API}?_page=${page}&_limit=${limit}`);
   }
 }
 
