@@ -1,52 +1,54 @@
-<app-header></app-header>
+<div>
+  <app-header></app-header>
 
-<section>
-  <div class="title-container">
-    <h1>Meus Pagamentos</h1>
-    <div class="button-container">
-      <button class="button" type="submit">ADICIONAR PAGAMENTO</button>
-    </div>
-  </div>
-  <div class="search_pagination-container">
-    <div class="search-container">
-      <input
-        type="text"
-        placeholder="Pesquisar por usuário"
-        [formControl]="queryField"
-      />
-      <button (click)="onSearch()">
-        <img src="./assets/images/search.png" alt="Icone de pesquisa" />
-      </button>
-    </div>
-    <div class="pagination-container">
-      <div class="select">
-        <label for="pages">Exibir</label>
-        <select name="limit" (change)="setLimit()" [formControl]="limit">
-          <option *ngFor="let option of options" [value]="option">
-            {{ option }}
-          </option>
-        </select>
-      </div>
-      <div class="pagination">
-        <a (click)="setPage(pager.currentPage - 1)">
-          <img src="./assets/images/left.png" alt="Seta para a esquerda" />
-        </a>
-
-        <a
-          *ngFor="let page of pager.pages"
-          [ngClass]="{ active: pager.currentPage === page }"
-          (click)="setPage(page)"
-        >
-          {{ page }}
-        </a>
-
-        <a (click)="setPage(pager.currentPage + 1)">
-          <img src="./assets/images/right.png" alt="Seta para a direita" />
-        </a>
+  <section>
+    <div class="title-container">
+      <h1>Meus Pagamentos</h1>
+      <div class="button-container">
+        <button class="button" type="submit">ADICIONAR PAGAMENTO</button>
       </div>
     </div>
-  </div>
-  <app-transactions-table
-    [transactions]="pagedItems"
-  ></app-transactions-table>
-</section>
+    <div class="search_pagination-container">
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Pesquisar por usuário"
+          [formControl]="queryField"
+        />
+        <button (click)="onSearch()">
+          <img src="./assets/images/search.png" alt="Icone de pesquisa" />
+        </button>
+      </div>
+      <div class="pagination-container">
+        <div class="select">
+          <label for="pages">Exibir</label>
+          <select name="limit" (change)="setLimit()" [formControl]="limit">
+            <option *ngFor="let option of options" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
+        <div class="pagination">
+          <a (click)="setPage(pager.currentPage - 1)">
+            <img src="./assets/images/left.png" alt="Seta para a esquerda" />
+          </a>
+
+          <a
+            *ngFor="let page of pager.pages"
+            [ngClass]="{ active: pager.currentPage === page }"
+            (click)="setPage(page)"
+          >
+            {{ page }}
+          </a>
+
+          <a (click)="setPage(pager.currentPage + 1)">
+            <img src="./assets/images/right.png" alt="Seta para a direita" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <app-transactions-table
+      [transactions]="pagedItems"
+    ></app-transactions-table>
+  </section>
+</div>

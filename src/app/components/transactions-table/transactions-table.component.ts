@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TrasactionsProps } from 'src/app/models/transaction/transaction.model';
+import { TrasactionsProps } from 'src/app/models/transaction.model';
 
 export interface ColumnsProps {
   name: string;

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TrasactionsProps } from 'src/app/models/transaction/transaction.model';
+import { TrasactionsProps } from 'src/app/models/transaction.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

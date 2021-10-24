@@ -1,17 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, Subscription } from 'rxjs';
-import {
-  tap,
-  map,
-  filter,
-  distinctUntilChanged,
-  debounceTime,
-  switchMap,
-  withLatestFrom,
-} from 'rxjs/operators';
-
-import { TrasactionsProps } from 'src/app/models/transaction/transaction.model';
+import { Subscription } from 'rxjs';
+import { TrasactionsProps } from 'src/app/models/transaction.model';
 import { PaginationService } from 'src/app/services/pagination/pagination.service';
 import { TaskService } from 'src/app/services/task/task.service';
 
@@ -51,6 +41,10 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     );
   }
 
+  ngOnDestroy() {
+    this.sub.forEach((s) => s.unsubscribe());
+  }
+
   onSearch() {
     let user = this.queryField.value;
     let limit = this.limit.value;
@@ -74,6 +68,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             this.pagedItems = response;
             this.queryField.setValue('');
+            this.setPage(1);
           })
       );
     }
@@ -121,7 +116,4 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    this.sub.forEach((s) => s.unsubscribe());
-  }
 }
