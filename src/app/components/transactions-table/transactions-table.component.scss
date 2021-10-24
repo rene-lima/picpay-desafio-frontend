@@ -25,12 +25,15 @@ table {
       align-items: center;
       cursor: pointer;
 
+      p{        
+        margin-bottom: 0;
+      }
+
       p + button {
         margin-left: 10px;
       }
 
       button {
-        margin-top: 7px;
         background: transparent;
         border: none;
         cursor: pointer;
