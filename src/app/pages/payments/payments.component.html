@@ -9,15 +9,19 @@
   </div>
   <div class="search_pagination-container">
     <div class="search-container">
-      <input type="text" placeholder="Pesquisar por usuário" name="search" />
-      <button>
+      <input
+        type="text"
+        placeholder="Pesquisar por usuário"
+        [formControl]="queryField"
+      />
+      <button (click)="onSearch()">
         <img src="./assets/images/search.png" alt="Icone de pesquisa" />
       </button>
     </div>
     <div class="pagination-container">
       <div class="select">
         <label for="pages">Exibir</label>
-        <select name="limit" [(ngModel)]="limit" (change)="setLimit()">
+        <select name="limit" (change)="setLimit()" [formControl]="limit">
           <option *ngFor="let option of options" [value]="option">
             {{ option }}
           </option>
@@ -42,5 +46,7 @@
       </div>
     </div>
   </div>
-  <app-transactions-table [transactions]="pagedItems"></app-transactions-table>
+  <app-transactions-table
+    [transactions]="pagedItems"
+  ></app-transactions-table>
 </section>

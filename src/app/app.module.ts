@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { TransactionsTableComponent } from './components/transactions-table/transactions-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, 
     ReactiveFormsModule,
     HttpClientModule
   ],
