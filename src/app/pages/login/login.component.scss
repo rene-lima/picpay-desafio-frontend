@@ -35,6 +35,12 @@
       }
     }
   }
+
+  form {
+    input + label[placeholder]:before {
+      background-image: linear-gradient(to bottom, #f2f2f2, #f2f2f2);
+    }
+  }
 }
 
 .image-container {
