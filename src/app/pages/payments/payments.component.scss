@@ -107,3 +107,50 @@ section {
     }
   }
 }
+
+.transaction-modal {
+  padding: 40px 38px;
+
+  p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    letter-spacing: 0.15px;
+
+    color: #000000;
+  }
+
+  p.modal-title {
+    color: #333333;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 45px;
+  }
+
+  .button-container {
+    margin-top: 52px;
+
+    &.right {
+      text-align: right;
+    }
+
+    button {
+      width: 150px;
+
+      & + button {
+        margin-left: 29px;
+      }
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 0;
+  }
+}

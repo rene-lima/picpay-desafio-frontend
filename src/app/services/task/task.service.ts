@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrasactionsProps } from 'src/app/models/transaction.model';
 import { environment } from 'src/environments/environment';
@@ -21,7 +21,13 @@ export class TaskService {
       _page: page,
       _limit: limit,
     };
-    return this.http.get<TrasactionsProps[]>(this.API, { params }).pipe(take(1));
+    return this.http
+      .get<TrasactionsProps[]>(this.API, { params })
+      .pipe(take(1));
+  }
+
+  create(transaction: any) {
+    return this.http.post(this.API, transaction).pipe(take(1));
   }
 
   delete(id: number) {
@@ -29,6 +35,8 @@ export class TaskService {
   }
 
   update(transaction: TrasactionsProps) {
-    return this.http.put(`${this.API}/${transaction.id}`, transaction).pipe(take(1));
+    return this.http
+      .put(`${this.API}/${transaction.id}`, transaction)
+      .pipe(take(1));
   }
 }

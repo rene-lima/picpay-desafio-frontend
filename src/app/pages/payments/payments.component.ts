@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { TrasactionsProps } from 'src/app/models/transaction.model';
 import { PaginationService } from 'src/app/services/pagination/pagination.service';
@@ -20,18 +21,28 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   pagedItems: TrasactionsProps[];
 
   totalItems: number;
- 
+
   sub: Subscription[] = [];
+
+  form: FormGroup;
+
+  openTransactionModal: boolean = false;
 
   queryField = new FormControl();
   limit = new FormControl(10);
 
+  transactionModalRef?: BsModalRef;
+  @ViewChild('transactionModal') transactionModal;
+
   constructor(
     private taskService: TaskService,
-    private paginationService: PaginationService
+    private paginationService: PaginationService,
+    private formBuilder: FormBuilder,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
+    this.createForm();
     this.getAll();
   }
 
@@ -75,11 +86,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.pager = this.paginationService.getPager(
-      this.totalItems,
-      page,
-      limit
-    );
+    this.pager = this.paginationService.getPager(this.totalItems, page, limit);
 
     this.sub.push(
       this.taskService
@@ -94,11 +101,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   setLimit() {
     let limit = this.limit.value;
 
-    this.pager = this.paginationService.getPager(
-      this.totalItems,
-      1,
-      limit
-    );
+    this.pager = this.paginationService.getPager(this.totalItems, 1, limit);
 
     this.sub.push(
       this.taskService
@@ -123,5 +126,30 @@ export class PaymentsComponent implements OnInit, OnDestroy {
       })
     );
   }
-  
+
+  openModalTransaction() {
+    this.transactionModalRef = this.modalService.show(this.transactionModal);
+  }
+
+  onDeclineTransaction() {
+    this.transactionModalRef?.hide();
+  }
+
+  onSubmit() {
+    this.taskService.create(this.form.value).subscribe(() => this.refresh() );
+    this.transactionModalRef?.hide();
+  }
+
+  createForm() {
+    this.form = this.formBuilder.group({
+      id: [null],
+      name: [null],
+      username: [null],
+      title: [null],
+      value: [null],
+      date: new FormControl(new Date()),
+      image: [null],
+      isPayed: [false],
+    });
+  }
 }

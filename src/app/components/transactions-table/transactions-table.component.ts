@@ -11,7 +11,7 @@ import { TrasactionsProps } from 'src/app/models/transaction.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TaskService } from 'src/app/services/task/task.service';
 import { Subscription } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 export interface ColumnsProps {
   name: string;
@@ -56,16 +56,7 @@ export class TransactionsTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      id: [null],
-      name: [null],
-      username: [null],
-      title: [null],
-      value: [null],
-      date: [null],
-      image: [null],
-      isPayed: [null],
-    });
+    this.createForm();
   }
 
   priceFormat(value) {
@@ -94,7 +85,6 @@ export class TransactionsTableComponent implements OnInit {
   }
 
   openModalTransaction(transaction?: TrasactionsProps) {
-    console.log(transaction);
     this.form.patchValue({
       id: transaction.id,
       name: transaction.name,
@@ -105,6 +95,7 @@ export class TransactionsTableComponent implements OnInit {
       image: transaction.image,
       isPayed: transaction.isPayed,
     });
+
     this.transactionModalRef = this.modalService.show(this.transactionModal);
   }
 
@@ -118,7 +109,20 @@ export class TransactionsTableComponent implements OnInit {
       this.taskService
         .update(this.form.value)
         .subscribe(() => this.refreshTransactionEmitter.emit(true));
-      this.transactionModalRef?.hide();
     }
+    this.transactionModalRef?.hide();
+  }
+
+  createForm() {
+    this.form = this.formBuilder.group({
+      id: [null],
+      name: [null],
+      username: [null],
+      title: [null],
+      value: [null],
+      date: [null],
+      image: [null],
+      isPayed: [null],
+    });
   }
 }
