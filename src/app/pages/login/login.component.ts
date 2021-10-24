@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { UserProps } from 'src/app/models/user.model';
 import { AccountService } from 'src/app/services/account/account.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private accountService: AccountService,
     private authService: AuthService
   ) {}
@@ -36,17 +35,20 @@ export class LoginComponent implements OnInit {
     this.sub.forEach((s) => s.unsubscribe());
   }
 
-
   onLogin(): void {
     if (this.form.valid) {
       this.user = this.form.value;
       this.sub.push(
-        this.accountService.getAccount(this.user).subscribe((response) => {
-          let apiUser = response[0];
-          if (apiUser) {
-            this.authService.authUser(this.user, apiUser)
-          }
-        })
+        this.accountService
+          .getAccount(this.user)
+          .pipe(
+            map(response => response[0]),
+          )
+          .subscribe((apiUser) => {
+            if (apiUser) {
+              this.authService.authUser(this.user, apiUser);
+            }
+          })
       );
     }
   }

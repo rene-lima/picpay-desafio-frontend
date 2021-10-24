@@ -27,4 +27,8 @@ export class TaskService {
   delete(id: number) {
     return this.http.delete(`${this.API}/${id}`).pipe(take(1));
   }
+
+  update(transaction: TrasactionsProps) {
+    return this.http.put(`${this.API}/${transaction.id}`, transaction).pipe(take(1));
+  }
 }

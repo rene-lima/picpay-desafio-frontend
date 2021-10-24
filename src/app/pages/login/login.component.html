@@ -1,17 +1,17 @@
 <div class="login-container">
   <section class="form">
     <img src="./assets/images/Logo.png" alt="Logo da marca" />
-    <form [formGroup]="form" >
+    <form [formGroup]="form">
       <h1>Bem vindo de volta</h1>
 
       <div class="input-container">
-        <input id="input" type="email" formControlName="email" required />
-        <label for="input" alt="E-mail" placeholder="E-mail"></label>
+        <input id="email" type="email" formControlName="email" required />
+        <label for="email" alt="E-mail" placeholder="E-mail"></label>
       </div>
 
       <div class="input-container">
-        <input id="input" type="password" formControlName="password" required />
-        <label for="input" alt="Senha" placeholder="Senha"></label>
+        <input id="password" type="password" formControlName="password" required />
+        <label for="password" alt="Senha" placeholder="Senha"></label>
       </div>
 
       <button class="button" type="submit" (click)="onLogin()">ENTRAR</button>

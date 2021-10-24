@@ -25,7 +25,7 @@ table {
       align-items: center;
       cursor: pointer;
 
-      p{        
+      p {
         margin-bottom: 0;
       }
 
@@ -84,7 +84,8 @@ table {
   }
 }
 
-.delete-modal {
+.delete-modal,
+.transaction-modal {
   padding: 40px 38px;
 
   p {
@@ -109,7 +110,15 @@ table {
 
   .button-container {
     margin-top: 52px;
-    text-align: center;
+
+    &.center {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
     button {
       width: 150px;
 
@@ -117,5 +126,12 @@ table {
         margin-left: 29px;
       }
     }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 0;
   }
 }
