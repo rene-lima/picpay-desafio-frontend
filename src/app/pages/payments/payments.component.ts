@@ -32,13 +32,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.sub.push(
-      this.taskService.listAll().subscribe((response) => {
-        this.transactions = response;
-        this.totalItems = response.length;
-        this.setPage(1);
-      })
-    );
+    this.getAll();
   }
 
   ngOnDestroy() {
@@ -116,4 +110,18 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     );
   }
 
+  refresh() {
+    this.getAll();
+  }
+
+  getAll() {
+    this.sub.push(
+      this.taskService.listAll().subscribe((response) => {
+        this.transactions = response;
+        this.totalItems = response.length;
+        this.setPage(1);
+      })
+    );
+  }
+  
 }

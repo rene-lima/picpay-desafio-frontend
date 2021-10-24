@@ -49,6 +49,7 @@
     </div>
     <app-transactions-table
       [transactions]="pagedItems"
+      (refreshTransactionEmitter)="refresh()"
     ></app-transactions-table>
   </section>
 </div>

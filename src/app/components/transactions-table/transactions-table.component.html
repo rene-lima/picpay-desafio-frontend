@@ -37,10 +37,36 @@
       </td>
       <td>
         <p class="actions">
-          <button><img src="./assets/images/pencil.png" alt="Editar pagamento" /></button>
-          <button><img src="./assets/images/delete.png" alt="Deletar pagamento" /></button>          
+          <button>
+            <img src="./assets/images/pencil.png" alt="Editar pagamento" />
+          </button>
+          <button (click)="openModalDelete(transaction)">
+            <img src="./assets/images/delete.png" alt="Deletar pagamento" />
+          </button>
         </p>
       </td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #deleteModal>
+  <div class="delete-modal modal-body">
+    <p class="modal-title">Excluir pagamento</p>
+
+    <p>Usuário: {{ deleteModalTransaction.name }}</p>
+    <p>Data: {{ deleteModalTransaction.date | date: 'dd/mm/YY' }}</p>
+    <p>Valor: {{ priceFormat(deleteModalTransaction.value) }}</p>
+
+    <div class="button-container">
+      <button (click)="onDeclineDelete()" class="button button--secondary">
+        CANCELAR
+      </button>
+      <button
+        (click)="onConfirmDelete(deleteModalTransaction.id)"
+        class="button"
+      >
+        SALVAR
+      </button>
+    </div>
+  </div>
+</ng-template>

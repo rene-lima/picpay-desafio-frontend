@@ -10,6 +10,8 @@ import { TransactionsTableComponent } from './components/transactions-table/tran
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './guards/auth.guard';
@@ -24,7 +26,8 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
