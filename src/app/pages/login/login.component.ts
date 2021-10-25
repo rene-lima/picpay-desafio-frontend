@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
 
   sub: Subscription[] = [];
 
+  alert: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
@@ -41,15 +43,17 @@ export class LoginComponent implements OnInit {
       this.sub.push(
         this.accountService
           .getAccount(this.user)
-          .pipe(
-            map(response => response[0]),
-          )
+          .pipe(map((response) => response[0]))
           .subscribe((apiUser) => {
             if (apiUser) {
               this.authService.authUser(this.user, apiUser);
+            } else {
+              this.alert = true;
             }
           })
       );
+    } else {
+      this.alert = true;
     }
   }
 }

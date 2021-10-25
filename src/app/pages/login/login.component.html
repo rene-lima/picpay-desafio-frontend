@@ -16,6 +16,11 @@
 
       <button class="button" type="submit" (click)="onLogin()">ENTRAR</button>
     </form>
+
+    <div class="alert alert-danger" role="alert" *ngIf="alert">
+      Erro ao acessar. Verifique seu E-mail e Senha!
+    </div>
+
   </section>
   <div class="image-container">
     <img src="./assets/images/man.png" alt="Homem ao lado de um poste de luz" />
