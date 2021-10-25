@@ -104,7 +104,6 @@ export class TransactionsTableComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
     if (this.form.value.id) {
       this.taskService
         .update(this.form.value)

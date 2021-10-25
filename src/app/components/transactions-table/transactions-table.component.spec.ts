@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { TaskService } from 'src/app/services/task/task.service';
 
 import { TransactionsTableComponent } from './transactions-table.component';
+
+class MockTaskService {}
 
 describe('TransactionsTableComponent', () => {
   let component: TransactionsTableComponent;
@@ -8,9 +13,13 @@ describe('TransactionsTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionsTableComponent ]
-    })
-    .compileComponents();
+      declarations: [TransactionsTableComponent],
+      providers: [
+        FormBuilder,
+        BsModalService,
+        { provide: TaskService, useClass: MockTaskService },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
