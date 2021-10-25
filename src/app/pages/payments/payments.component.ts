@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { TrasactionsProps } from 'src/app/models/transaction.model';
@@ -136,19 +141,22 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    let user = this.form.value;
-    user.name = user.username;
-    this.taskService.create(this.form.value).subscribe(() => this.refresh() );
-    this.transactionModalRef?.hide();
+    if (this.form.valid) {
+      let user = this.form.value;
+      user.name = user.username;
+      this.taskService.create(this.form.value).subscribe(() => this.refresh());
+      this.transactionModalRef?.hide();
+      this.createForm();
+    }
   }
 
   createForm() {
     this.form = this.formBuilder.group({
       id: [null],
       name: [null],
-      username: [null],
-      title: [null],
-      value: [null],
+      username: [null, Validators.required],
+      title: [null, Validators.required],
+      value: [0, Validators.required],
       date: new FormControl(new Date()),
       image: [null],
       isPayed: [false],
