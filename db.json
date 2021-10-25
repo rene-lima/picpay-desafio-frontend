@@ -1397,36 +1397,6 @@
       "name": "usuario",
       "email": "usuario@gmail.com",
       "password": "usuario"
-    },
-    {
-      "params": {
-        "email": "usuario@gmail.com"
-      },
-      "id": 1
-    },
-    {
-      "params": {
-        "email": "com"
-      },
-      "id": 2
-    },
-    {
-      "params": {
-        "email": "usuario@gmail.com"
-      },
-      "id": 3
-    },
-    {
-      "params": {
-        "email": "usuario@gmail.com"
-      },
-      "id": 4
-    },
-    {
-      "params": {
-        "email": "usuario@gmail.com"
-      },
-      "id": 5
     }
   ]
 }
