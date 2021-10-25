@@ -4,6 +4,8 @@ header {
   display: flex;
   justify-content: space-between;
   background: #002D69;
+  position: fixed;
+  z-index: 999;
 
   .logo-container {
     margin: auto 0 auto 30px;

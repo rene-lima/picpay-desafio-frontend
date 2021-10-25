@@ -136,6 +136,8 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    let user = this.form.value;
+    user.name = user.username;
     this.taskService.create(this.form.value).subscribe(() => this.refresh() );
     this.transactionModalRef?.hide();
   }
