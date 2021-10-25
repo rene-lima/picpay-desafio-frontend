@@ -137,6 +137,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
   }
 
   onDeclineTransaction() {
+    this.createForm();
     this.transactionModalRef?.hide();
   }
 
@@ -157,7 +158,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
       username: [null, Validators.required],
       title: [null, Validators.required],
       value: [0, Validators.required],
-      date: new FormControl(new Date()),
+      date: [null, Validators.required],
       image: [null],
       isPayed: [false],
     });
