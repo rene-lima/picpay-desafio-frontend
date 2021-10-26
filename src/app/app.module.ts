@@ -8,15 +8,18 @@ import { LoginComponent } from './modules/login/components/login.component';
 import { FormsModule } from '@angular/forms';
 import { AlertMessage } from './shared/messages/alert/alert.message';
 import { CommonModule } from '@angular/common';
+import { ModalWithInput } from './shared/messages/modal-with-input/modal-with-input.message';
 
 @NgModule({
   declarations: [	
     AppComponent,
     LoginComponent,
-    AlertMessage
+    AlertMessage,
+    ModalWithInput
   ],
   entryComponents: [
-    AlertMessage
+    AlertMessage, 
+    ModalWithInput
   ],
   imports: [
     CommonModule, 

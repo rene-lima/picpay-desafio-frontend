@@ -1,4 +1,4 @@
-export class PaymentItem {
+export class PaymentItemModel {
     id: number;
     name: string;
     username: string;

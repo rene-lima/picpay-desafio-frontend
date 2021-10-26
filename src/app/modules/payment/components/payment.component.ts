@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlertMessage } from 'src/app/shared/messages/alert/alert.message';
+import { ModalWithInput } from 'src/app/shared/messages/modal-with-input/modal-with-input.message';
+import { PaymentItemModel } from 'src/app/shared/models/payment/payment-item.model';
 import { PaymentService } from 'src/app/shared/services/payment/payment.service';
 
 @Component({
@@ -13,22 +15,26 @@ import { PaymentService } from 'src/app/shared/services/payment/payment.service'
 export class PaymentComponent implements OnInit {
 
   displayedColumns: string[] = ['usuario', 'titulo', 'data', 'valor', 'pago', 'acoes'];
-  public dataSource: MatTableDataSource<PaymentItem>;
+  public dataSource: MatTableDataSource<PaymentItemModel>;
+  public listItens: Array<PaymentItemModel>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private paymentService: PaymentService,
     public dialog: MatDialog
-  ) { }
+  ) {
+    this.listItens = new Array<PaymentItemModel>();
+  }
 
   ngOnInit(): void {
     this.getPayments();
   }
 
   public getPayments(): void {
-    this.paymentService.getPayments().subscribe((res: Array<PaymentItem>) => {
-      this.dataSource = new MatTableDataSource<PaymentItem>(res);
+    this.paymentService.getPayments().subscribe((res: Array<PaymentItemModel>) => {
+      this.listItens = res;
+      this.dataSource = new MatTableDataSource<PaymentItemModel>(res);
       this.dataSource.paginator = this.paginator;
     }, err => {
       if (err.status == 400) {
@@ -45,7 +51,19 @@ export class PaymentComponent implements OnInit {
     return new Date(date).toLocaleString();
   }
 
-  public delete() {
-    
+  public delete(item: PaymentItemModel) {
+
+    const dialogRef = this.dialog.open(ModalWithInput, {
+      width: '350px', data: { title: 'Excluir pagamento', content: item }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        let index = this.listItens.indexOf(item);
+        this.listItens.splice(index, 1);
+        this.dataSource = new MatTableDataSource<PaymentItemModel>(this.listItens);
+        this.dataSource.paginator = this.paginator;
+      }
+    });
   }
 }

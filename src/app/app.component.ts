@@ -28,11 +28,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-
   loadingUserData(user: User) {
-
     this.isAuth = user.success;
-
     if (this.isAuth) {
       this.profileService.createProfile(user);
       this.router.navigate(['/payments']);
