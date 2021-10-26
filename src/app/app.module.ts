@@ -3,19 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './modules/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './modules/login/components/login.component';
+import { FormsModule } from '@angular/forms';
+import { AlertMessage } from './shared/messages/alert/alert.message';
+
 @NgModule({
   declarations: [	
     AppComponent,
-    HomeComponent
-   ],
+    LoginComponent,
+    AlertMessage
+  ],
+  entryComponents: [
+    AlertMessage
+  ],
   imports: [
     BrowserModule, 
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

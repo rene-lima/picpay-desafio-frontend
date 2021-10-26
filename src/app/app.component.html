@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<app-login *ngIf="!this.isAuth" (userData)="loadingUserData($event)"></app-login>
+
+<div *ngIf="this.isAuth">
+    <router-outlet></router-outlet>
+</div>

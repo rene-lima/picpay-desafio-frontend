@@ -11,9 +11,11 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
   
-  public login(userLogin: User): Observable<User>{
+  public login(userLogin: User): Observable<User> {
+
     return this.httpClient.get('http://localhost:3000/account').pipe(map( (response: Response) => {
-      let users: Array<User> = response[0];
+      let users = new Array<User>();
+      users.push(response[0]);
       return this.mockToValidationUser(users, userLogin);
     }))
   }
@@ -22,7 +24,7 @@ export class LoginService {
     let user = new User();
 
     if (users.length > 0) {
-      user = users.find(x => x.name == userLogin.name && x.password == userLogin.password)
+      user = users.find(x => x.email == userLogin.email && x.password == userLogin.password);
     }
 
     return user;

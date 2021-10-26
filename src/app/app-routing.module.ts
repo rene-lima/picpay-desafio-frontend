@@ -1,27 +1,21 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./modules/home/home.component";
+import { LoginComponent } from "./modules/login/components/login.component";
+import { AuthGuard } from "./shared/infra/auth.guard";
+import { LoadGuard } from "./shared/infra/load.guard";
 
 const routes: Routes = [
     {
-        path: 'home',
-        component: HomeComponent,
-        canLoad: [],
-        canActivate: []
-    },
-    {
         path: 'login',
-        loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
-        canLoad: [],
-        canActivate: []
-    },    
-    {
-        path: 'payment',
-        loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule),
-        canLoad: [],
-        canActivate: []
+        component: LoginComponent
     },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    {
+        path: 'payments',
+        loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule),
+        canLoad: [LoadGuard],
+        canActivate: [AuthGuard]
+    },
+    { path: '', redirectTo: 'payments', pathMatch: 'full' }
 ];
 
 @NgModule({

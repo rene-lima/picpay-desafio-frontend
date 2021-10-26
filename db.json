@@ -1706,7 +1706,8 @@
         "id": 0,
         "name": "usuario",
         "email": "usuario@gmail.com",
-        "password": "usuario"
+        "password": "usuario",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVEYXRlIjoiMjAyMS0xMS0xMFQwMTozNToyNi42Nzg0NzErMDA6MDAiLCJleHAiOjE2MzY1MTAxNTAsImlkIjoiMCIsIm5hbWUiOiJ1c3VhcmlvIiwiZW1haWwiOiJ1c3VhcmlvQGdtYWlsLmNvbSJ9.rC4RYSAHXbP8CZJglCwBITgZgbGC-dBkyze7607NFSc"
       }
     ]
   }
