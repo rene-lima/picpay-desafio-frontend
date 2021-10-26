@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaymentComponent } from './components/payment.component';
 import { PaymentRoutingModule } from './payment.routes';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     PaymentComponent
   ],
   imports: [
+    FormsModule,
     PaymentRoutingModule, 
     SharedModule
   ]

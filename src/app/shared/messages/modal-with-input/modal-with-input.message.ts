@@ -12,10 +12,6 @@ export class ModalWithInput {
   constructor(public dialog: MatDialogRef<ModalWithInput>,
     @Inject(MAT_DIALOG_DATA) public data: any )  {}
 
-  openDialog() {
-    this.dialog.close();
-  }
-
   delete() {
       this.dialog.close(true);
   }

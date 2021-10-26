@@ -9,17 +9,20 @@ import { FormsModule } from '@angular/forms';
 import { AlertMessage } from './shared/messages/alert/alert.message';
 import { CommonModule } from '@angular/common';
 import { ModalWithInput } from './shared/messages/modal-with-input/modal-with-input.message';
+import { ItemModal } from './shared/messages/form/payment/item-modal.message';
 
 @NgModule({
   declarations: [	
     AppComponent,
     LoginComponent,
     AlertMessage,
-    ModalWithInput
+    ModalWithInput,
+    ItemModal
   ],
   entryComponents: [
     AlertMessage, 
-    ModalWithInput
+    ModalWithInput,
+    ItemModal
   ],
   imports: [
     CommonModule, 

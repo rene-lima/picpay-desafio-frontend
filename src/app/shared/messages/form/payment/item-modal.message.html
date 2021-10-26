@@ -1,0 +1,31 @@
+<style>
+    .w-100 {
+        width: 100%;
+    }
+</style>
+<h3 mat-dialog-title> {{ data.title }} </h3>
+<div mat-dialog-content>
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Usuário</mat-label>
+        <input matInput type="text" [(ngModel)]="this.item.username">
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Valor</mat-label>
+        <input matInput type="text" [(ngModel)]="this.item.value">
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Data</mat-label>
+        <input matInput type="date" [(ngModel)]="this.item.date">
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Título</mat-label>
+        <input matInput type="text" [(ngModel)]="this.item.title">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions lign="center">
+    <button mat-dialog-close mat-raised-button>Cancelar</button>
+    <button mat-dialog-close mat-raised-button color="primary">Adicionar</button>
+</div>

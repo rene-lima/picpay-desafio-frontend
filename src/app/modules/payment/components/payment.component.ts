@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlertMessage } from 'src/app/shared/messages/alert/alert.message';
+import { ItemModal } from 'src/app/shared/messages/form/payment/item-modal.message';
 import { ModalWithInput } from 'src/app/shared/messages/modal-with-input/modal-with-input.message';
 import { PaymentItemModel } from 'src/app/shared/models/payment/payment-item.model';
 import { PaymentService } from 'src/app/shared/services/payment/payment.service';
@@ -17,6 +18,8 @@ export class PaymentComponent implements OnInit {
   displayedColumns: string[] = ['usuario', 'titulo', 'data', 'valor', 'pago', 'acoes'];
   public dataSource: MatTableDataSource<PaymentItemModel>;
   public listItens: Array<PaymentItemModel>;
+  public bkpListItens: Array<PaymentItemModel>;
+  public textTofilter: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -25,6 +28,8 @@ export class PaymentComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.listItens = new Array<PaymentItemModel>();
+    this.bkpListItens = new Array<PaymentItemModel>();
+    this.textTofilter = '';
   }
 
   ngOnInit(): void {
@@ -34,6 +39,7 @@ export class PaymentComponent implements OnInit {
   public getPayments(): void {
     this.paymentService.getPayments().subscribe((res: Array<PaymentItemModel>) => {
       this.listItens = res;
+      this.bkpListItens = JSON.parse(JSON.stringify(res));
       this.dataSource = new MatTableDataSource<PaymentItemModel>(res);
       this.dataSource.paginator = this.paginator;
     }, err => {
@@ -65,5 +71,32 @@ export class PaymentComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
       }
     });
+  }
+
+  public add() {
+
+    const dialogRef = this.dialog.open(ItemModal, {
+      width: '350px', data: { title: 'Adicionar Usuário' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
+  public filter() {
+
+
+    console.log('sasa');
+    this.listItens = this.bkpListItens;
+
+    this.listItens = this.listItens.filter(x =>
+      x.username.toLocaleLowerCase().includes(this.textTofilter.toLocaleLowerCase()) ||
+      x.title.toLocaleLowerCase().includes(this.textTofilter.toLocaleLowerCase()) ||
+      x.value.toString().includes(this.textTofilter));
+
+    this.dataSource = new MatTableDataSource<PaymentItemModel>(this.listItens);
+    this.dataSource.paginator = this.paginator;
+
   }
 }
