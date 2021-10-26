@@ -1,4 +1,31 @@
-.content-wrapper {
-    margin-top: 90px;
-    height: 100%;
+table {
+    width: 100%;
+}
+
+.main {
+    margin: 117px 5% 5% 8%;
+}
+
+.main .title {
+    margin-top: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.main .title h2 {
+    margin: 0;
+}
+
+.main .add-item {
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+}
+
+.main .add-item button {
+    float: right;
+}
+
+.payments-table {
+    padding: 0px 0 70px 0;
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaymentComponent } from './components/payment.component';
 import { PaymentRoutingModule } from './payment.routes';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { PaymentRoutingModule } from './payment.routes';
     PaymentComponent
   ],
   imports: [
-    PaymentRoutingModule
+    PaymentRoutingModule, 
+    SharedModule
   ]
 })
 export class PaymentModule { }
