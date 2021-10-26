@@ -12,7 +12,7 @@ import { PaymentService } from 'src/app/shared/services/payment/payment.service'
 })
 export class PaymentComponent implements OnInit {
 
-  displayedColumns: string[] = ['usuario', 'titulo', 'data', 'valor', 'pago'];
+  displayedColumns: string[] = ['usuario', 'titulo', 'data', 'valor', 'pago', 'acoes'];
   public dataSource: MatTableDataSource<PaymentItem>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -45,4 +45,7 @@ export class PaymentComponent implements OnInit {
     return new Date(date).toLocaleString();
   }
 
+  public delete() {
+    
+  }
 }
