@@ -86,8 +86,6 @@ export class PaymentComponent implements OnInit {
 
   public filter() {
 
-
-    console.log('sasa');
     this.listItens = this.bkpListItens;
 
     this.listItens = this.listItens.filter(x =>
