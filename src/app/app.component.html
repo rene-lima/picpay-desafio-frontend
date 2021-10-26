@@ -1,5 +1,15 @@
 <app-login *ngIf="!this.isAuth" (userData)="loadingUserData($event)"></app-login>
 
-<div *ngIf="this.isAuth">
-    <router-outlet></router-outlet>
+<div class="h-100" *ngIf="this.isAuth">
+    <div class="header">
+        <div class="logo right">
+            <img src="./assets/img/logo-branco.svg">
+        </div>
+        <div class="profile">
+            <img src="./assets/img/profile.png">
+        </div>
+    </div>
+    <div class="h-100">
+        <router-outlet></router-outlet>
+    </div>
 </div>

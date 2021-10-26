@@ -1,0 +1,27 @@
+.header {
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    background: #002D69;
+    padding: 25px 40px;
+}
+
+.h-100 {
+    height: 100%
+}
+
+.header .logo {
+    height: 100%;
+    display: inline;
+}
+
+.header .logo img {
+    width: 156px;
+    height: 100%;
+}
+
+.header .profile {
+    float: right;
+}
