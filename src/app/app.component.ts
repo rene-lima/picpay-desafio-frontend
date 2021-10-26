@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
   logout() {
     window.sessionStorage.removeItem('token');
     window.sessionStorage.removeItem('profile');
+    this.isAuth = false;
 
     this.router.navigate(['/login']);
   }

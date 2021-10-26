@@ -7,9 +7,12 @@
         </div>
         <div class="profile">
             <img src="./assets/img/profile.png">
+            <div class="logout">
+                <mat-icon class="icon" (click)="logout()">logout</mat-icon>
+            </div>
         </div>
     </div>
-    <div class="h-100">
+    <div class="h-100 overflow-h">
         <router-outlet></router-outlet>
     </div>
 </div>
