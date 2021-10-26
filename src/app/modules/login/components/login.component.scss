@@ -1,34 +1,136 @@
-.sc-login {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
+@media screen and  (min-width: 1025px ) {
+    .sc-login {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .f-login {
+        background-color: #F2F2F2;
+        display: flex;
+        flex-direction: column;
+        width: 37.5%;
+        padding: 250px 6%;
+    }
+    
+    .f-login img {
+        width: 44%;
+    }
+    
+    .f-login p {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    
+    .f-login .loading-login {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    
+    .img-login {
+        width: 62.5%;
+        padding: 176px 3%;
+    }
+    
+    .img-login img {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        width: 700px;
+    }
 }
 
-.f-login {
-    background-color: #F2F2F2;
-    display: flex;
-    flex-direction: column;
-    width: 37.5%;
-    padding: 273px 6%;
+@media screen and  (min-width: 769px) and (max-width: 1024px) {
+    .sc-login {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .f-login {
+        background-color: #F2F2F2;
+        display: flex;
+        flex-direction: column;
+        width: 37.5%;
+        padding: 180px 3%;
+    }
+    
+    .f-login img {
+        width: 44%;
+    }
+    
+    .f-login p {
+        font-size: 28px;
+        font-weight: 600;
+    }
+    
+    .f-login .loading-login {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    
+    .img-login {
+        width: 62.5%;
+        padding: 200px 3%;
+    }
+    
+    .img-login img {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+    }
 }
 
-.f-login img {
-    width: 44%;
-}
-
-.f-login p {
-    font-size: 32px;
-    font-weight: 600;
-}
-
-.img-login {
-    width: 62.5%;
-    padding: 200px 3%;
-}
-
-.img-login img {
-    display: block;
-    margin: 0 auto;
-    height: auto;
-    width: 100%;
+@media screen and  (min-width: 320px) and (max-width: 768px) {
+    .sc-login {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .f-login {
+        background-color: #F2F2F2;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 180px 10%;
+    }
+    
+    .f-login img {
+        width: 150px;
+    }
+    
+    .f-login p {
+        font-size: 28px;
+        font-weight: 600;
+    }
+    
+    .f-login .loading-login {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    
+    .img-login {
+        display: none;
+    }
+    
+    .img-login img {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+    }
 }

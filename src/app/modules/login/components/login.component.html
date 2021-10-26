@@ -2,15 +2,24 @@
     <div class="f-login">
         <img src="./assets/img/logo-azul.svg">
         <p>Bem vindo de volta</p>
-        <mat-form-field appearance="outline">
+        
+        
+        <mat-form-field appearance="outline" [class.mat-form-field-invalid]="this.user.email && !this.verifyEmail()">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput type="email" placeholder="Ex. example@example.com" [(ngModel)]="user.email">
+            <mat-hint class="mat-error" *ngIf="this.user.email && !this.verifyEmail()">
+                <strong>E-mail inválido</strong>
+            </mat-hint>
         </mat-form-field>
+        
         <mat-form-field appearance="outline">
             <mat-label>Senha</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput type="password" [(ngModel)]="user.password">
         </mat-form-field>
-        <button mat-raised-button color="primary">Entrar</button>
+        <button mat-raised-button color="primary" (click)="this.login()" *ngIf="!this.loadingLogin">Entrar</button>
+        <div class="loading-login" *ngIf="this.loadingLogin">
+            <mat-progress-spinner color="primary" diameter="50" mode="indeterminate"></mat-progress-spinner>
+        </div>
     </div>
     <div class="img-login">
         <img src="./assets/img/man-doing-online-payment.svg">
