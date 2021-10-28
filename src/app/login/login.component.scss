@@ -1,0 +1,134 @@
+/* Containnr */
+.bg-login{
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+/* Form inteiro do login */
+.form-login{
+    position: absolute;
+    right: 0; 
+    width: 540px;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: #F2F2F2;
+    padding: 12% 6%;
+}
+
+/* Logo - PayFriends */
+.form-login img{
+    height: 8%;
+}
+
+ /* Bem vindo de volta */
+.form-login p{
+    height: 10%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+
+    color: #333333;
+}
+
+/* Inputs */
+.form-field{
+    width: 90%;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 17px;
+    border-radius: 3px;
+}
+
+/* Button */
+.form-button{
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 90%;
+    background: #007DFE;
+    border-radius: 4px;
+    font-family:  Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    /* 03. On Primary / High Emphasis */
+
+    color: #FFFFFF;
+}
+
+/* Div - imagem grande */
+.img-login{    
+    padding: 100px 55%;
+}
+
+/* Presets */
+.img-login img {
+    display: block;
+    margin: 10% auto;
+    height: 90%;
+}
+
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media screen and (max-width:320px) { 
+    
+    .img-login{
+        display: none;
+    }
+ }
+
+/* smartphones, Android phones, landscape iPhone */
+@media screen and (max-width:480px) { 
+    .img-login{
+        display: none;
+    }
+ }
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media screen and (max-width:600px) { 
+    .img-login{
+        display: none;
+    }
+ }
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (max-width:768px) { 
+    .form-login{
+        width: 100% !important;
+    }
+
+    .img-login{
+        display: none;
+    }
+ }
+
+/* big landscape tablets, laptops, and desktops */
+@media screen and (max-width:1024px) {
+    .form-login{      
+        width: 440px;     
+        padding: 40% 3%;  
+    }
+
+    .img-login{
+        padding: 30% 45%;
+    }
+
+    .img-login img{
+        height: 60%;
+    }
+  }
