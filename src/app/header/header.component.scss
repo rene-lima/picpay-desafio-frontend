@@ -1,0 +1,27 @@
+.header{
+    width: 100%;
+    height: 90px;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    background: #002D69;
+}
+
+.logo-header {
+    position:relative;
+    left: 5%;
+    top: 35%;
+}
+
+.avatar-header{
+    position: relative;
+    left: 93%;
+}
+
+.avatar-btn{
+    background: url('../../assets/img/avatar.png') no-repeat top left ;
+    border-radius: 50% 50% 50% 50%;
+    border: none;
+    width: 45px;
+    height: 45px;   
+}

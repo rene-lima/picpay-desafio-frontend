@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 @NgModule({
     imports: [
@@ -14,7 +18,9 @@ import { MatInputModule } from '@angular/material/input';
         ReactiveFormsModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatMenuModule,
+        MatIconModule
     ],
     exports: [
         CommonModule,
@@ -22,7 +28,9 @@ import { MatInputModule } from '@angular/material/input';
         ReactiveFormsModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatMenuModule,
+        MatIconModule
     ]
 })
 

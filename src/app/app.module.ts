@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
-import { PaymentsComponent } from './payments/payments.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { PaymentsComponent } from './payments/payments.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    PaymentsComponent
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
