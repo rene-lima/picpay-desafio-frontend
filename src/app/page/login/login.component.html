@@ -1,4 +1,5 @@
 <div class="main">
+    <app-loading-spinner [loading]="loading"></app-loading-spinner>
     <div class="columnLogin">
         <div class="columnLeft">
             <app-login-form (formLoginEmit)="loginHandler($event)"></app-login-form>

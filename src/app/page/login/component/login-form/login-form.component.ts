@@ -28,8 +28,8 @@ export class LoginFormComponent implements OnInit {
 
   emitLogin() {
     const login = {
-      email: this.form.get('Email').value,
-      password: this.form.get('Password').value
+      email: this.form.get('email').value,
+      password: this.form.get('password').value
     };
     this.formLoginEmit.emit(login);
   }
