@@ -1,7 +1,7 @@
 <div class="main">
     <div class="columnLogin">
         <div class="columnLeft">
-            <app-login-form></app-login-form>
+            <app-login-form (formLoginEmit)="loginHandler($event)"></app-login-form>
         </div>
         <div class="columnRight">
             <img src="assets/img/login.png" alt="imagem ilustrativa"/>

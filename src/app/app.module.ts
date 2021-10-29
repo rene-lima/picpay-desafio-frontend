@@ -4,17 +4,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './page/login/login.module';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {CommonModule} from '@angular/common';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent,
    ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

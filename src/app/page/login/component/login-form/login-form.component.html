@@ -1,17 +1,22 @@
 <fieldset>
     <h1><span>Pay</span>Friends</h1>
     <h2>Bem vindo de volta</h2>
-    <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput>
-    </mat-form-field>
+        <form [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="Email" >
+                <mat-error *ngIf="form.get('Email').invalid">Digite um email valido por favor!</mat-error>
+            </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" >
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Entrar</button>
+
+            <mat-form-field appearance="outline" >
+                <mat-label >Senha</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" class="input" formControlName="Password">
+                <mat-error *ngIf="form.get('Password').invalid">Digite a senha por favor!</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" >
+                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            <button [disabled]="form.invalid" (click)="emitLogin()" mat-raised-button color="primary" class="botao">Entrar</button>
+        </form>
 </fieldset>

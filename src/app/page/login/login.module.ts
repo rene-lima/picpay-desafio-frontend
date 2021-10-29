@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { LoginFormComponent } from './component/login-form/login-form.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {MaterialModule} from '../../material.module';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,11 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   exports: [LoginFormComponent],
   imports: [
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule
-  ]
+    BrowserModule,
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
 })
 export class LoginModule { }

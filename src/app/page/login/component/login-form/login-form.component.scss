@@ -1,18 +1,22 @@
 fieldset {
   border: none;
-  display: flex;
-  flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
   h1 {
     font-family: "Montserrat";
     font-size: 2rem;
     line-height: 29px;
     color: #2f82dd;
     font-weight: unset;
+
     span {
       font-weight: 1000;
       color: #002d69;
     }
   }
+
   h2 {
     font-family: "Montserrat";
     font-size: 2.5rem;
@@ -21,3 +25,48 @@ fieldset {
     margin-top: 0;
   }
 }
+
+  ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: #f44336 !important;
+    opacity: 0.8!important;
+  }
+
+
+  ::ng-deep .mat-input-element {
+    caret-color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: #f44336 !important;
+  }
+
+
+  ::ng-deep .mat-form-field-label {
+    color: rgba(0,0,0,.6)!important;
+    // color: $mainColor!important;
+  }
+
+
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #f44336 !important;
+  }

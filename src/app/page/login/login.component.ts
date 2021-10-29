@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginDTO } from '../../../core/DTO/loginDTO';
 
 @Component({
   selector: 'app-login',
@@ -12,4 +13,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loginHandler(login: LoginDTO) {
+  }
 }
