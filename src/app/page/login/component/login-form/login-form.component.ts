@@ -21,15 +21,15 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      Password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
   }
 
   emitLogin() {
     const login = {
-      Email: this.form.get('Email').value,
-      Password: this.form.get('Password').value
+      email: this.form.get('Email').value,
+      password: this.form.get('Password').value
     };
     this.formLoginEmit.emit(login);
   }
