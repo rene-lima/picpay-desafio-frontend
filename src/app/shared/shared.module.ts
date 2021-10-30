@@ -8,7 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -20,7 +22,10 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatInputModule,
         MatMenuModule,
-        MatIconModule
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule
     ],
     exports: [
         CommonModule,
@@ -30,7 +35,10 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatInputModule,
         MatMenuModule,
-        MatIconModule
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule
     ]
 })
 

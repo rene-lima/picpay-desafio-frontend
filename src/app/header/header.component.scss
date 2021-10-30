@@ -25,3 +25,32 @@
     width: 45px;
     height: 45px;   
 }
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (max-width:768px) { 
+    .avatar-header{
+        left: 92%;
+    }
+ }
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media screen and (max-width:600px) { 
+    .avatar-header{
+        left: 90%;
+    }
+ }
+
+ /* smartphones, Android phones, landscape iPhone */
+@media screen and (max-width:480px) { 
+    .avatar-header{
+        left: 85%;
+    }
+ }
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media screen and (max-width:320px) {     
+    .avatar-header{
+        left: 80%;
+    }
+ }
+

@@ -1,0 +1,35 @@
+<h5 class="title-dialog font-weight-bold">Adicionar Pagamento</h5>
+<mat-dialog-content class="mat-typography">
+    <div class="row d-flex">
+        <div class="col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Usuário</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Valor</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row d-flex">
+        <div class="col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Data</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Título</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button class="btn-save" [mat-dialog-close]="true" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>

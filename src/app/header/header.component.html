@@ -1,18 +1,24 @@
+<!-- HEADER -->
 <header class="header">
+    <!-- LOGO PAYFRIENDS -->
     <div class="logo-header">
         <img src="../../assets/img/logo-white.png" />
     </div>
 
+    <!-- AvVATAR USER AND MENU -->
     <div class="avatar-header">
         <button class="avatar-btn" [matMenuTriggerFor]="menu">
         </button>
         <mat-menu #menu="matMenu">
+            <!-- MY PROFILE -->
             <button mat-menu-item>
                 <mat-icon>
                     manage_accounts
                 </mat-icon>
                 <span>My profile</span>
             </button>
+
+            <!-- LOGOUT -->
             <button mat-menu-item>
                 <mat-icon>
                     logout
