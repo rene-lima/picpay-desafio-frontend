@@ -1,7 +1,7 @@
 <fieldset>
     <h1><span>Pay</span>Friends</h1>
     <h2>Bem vindo de volta</h2>
-        <form [formGroup]="form">
+        <form [formGroup]="form" class="input">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" >
@@ -18,6 +18,6 @@
                 <mat-error *ngIf="form.get('password').invalid">Digite a senha por favor!</mat-error>
                 </mat-form-field>
 
-            <button type="submit" [disabled]="form.invalid" (click)="emitLogin()" mat-raised-button color="primary" class="botao">Entrar</button>
+            <button type="submit" [disabled]="form.invalid" (click)="emitLogin()" mat-raised-button  class="button">Entrar</button>
         </form>
 </fieldset>

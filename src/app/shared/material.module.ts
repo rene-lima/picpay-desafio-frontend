@@ -38,11 +38,13 @@ import { MatTableModule } from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,

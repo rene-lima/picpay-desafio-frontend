@@ -4,8 +4,9 @@
 
 h2 {
   font-size: 36px;
-  margin-top: 30px;
-  margin-left: 2%;
+  margin-top: 65px;
+  margin-bottom: 65px;
+  margin-left: 1.5%;
   font-weigth: 600;
 }
 .centerTable {
@@ -41,7 +42,8 @@ table {
 }
 
 .line {
-  border-bottom: 2px solid #CFDCE5;;
+  border-bottom: 2px solid #CFDCE5;
+  width: 102.5%;
 }
 
 .titleColumn {
@@ -55,4 +57,66 @@ table {
   margin-top: 10px;
 }
 
-::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+.input {
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+
+
+  ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: #f44336 !important;
+    opacity: 0.8!important;
+  }
+
+
+  ::ng-deep .mat-input-element {
+    caret-color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: #f44336 !important;
+  }
+
+
+  ::ng-deep .mat-form-field-label {
+    color: rgba(0,0,0,.6)!important;
+    // color: $mainColor!important;
+  }
+
+
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.12)!important;
+  }
+
+
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #f44336 !important;
+  }
+}
+
+.buttonSettings {
+  background-color: #E6ECF0;
+  color: #2D3540;
+  height: 25px;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: -50px;
+  line-height: 20px;
+  bottom: 6px;
+  mat-icon {
+    margin-bottom: 2.5px;
+  }
+}
