@@ -8,10 +8,11 @@ import {CommonModule} from '@angular/common';
 import { MaterialModule } from './shared/material.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {UrlInterceptor} from "./core/interceptor/url.interceptor";
+import { MyPaymentComponent } from './page/my-payment/my-payment.component';
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent,
+    AppComponent, LoginComponent, MyPaymentComponent,
    ],
   imports: [
     CommonModule,

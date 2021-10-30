@@ -37,10 +37,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ToolbarComponent
   ],
   imports: [
     CommonModule,
@@ -117,7 +119,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ToolbarComponent
   ]
 })
 export class MaterialModule { }
