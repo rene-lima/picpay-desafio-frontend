@@ -16,7 +16,6 @@ export class LoginFormComponent implements OnInit {
   form: FormGroup;
 
   @Output() formLoginEmit = new EventEmitter<LoginDTO>();
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
