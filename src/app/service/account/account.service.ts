@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {AccountDTO} from '../../core/DTO/accountDTO';
-import {LoginDTO} from "../../core/DTO/loginDTO";
-import {Observable} from "rxjs";
+import {LoginDTO} from '../../core/DTO/loginDTO';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

@@ -1,19 +1,24 @@
 .payment {
   background-color: #f2f2f2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 h2 {
   font-size: 36px;
   margin-top: 65px;
-  margin-bottom: 65px;
+  margin-bottom: 45px;
   margin-left: 1.5%;
   font-weigth: 600;
+  width:25%;
 }
 
 .centerTable {
   display: flex;
   width:100%;
-  height: calc(82.4% - 90px);
+  height: calc(82.4% - 119px);
   flex-direction: row;
   justify-content: center;
   margin: 0;
@@ -41,11 +46,75 @@ table {
       cursor: pointer;
     }
   }
-}
+  tbody {
+    display: unset;
+    width: 100%;
+  }
+  tr {
+    display: inline-block;
+    width: 100%;
+  }
+  td {
+    display: inline-block;
+    word-wrap: initial;
+    height: 81px;
+    p {
+      margin-top: 25px;
+    }
+  }
+  mat-checkbox {
+   margin-top: 25px;
 
+  }
+  .user {
+    width: 14%;
+    margin-left: 20px;
+    margin-right: 14px;
+  }
+  .title {
+    width: 14%;
+  }
+  .date {
+    width: 13.5%;
+  }
+  .value {
+    width: 14%;
+  }
+
+  .payed {
+    margin-left: 10px;
+  }
+
+  .actions {
+    width: 41.1%;
+  }
+
+}
+.checkBox {
+  ::ng-deep .mat-checkbox-checked.mat-accent {
+    .mat-checkbox-ripple .mat-ripple-element {
+      background-color: #007DFE !important;
+    }
+
+    .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+      background-color: #007DFE;
+    }
+  }
+
+  ::ng-deep .mat-checkbox.mat-accent {
+    .mat-checkbox-ripple .mat-ripple-element {
+      background-color: #007DFE !important;
+    }
+  }
+
+  ::ng-deep .mat-checkbox-background {
+    background-color: #007DFE;
+  }
+
+}
 .line {
   border-bottom: 2px solid #CFDCE5;
-  width: 102.5%;
+  width: 100%;
 }
 
 .titleColumn {
@@ -127,4 +196,21 @@ table {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.rowPainted {
+  background-color: #F5F8FA;
+}
+
+.DivButtonAddPayment {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.buttonAddPayment {
+  margin-right: 40px;
+  width: 230px;
+  height: 36px;
 }

@@ -1,6 +1,11 @@
 <div class="main payment">
     <app-toolbar></app-toolbar>
     <h2>Meus pagamentos</h2>
+    <div class="DivButtonAddPayment">
+        <button class="button buttonAddPayment" mat-raised-button>
+            ADICIONAR PAGAMENTO
+        </button>
+    </div>
     <div class="centerTable">
         <div class="table">
 
@@ -18,7 +23,6 @@
                 </div>
                 <app-paginator style="margin-right: 25px; margin-top: 10px;"></app-paginator>
             </div>
-
             <table>
                 <thead>
                     <th>
@@ -56,13 +60,23 @@
                 </thead>
                 <div class="line"></div>
                 <tbody>
-                    <ng-container>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                    <ng-container *ngFor="let task of tasks; let index = index">
+                        <tr [ngClass]="(index+1)%2 === 0 ? 'rowPainted': ''">
+                            <td class="user"><p>{{ task.name }}</p></td>
+                            <td class="title"><p>{{ task.title }}</p></td>
+                            <td class="date"><p>{{ task.date | date: 'dd MMM yyyy'}}</p></td>
+                            <td class="value"><p>{{ task.value | currency: 'R$'}}</p></td>
+                            <td class="payed">
+                                <div class="checkBox">
+                                    <mat-checkbox [checked]="task.isPayed" class="example-margin"></mat-checkbox>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <div style="margin-left: 70%">
+                                    <mat-icon matSuffix>edit</mat-icon>
+                                    <mat-icon matSuffix>cancel</mat-icon>
+                                </div>
+                            </td>
                         </tr>
                     </ng-container>
                 </tbody>
