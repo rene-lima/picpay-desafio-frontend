@@ -1,1 +1,22 @@
-<p>paginator works!</p>
+<div class="paginator input">
+    <div class="alignItemsPaginator">
+        <label>Exibir</label>
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-select [value]="activePage" (selectionChange)="changePage($event.value)">
+            <mat-option *ngFor="let x of nPageFor; let page = index" [value]="(page + 1)" >
+                {{ page + 1 }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="alignItemsPaginator">
+        <mat-icon style="margin-right: 20px" (click)="changePage((activePage-1))">chevron_left</mat-icon>
+            <ng-container *ngFor="let x of nPageFor; let page = index">
+                <div class="arrowPaginator" [ngClass]="activePage === (page + 1) ? 'activePage' : ''"
+                (click)="changePage((page + 1))">
+                    {{ page + 1 }}
+                </div>
+            </ng-container>
+        <mat-icon (click)="changePage((activePage+1))">chevron_right</mat-icon>
+    </div>
+</div>

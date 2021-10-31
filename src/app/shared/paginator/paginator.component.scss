@@ -1,0 +1,36 @@
+.paginator {
+  display: flex;
+}
+.input {
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+
+  mat-form-field{
+    width: 75px !important;
+  }
+}
+
+.alignItemsPaginator {
+  display: flex;
+  margin-top: 12px;
+  label {
+    margin-right: 10px;
+  }
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.arrowPaginator {
+  margin-right: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.activePage {
+  text-align: center;
+  color: white;
+  background-color: #007DFE;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+}
