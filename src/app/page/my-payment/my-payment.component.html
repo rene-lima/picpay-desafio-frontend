@@ -23,7 +23,7 @@
                 </div>
                 <app-paginator style="margin-right: 25px; margin-top: 10px;"></app-paginator>
             </div>
-            <table>
+            <table style="width: 100%">
                 <thead>
                     <th>
                         <div class="titleColumn">
@@ -59,7 +59,7 @@
                     </th>
                 </thead>
                 <div class="line"></div>
-                <tbody>
+
                     <ng-container *ngFor="let task of tasks; let index = index">
                         <tr [ngClass]="(index+1)%2 === 0 ? 'rowPainted': ''">
                             <td class="user"><p>{{ task.name }}</p></td>
@@ -72,14 +72,14 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <div style="margin-left: 70%">
+                                <div style="margin-left: 90%; width: 50px; height: 20px; margin-top: 25px">
                                     <mat-icon matSuffix>edit</mat-icon>
                                     <mat-icon matSuffix>cancel</mat-icon>
                                 </div>
                             </td>
                         </tr>
                     </ng-container>
-                </tbody>
+
             </table>
         </div>
     </div>
