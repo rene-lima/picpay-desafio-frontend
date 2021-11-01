@@ -2,6 +2,9 @@ import { AddPaymentComponent } from './../add-payment/add-payment.component';
 import { DeletePaymentComponent } from './../delete-payment/delete-payment.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSort, SortDirection } from '@angular/material/sort';
+import { merge, Observable, of as observableOf } from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-payment',
@@ -9,6 +12,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+
+  displayedColumns: string[] = ['user', 'title', 'date', 'value', 'paid', 'buttons'];
+
 
   constructor(public dialog: MatDialog) { }
 

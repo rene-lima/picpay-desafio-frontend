@@ -19,7 +19,7 @@
             </button>
 
             <!-- LOGOUT -->
-            <button mat-menu-item>
+            <button mat-menu-item (click)='this.loginService.doLogoutUser()'>
                 <mat-icon>
                     logout
                 </mat-icon>

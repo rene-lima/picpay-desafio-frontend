@@ -11,17 +11,100 @@
         <button mat-raised-button class="btn-add" (click)="openDialog()">Adicionar pagamento</button>
 
         <!-- Filter and Pagination -->
-        <div class=" bg-table">
-            <div class="row d-flex align-content-center flex-wrap">
-                <div class="col-sm d-flex justify-content-start">
-                    Column
+        <div class="bg-table">
+            <div class="row d-flex align-content-center flex-wrap w-100">
+                <div class="col-sm d-flex justify-content-start ">
+                    <input class="input-filter" type="text" placeholder="Pesquise por usuário">
+
+                    <button mat-raised-button class="btn-filter">
+                        <mat-icon>tune</mat-icon>Filtrar
+                    </button>
                 </div>
-                <div class="col-sm d-flex justify-content-end">
-                    Column
+                <div class="col-sm-8 d-flex justify-content-end">
+                    <ng-container>
+                        <label class="pagination-label">Exibir:</label>
+                        <select class="pagination-select" name="select">
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    </ng-container>
                 </div>
-                <div class="col-sm d-flex justify-content-end">
-                    Column
+                <div class="col-sm d-flex justify-content-end ">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link border-0 p-2" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link border-0 p-2" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link border-0 p-2" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link border-0 p-2" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link border-0 p-2" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link border-0 p-2" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link border-0 p-2" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+
+            <div class="table-container">
+
+                <table mat-table matSort matSortActive="value" matSortDisableClear matSortDirection="desc">
+                    <!-- User Column -->
+                    <ng-container matColumnDef="user">
+                        <th mat-header-cell *matHeaderCellDef>Usuário</th>
+                        <td mat-cell *matCellDef="let row">1</td>
+                    </ng-container>
+
+                    <!-- Title Column -->
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef>Título</th>
+                        <td mat-cell *matCellDef="let row">nhasji</td>
+                    </ng-container>
+
+                    <!-- Date Column -->
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Data</th>
+                        <td mat-cell *matCellDef="let row">ok</td>
+                    </ng-container>
+
+                    <!-- Value Column -->
+                    <ng-container matColumnDef="value">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                            Valor
+                        </th>
+                        <td mat-cell *matCellDef="let row">1</td>
+                    </ng-container>
+
+                    <!-- Paid Column -->
+                    <ng-container matColumnDef="paid">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Pago
+                        </th>
+                        <td mat-cell *matCellDef="let row">1</td>
+                    </ng-container>
+
+                    <!-- Buttons Column -->
+                    <ng-container matColumnDef="buttons">
+                        <th mat-header-cell *matHeaderCellDef>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-raised-button class="btn-edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-raised-button class="btn-delete">
+                                <mat-icon>highlight_off</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
             </div>
         </div>
 
