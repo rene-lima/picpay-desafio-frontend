@@ -12,6 +12,7 @@ import {AddPaymentModalComponent} from "../../shared/add-payment-modal/add-payme
 export class MyPaymentComponent implements OnInit {
   page = 1;
   tasks: TaskDTO[];
+  pagination: TaskDTO[];
   task: TaskDTO;
 
   constructor(private taskService: TaskService,
@@ -41,11 +42,14 @@ export class MyPaymentComponent implements OnInit {
     const modalRef = this.modalAddPayment.open(AddPaymentModalComponent, { data: task });
 
     modalRef.afterClosed().subscribe((data: TaskDTO) => {
-        console.log(data);
         this.taskService.updateTask(data)
             .subscribe(response => {
                 this.getTasks();
             });
     });
+  }
+
+  handlePagination(tasks: TaskDTO[]) {
+    this.pagination = tasks;
   }
 }

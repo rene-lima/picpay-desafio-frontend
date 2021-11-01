@@ -21,7 +21,7 @@
                         Filtrar
                     </button>
                 </div>
-                <app-paginator style="margin-right: 25px; margin-top: 10px;"></app-paginator>
+                <app-paginator (taskPaginationEmit)="handlePagination($event)" [tasks]="tasks" style="margin-right: 25px; margin-top: 10px;"></app-paginator>
             </div>
             <table style="width: 100%">
                 <thead>
@@ -60,7 +60,7 @@
                 </thead>
                 <div class="line"></div>
 
-                    <ng-container *ngFor="let task of tasks; let index = index">
+                    <ng-container *ngFor="let task of pagination; let index = index">
                         <tr [ngClass]="(index+1)%2 === 0 ? 'rowPainted': ''">
                             <td class="user"><p>{{ task.name }}</p></td>
                             <td class="title"><p>{{ task.title }}</p></td>

@@ -64,7 +64,6 @@ export class AddPaymentModalComponent implements OnInit {
         image: ''
       };
     }
-    console.log(data);
     this.dialogRef.close(data);
   }
 }

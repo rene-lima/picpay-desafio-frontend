@@ -3,9 +3,9 @@
         <label>Exibir</label>
     </div>
     <mat-form-field appearance="outline">
-        <mat-select [value]="activePage" (selectionChange)="changePage($event.value)">
-            <mat-option *ngFor="let x of nPageFor; let page = index" [value]="(page + 1)" >
-                {{ page + 1 }}
+        <mat-select [value]="5" (selectionChange)="changePage($event.value)">
+            <mat-option *ngFor="let rows of nRow" [value]="(rows)" >
+                {{ rows }}
             </mat-option>
         </mat-select>
     </mat-form-field>
