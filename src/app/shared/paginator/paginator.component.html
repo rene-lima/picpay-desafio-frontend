@@ -1,9 +1,9 @@
-<div class="paginator input">
+<div class="paginator input" [ngStyle]="{'visibility': tasks?.length > 0 ? 'visible':'hidden'}">
     <div class="alignItemsPaginator">
         <label>Exibir</label>
     </div>
     <mat-form-field appearance="outline">
-        <mat-select [value]="5" (selectionChange)="changePage($event.value)">
+        <mat-select [value]="activeRow" (selectionChange)="changeRow($event.value)">
             <mat-option *ngFor="let rows of nRow" [value]="(rows)" >
                 {{ rows }}
             </mat-option>
@@ -11,7 +11,7 @@
     </mat-form-field>
     <div class="alignItemsPaginator">
         <mat-icon style="margin-right: 20px" (click)="changePage((activePage-1))">chevron_left</mat-icon>
-            <ng-container *ngFor="let x of nPageFor; let page = index">
+            <ng-container *ngFor="let page of nPageFor[arrayPage]">
                 <div class="arrowPaginator" [ngClass]="activePage === (page + 1) ? 'activePage' : ''"
                 (click)="changePage((page + 1))">
                     {{ page + 1 }}

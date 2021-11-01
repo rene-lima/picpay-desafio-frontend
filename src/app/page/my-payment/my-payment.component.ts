@@ -58,19 +58,15 @@ export class MyPaymentComponent implements OnInit {
 
   searchInTable(query: string) {
       const paginationSearch =  new Array<TaskDTO>();
-      console.log(query);
       if (query) {
           this.tasks.forEach((value, ind) => {
               const values = Object.values(value);
               const ocurrence = values.find(item => {
                   return item.toString().toLowerCase().search(query) !== - 1;
-                  console.log(item.toString().toLowerCase().search(query) !== - 1)
-                  console.log(item);
               });
               ocurrence ? paginationSearch.push(value) : null;
           });
           this.tasks = paginationSearch;
-          console.log(this.pagination);
     } else {
           this.tasks = this.copyTasks;
       }
