@@ -61,6 +61,7 @@ table {
     height: 81px;
     p {
       margin-top: 25px;
+      margin-bottom: 0;
     }
   }
   mat-checkbox {
@@ -203,7 +204,7 @@ table {
   background-color: #F5F8FA;
 }
 
-.DivButtonAddPayment {
+.divButtonAddPayment {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -214,4 +215,13 @@ table {
   margin-right: 40px;
   width: 230px;
   height: 36px;
+}
+
+.divActions {
+  margin-left: 90%;
+  width: 60px;
+  height: 20px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -30,11 +30,22 @@ export class MyPaymentComponent implements OnInit {
   openModal() {
     const modalRef = this.modalAddPayment.open(AddPaymentModalComponent);
 
-    modalRef.afterClosed().subscribe(data => {
-      this.taskService.addTask(data)
-          .subscribe(response => {
-            this.getTasks();
-          });
+    modalRef.afterClosed().subscribe((data: TaskDTO ) => {
+        this.taskService.addTask(data)
+            .subscribe(response => {
+              this.getTasks();
+            });
+    });
+  }
+  editPayment(task: TaskDTO) {
+    const modalRef = this.modalAddPayment.open(AddPaymentModalComponent, { data: task });
+
+    modalRef.afterClosed().subscribe((data: TaskDTO) => {
+        console.log(data);
+        this.taskService.updateTask(data)
+            .subscribe(response => {
+                this.getTasks();
+            });
     });
   }
 }

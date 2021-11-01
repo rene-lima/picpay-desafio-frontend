@@ -1,7 +1,7 @@
 <div class="main payment">
     <app-toolbar></app-toolbar>
     <h2>Meus pagamentos</h2>
-    <div class="DivButtonAddPayment">
+    <div class="divButtonAddPayment">
         <button class="button buttonAddPayment" (click)="openModal()" mat-raised-button>
             ADICIONAR PAGAMENTO
         </button>
@@ -64,7 +64,12 @@
                         <tr [ngClass]="(index+1)%2 === 0 ? 'rowPainted': ''">
                             <td class="user"><p>{{ task.name }}</p></td>
                             <td class="title"><p>{{ task.title }}</p></td>
-                            <td class="date"><p>{{ task.date | date: 'dd MMM yyyy'}}</p></td>
+                            <td class="date">
+                                <p>{{ task.date | date: 'dd MMM yyyy'}}</p>
+                                <p style="margin: 0; color: #69788C; font-size: 12px">
+                                    {{ task.date | date: 'hh:mm a' }}
+                                </p>
+                            </td>
                             <td class="value"><p>{{ task.value | currency: 'BRL': true}}</p></td>
                             <td class="payed">
                                 <div class="checkBox">
@@ -72,9 +77,11 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <div style="margin-left: 90%; width: 50px; height: 20px; margin-top: 25px">
-                                    <mat-icon matSuffix>edit</mat-icon>
-                                    <mat-icon matSuffix>cancel</mat-icon>
+                                <div class="divActions">
+                                    <mat-icon style="cursor: pointer" (click)="editPayment(task)" matSuffix>
+                                        edit
+                                    </mat-icon>
+                                    <mat-icon style="cursor: pointer" matSuffix>cancel</mat-icon>
                                 </div>
                             </td>
                         </tr>

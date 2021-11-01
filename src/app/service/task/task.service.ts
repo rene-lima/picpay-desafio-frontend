@@ -18,4 +18,8 @@ export class TaskService {
   addTask(task: TaskDTO): Observable<TaskDTO> {
     return this.http.post<TaskDTO>(this.route, task);
   }
+
+  updateTask(task: TaskDTO): Observable<TaskDTO> {
+    return this.http.put<TaskDTO>(`${this.route}/${task.id}`, task);
+  }
 }
