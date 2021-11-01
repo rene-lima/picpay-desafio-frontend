@@ -1,35 +1,31 @@
-<h5 class="title-dialog font-weight-bold">Adicionar Pagamento</h5>
+<h5 class="title-dialog font-weight-bold">{{title}}</h5>
+<!--   -->
 <mat-dialog-content class="mat-typography">
-    <div class="row d-flex">
-        <div class="col">
-            <mat-form-field appearance="outline" required>
-                <mat-label>Usuário</mat-label>
-                <input matInput>
+    <form>
+        <div class="row">
+            <mat-form-field appearance="outline" class="col">
+                <mat-label>Nome</mat-label>
+                <input name="name" matInput required [(ngModel)]="payment.name">
             </mat-form-field>
-        </div>
-        <div class="col">
-            <mat-form-field appearance="outline" required>
+            <mat-form-field appearance="outline" class="col">
                 <mat-label>Valor</mat-label>
-                <input matInput>
+                <input name="value" matInput required [(ngModel)]="payment.value">
             </mat-form-field>
         </div>
-    </div>
-    <div class="row d-flex">
-        <div class="col">
-            <mat-form-field appearance="outline" required>
+        <div class="row d-flex">
+            <mat-form-field appearance="outline" class="col">
                 <mat-label>Data</mat-label>
-                <input matInput>
+                <input name="date" type="date" matInput required [(ngModel)]="payment.date">
             </mat-form-field>
-        </div>
-        <div class="col">
-            <mat-form-field appearance="outline" required>
+            <mat-form-field appearance="outline" class="col">
                 <mat-label>Título</mat-label>
-                <input matInput>
+                <input name="title" matInput required [(ngModel)]="payment.title">
             </mat-form-field>
         </div>
-    </div>
+    </form>
 </mat-dialog-content>
+<!-- [disabled]="!form.valid" -->
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button class="btn-save" [mat-dialog-close]="true" cdkFocusInitial>Salvar</button>
+    <button mat-button class="btn-save" [mat-dialog-close]="true" cdkFocusInitial (click)="onSubmit()">Salvar</button>
 </mat-dialog-actions>

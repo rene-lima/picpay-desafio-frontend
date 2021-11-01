@@ -13,7 +13,18 @@ export class PaymentsService {
   ) { }
 
   getTasks() {
-    return this, this._http.get<Task[]>(`${API}/tasks`);
+    return this._http.get<Task[]>(`${API}/tasks`);
   }
 
+  createTask(payment: Task) {
+    return this._http.post(`${API}/tasks`, payment);
+  }
+
+  editTask(payment: Task) {
+    return this._http.put(`${API}/tasks/${payment.id}`, payment);
+  }
+
+  deleteTask(id: number) {
+    return this._http.delete(`${API}/tasks/${id}`);
+  }
 }

@@ -6,20 +6,23 @@
 <section class="section-payments">
     <p>Meus pagamentos</p>
 
-    <div class="container">
+    <div class="container-table">
         <!-- Button -->
-        <button mat-raised-button class="btn-add" (click)="openDialog()">Adicionar pagamento</button>
+        <button mat-raised-button class="btn-add" (click)="openDialogAddPayment()">Adicionar pagamento</button>
 
         <!-- Filter and Pagination -->
-        <div class="bg-table">
+        <div class="bg-table col-md-12 ">
             <div class="row d-flex align-content-center flex-wrap w-100">
                 <div class="col-sm d-flex justify-content-start ">
-                    <input class="input-filter" type="text" placeholder="Pesquise por usuário">
-
+                    <!-- Input search to user -->
+                    <input class="input-filter" type="text" placeholder="Pesquise por usuário"
+                        (keyup)="applyFilterPayments($event)">
+                    <!-- Button Filters -->
                     <button mat-raised-button class="btn-filter">
                         <mat-icon>tune</mat-icon>Filtrar
                     </button>
                 </div>
+                <!-- Pagination -->
                 <div class="col-sm-8 d-flex justify-content-end">
                     <ng-container>
                         <label class="pagination-label">Exibir:</label>
@@ -30,6 +33,7 @@
                         </select>
                     </ng-container>
                 </div>
+                <!-- Pagination -->
                 <div class="col-sm d-flex justify-content-end ">
                     <ul class="pagination">
                         <li class="page-item">
@@ -53,56 +57,68 @@
 
             <div class="table-container">
 
-                <table mat-table matSort matSortActive="value" matSortDisableClear matSortDirection="desc">
+                <table mat-table matSort [dataSource]="dataSource">
                     <!-- User Column -->
-                    <ng-container matColumnDef="user">
-                        <th mat-header-cell *matHeaderCellDef>Usuário</th>
-                        <td mat-cell *matCellDef="let row">1</td>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuário</th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.name}}
+                            <br>
+                            <span>@{{row.username}}</span>
+                        </td>
                     </ng-container>
 
                     <!-- Title Column -->
                     <ng-container matColumnDef="title">
-                        <th mat-header-cell *matHeaderCellDef>Título</th>
-                        <td mat-cell *matCellDef="let row">nhasji</td>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+                        <td mat-cell *matCellDef="let row">{{row.title}}</td>
                     </ng-container>
 
                     <!-- Date Column -->
                     <ng-container matColumnDef="date">
-                        <th mat-header-cell *matHeaderCellDef>Data</th>
-                        <td mat-cell *matCellDef="let row">ok</td>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Data</th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.date | date:'d MMM, y'}}
+                            <br>
+                            <span>{{row.date | date:'shortTime'}}</span>
+                        </td>
                     </ng-container>
 
                     <!-- Value Column -->
                     <ng-container matColumnDef="value">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
                             Valor
                         </th>
-                        <td mat-cell *matCellDef="let row">1</td>
+                        <td mat-cell *matCellDef="let row">{{row.value | currency:'BRL'}}</td>
                     </ng-container>
 
                     <!-- Paid Column -->
-                    <ng-container matColumnDef="paid">
-                        <th mat-header-cell *matHeaderCellDef>
+                    <ng-container matColumnDef="isPayed">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
                             Pago
                         </th>
-                        <td mat-cell *matCellDef="let row">1</td>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-icon *ngIf='row.isPayed' class="material-icons color_blue">check_box</mat-icon>
+                            <mat-icon *ngIf='!row.isPayed' class="material-icons color_blue">check_box_outline_blank
+                            </mat-icon>
+                        </td>
                     </ng-container>
 
                     <!-- Buttons Column -->
                     <ng-container matColumnDef="buttons">
-                        <th mat-header-cell *matHeaderCellDef>
+                        <th mat-header-cell *matHeaderCellDef width='10%'>
                         </th>
                         <td mat-cell *matCellDef="let row">
-                            <button mat-raised-button class="btn-edit">
-                                <mat-icon>edit</mat-icon>
+                            <button mat-icon-button class="btn-edit">
+                                <mat-icon (click)="openDialogEditPayment(row)">edit</mat-icon>
                             </button>
-                            <button mat-raised-button class="btn-delete">
-                                <mat-icon>highlight_off</mat-icon>
+                            <button mat-icon-button class="btn-delete">
+                                <mat-icon (click)="openDialogDeletePayment(row)">highlight_off</mat-icon>
                             </button>
                         </td>
                     </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
             </div>

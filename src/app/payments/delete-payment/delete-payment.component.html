@@ -1,10 +1,10 @@
 <h5 class="title-dialog font-weight-bold">Excluir Pagamento</h5>
 <mat-dialog-content class="mat-typography">
-    <p>Usuário:</p>
-    <p>Data:</p>
-    <p>Valor:</p>
+    <p>Usuário: {{payment.name}}</p>
+    <p>Data: {{payment.date | date: 'dd/MM/yyyy'}}</p>
+    <p>Valor: {{payment.value | currency:'BRL'}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button class="btn-save" [mat-dialog-close]="true" cdkFocusInitial>Salvar</button>
+    <button mat-button class="btn-save" [mat-dialog-close]="true" cdkFocusInitial (click)="onDelete()">Salvar</button>
 </mat-dialog-actions>

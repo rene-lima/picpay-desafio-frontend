@@ -41,14 +41,14 @@ export class LoginService {
   }
 
   StoreUser(user: User) {
-    sessionStorage.setItem(this.USER, JSON.stringify(user));
+    localStorage.setItem(this.USER, JSON.stringify(user));
   }
 
   getUser() {
-    return sessionStorage.getItem(this.USER);
+    return localStorage.getItem(this.USER);
   }
 
   clearStorage() {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }
