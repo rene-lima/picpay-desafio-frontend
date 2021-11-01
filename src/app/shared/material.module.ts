@@ -39,12 +39,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.component';
 
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
     ToolbarComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    AddPaymentModalComponent
   ],
   imports: [
     CommonModule,

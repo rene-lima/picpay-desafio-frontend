@@ -1,0 +1,31 @@
+<div class="mainModal">
+<h1>Adicionar pagamentos</h1>
+    <form class="input">
+        <div class="inputRow">
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Valor</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="inputRow">
+            <mat-form-field appearance="outline">
+                <mat-label>Data</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Título</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="buttonRow">
+            <div style="display: flex; justify-content: space-between; width:40%">
+                <button mat-raised-button (click)="dialogRef.close()" type="button" class="buttonModal">Cancelar</button>
+                <button  mat-raised-button type="button" class="button buttonModal">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
