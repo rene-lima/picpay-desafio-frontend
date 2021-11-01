@@ -12,18 +12,29 @@ import {AddPaymentModalComponent} from "../../shared/add-payment-modal/add-payme
 export class MyPaymentComponent implements OnInit {
   page = 1;
   tasks: TaskDTO[];
+  task: TaskDTO;
 
   constructor(private taskService: TaskService,
-              public matDialog: MatDialog) { }
+              public modalAddPayment: MatDialog) { }
 
   ngOnInit(): void {
+    this.getTasks();
+  }
+
+  getTasks() {
     this.taskService.getTask()
         .subscribe(response => {
           this.tasks = response;
         });
   }
-
   openModal() {
-    this.matDialog.open(AddPaymentModalComponent);
+    const modalRef = this.modalAddPayment.open(AddPaymentModalComponent);
+
+    modalRef.afterClosed().subscribe(data => {
+      this.taskService.addTask(data)
+          .subscribe(response => {
+            this.getTasks();
+          });
+    });
   }
 }

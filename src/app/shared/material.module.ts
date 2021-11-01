@@ -27,7 +27,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatOption, MatRippleModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOption, MatRippleModule} from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -40,6 +40,9 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {NgxCurrencyModule} from "ngx-currency";
+
 
 @NgModule({
   declarations: [
@@ -48,45 +51,48 @@ import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.
     PaginatorComponent,
     AddPaymentModalComponent
   ],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatAutocompleteModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatListModule,
-    MatStepperModule,
-    MatTabsModule,
-    MatTreeModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatBadgeModule,
-    MatChipsModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
-    MatRippleModule,
-    MatBottomSheetModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatTooltipModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        MatAutocompleteModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatDividerModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatListModule,
+        MatStepperModule,
+        MatTabsModule,
+        MatTreeModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatBadgeModule,
+        MatChipsModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule,
+        MatRippleModule,
+        MatBottomSheetModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatTooltipModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        MatNativeDateModule,
+        NgxCurrencyModule
+    ],
     exports: [
         MatAutocompleteModule,
         MatCheckboxModule,

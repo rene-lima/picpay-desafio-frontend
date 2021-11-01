@@ -65,7 +65,7 @@
                             <td class="user"><p>{{ task.name }}</p></td>
                             <td class="title"><p>{{ task.title }}</p></td>
                             <td class="date"><p>{{ task.date | date: 'dd MMM yyyy'}}</p></td>
-                            <td class="value"><p>{{ task.value | currency: 'R$'}}</p></td>
+                            <td class="value"><p>{{ task.value | currency: 'BRL': true}}</p></td>
                             <td class="payed">
                                 <div class="checkBox">
                                     <mat-checkbox [checked]="task.isPayed" class="example-margin"></mat-checkbox>

@@ -13,5 +13,9 @@ export class TaskService {
 
   getTask(): Observable<TaskDTO[]> {
     return this.http.get<TaskDTO[]>(this.route);
-}
+  }
+
+  addTask(task: TaskDTO): Observable<TaskDTO> {
+    return this.http.post<TaskDTO>(this.route, task);
+  }
 }

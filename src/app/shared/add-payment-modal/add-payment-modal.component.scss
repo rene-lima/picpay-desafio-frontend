@@ -80,3 +80,7 @@ h1{
 .buttonModal {
   width: 150px;
 }
+
+::ng-deep .mat-icon-button {
+  visibility: hidden !important;
+}
