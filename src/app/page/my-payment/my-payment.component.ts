@@ -12,8 +12,10 @@ import {AddPaymentModalComponent} from "../../shared/add-payment-modal/add-payme
 export class MyPaymentComponent implements OnInit {
   page = 1;
   tasks: TaskDTO[];
+  copyTasks: TaskDTO[];
   pagination: TaskDTO[];
   task: TaskDTO;
+
 
   constructor(private taskService: TaskService,
               public modalAddPayment: MatDialog) { }
@@ -26,6 +28,7 @@ export class MyPaymentComponent implements OnInit {
     this.taskService.getTask()
         .subscribe(response => {
           this.tasks = response;
+          this.copyTasks = response;
         });
   }
   openModal() {
@@ -51,5 +54,25 @@ export class MyPaymentComponent implements OnInit {
 
   handlePagination(tasks: TaskDTO[]) {
     this.pagination = tasks;
+  }
+
+  searchInTable(query: string) {
+      const paginationSearch =  new Array<TaskDTO>();
+      console.log(query);
+      if (query) {
+          this.tasks.forEach((value, ind) => {
+              const values = Object.values(value);
+              const ocurrence = values.find(item => {
+                  return item.toString().toLowerCase().search(query) !== - 1;
+                  console.log(item.toString().toLowerCase().search(query) !== - 1)
+                  console.log(item);
+              });
+              ocurrence ? paginationSearch.push(value) : null;
+          });
+          this.tasks = paginationSearch;
+          console.log(this.pagination);
+    } else {
+          this.tasks = this.copyTasks;
+      }
   }
 }

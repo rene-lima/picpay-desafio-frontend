@@ -12,7 +12,7 @@
             <div class="options">
                 <div class="filters input">
                     <mat-form-field appearance="outline">
-                        <input matInput placeholder="Pesquisar por usuário">
+                        <input (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
                         <mat-icon matSuffix>search</mat-icon>
                     </mat-form-field>
                     <button class="buttonSettings" mat-raised-button>
