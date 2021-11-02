@@ -29,6 +29,9 @@ mat-dialog-content {
     text-transform: uppercase;
     color: #FFFFFF;
 }
+.btn-clear{
+    display: none;
+}
 
 //color checkbox
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
@@ -37,7 +40,7 @@ mat-dialog-content {
 
 //slider & color slider
 mat-slider {
-    width: 285px;
+    width: 360px;
     left: 10px;
 }
 

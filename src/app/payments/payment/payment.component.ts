@@ -27,6 +27,8 @@ export class PaymentComponent implements OnInit {
   dataSource: MatTableDataSource<Task>;
   payments: Task[];
   innerWidth: any;
+  filters = {} as any;
+  disableButton = false;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -47,6 +49,7 @@ export class PaymentComponent implements OnInit {
   private async takeTasks() {
     await this._paymentService.getTasks().subscribe(
       response => {
+        this.payments = response;
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -93,7 +96,46 @@ export class PaymentComponent implements OnInit {
 
   //open dialog button filter
   openDialogFilterPayment() {
-    this.dialog.open(FilterPaymentComponent, { width: '325px' });
+    this.dialog.open(FilterPaymentComponent, { width: '400px' }).afterClosed().subscribe(response => {
+      this.filters = response.filter ? response.filter : {};
+      if (this.filters) {
+        this.disableButton = true;
+      } else {
+        this.disableButton = false;
+      }
+      this.moreFilters();
+    });
+  }
+
+  moreFilters() {
+    let paymentsFilter = this.payments;
+    if (this.filters.start) {
+      paymentsFilter = paymentsFilter.filter(payment => new Date(payment.date) >= this.filters.start && new Date(payment.date) <= this.filters.end);
+    }
+    if (this.filters.maxValue && this.filters.maxValue !== 0) {
+      paymentsFilter = paymentsFilter.filter(payment => payment.value <= this.filters.maxValue);
+    }
+    if ((this.filters.isPayed === false && this.filters.isNotPayed === false) || (this.filters.isPayed === true && this.filters.isNotPayed === true)) {
+    } else {
+      if (this.filters.isPayed) {
+        paymentsFilter = paymentsFilter.filter(payment => payment.isPayed);
+      }
+      else if (this.filters.isNotPayed) {
+        paymentsFilter = paymentsFilter.filter(payment => !payment.isPayed);
+      }
+    }
+
+    this.dataSource = new MatTableDataSource(paymentsFilter);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  clearFilters() {
+    let paymentsFilter = this.payments;
+    this.dataSource = new MatTableDataSource(paymentsFilter);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.disableButton = false;
   }
 
 }

@@ -99,6 +99,28 @@
     color: #2D3540;
 }
 
+//btn clear filter advanced 
+.btn-filter-clear{
+  /* Grey */
+  background: #E6ECF0;
+  border-radius: 6px;
+  position: absolute;
+  top: 20px;
+  left: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  padding: 4px 8px;
+  /* Body Text */
+
+  color: #2D3540;
+}
+
 //Pagination
 .pagination{
     display: flex;
@@ -177,6 +199,10 @@
   }
 
   .btn-filter{
+    display: none !important;
+  }
+
+  .btn-filter-clear{
     display: none !important;
   }
 

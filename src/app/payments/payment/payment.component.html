@@ -21,6 +21,10 @@
                     <button mat-raised-button class="btn-filter" (click)="openDialogFilterPayment()">
                         <mat-icon>tune</mat-icon>Filtrar
                     </button>
+
+                    <button mat-raised-button class="btn-filter-clear" *ngIf="disableButton" (click)="clearFilters()">
+                        <mat-icon>clear</mat-icon>Limpar filtros
+                    </button>
                 </div>
                 <!-- Pagination -->
                 <div class="paginator col-sm d-flex justify-content-end">

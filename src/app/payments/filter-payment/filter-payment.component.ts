@@ -16,20 +16,30 @@ export class FilterPaymentComponent implements OnInit {
     end: new FormControl()
   });
 
+  maxValue;
+  isPayed = false;
+  isNotPayed = false;
+
   constructor(
     public dialog: MatDialog,
-    private _paymentService: PaymentsService,
     public dialogRef: MatDialogRef<FilterPaymentComponent>
   ) { }
 
   ngOnInit(): void {
   }
 
-  formatLabel(value: number) {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
+  onSave() {
+    const filter = {
+      start: this.range.get("start").value,
+      end: this.range.get("end").value,
+      maxValue: this.maxValue,
+      isPayed: this.isPayed,
+      isNotPayed: this.isNotPayed
     }
 
-    return value;
+
+    this.dialogRef.close({ filter });
+
   }
+
 }
