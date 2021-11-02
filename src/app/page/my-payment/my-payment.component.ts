@@ -77,7 +77,6 @@ export class MyPaymentComponent implements OnInit {
       const modalRef = this.modalPayment.open(DeletePaymentModalComponent, { data: task });
 
       modalRef.afterClosed().subscribe(data => {
-          console.log(data);
           this.taskService.deleteTask(data)
               .subscribe(reponse => {
                   this.getTasks();

@@ -47,9 +47,6 @@ export class PaginatorComponent implements OnInit, OnChanges {
     if (page > 0 && page <= this.nPages) {
       this.activePage = page;
     }
-    console.log(this.nPageFor[this.arrayPage]);
-    console.log(page);
-    console.log(this.activePage);
     this.emitPagination();
   }
   changeRow(row: number) {
