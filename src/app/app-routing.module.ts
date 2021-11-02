@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './page/login/login.component';
 import {LoginModule} from './page/login/login.module';
 import {MyPaymentComponent} from './page/my-payment/my-payment.component';
+import {AuthGuard} from './core/auth/auth.guard';
 
 const routes: Routes = [
     {
@@ -13,6 +14,7 @@ const routes: Routes = [
     {
         path: 'pagamentos',
         component: MyPaymentComponent,
+        canActivate: [AuthGuard]
     }
 ];
 
