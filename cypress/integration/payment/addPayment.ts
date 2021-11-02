@@ -2,6 +2,8 @@
 
 context('Add payments', () => {
     before(() => {
+        localStorage.setItem('userId', '1');
+        localStorage.setItem('name', 'usuario');
         cy.visit('http://localhost:4200/pagamentos');
     });
 

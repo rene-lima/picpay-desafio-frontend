@@ -4,20 +4,20 @@
         <form [formGroup]="form" class="input">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput formControlName="email" >
+                <input id="email" matInput formControlName="email" >
                 <mat-error *ngIf="form.get('email').invalid">Digite um email valido por favor!</mat-error>
             </mat-form-field>
 
 
             <mat-form-field appearance="outline" >
                 <mat-label >Senha</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" class="input" formControlName="password">
-                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" >
+                    <input id="password" matInput [type]="hide ? 'password' : 'text'" class="input" formControlName="password">
+                    <button id="showPassword" type="button" mat-icon-button matSuffix (click)="hide = !hide" >
                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 <mat-error *ngIf="form.get('password').invalid">Digite a senha por favor!</mat-error>
                 </mat-form-field>
 
-            <button type="submit" [disabled]="form.invalid" (click)="emitLogin()" mat-raised-button  class="button">Entrar</button>
+            <button id="submit" type="submit" [disabled]="form.invalid" (click)="emitLogin()" mat-raised-button  class="button">Entrar</button>
         </form>
 </fieldset>

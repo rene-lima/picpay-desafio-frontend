@@ -13,7 +13,7 @@
                 <div class="options">
                     <div class="filters input">
                         <mat-form-field appearance="outline">
-                            <input (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
+                            <input id="search" (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
                             <mat-icon matSuffix>search</mat-icon>
                         </mat-form-field>
                         <button class="buttonSettings" mat-raised-button>
@@ -79,10 +79,10 @@
                             </td>
                             <td class="actions">
                                 <div class="divActions">
-                                    <mat-icon style="cursor: pointer" (click)="editPayment(task)" matSuffix>
+                                    <mat-icon id="edit" style="cursor: pointer" (click)="editPayment(task)" matSuffix>
                                         edit
                                     </mat-icon>
-                                    <mat-icon style="cursor: pointer" (click)="deletePayment(task)" matSuffix>cancel</mat-icon>
+                                    <mat-icon id="delete" style="cursor: pointer" (click)="deletePayment(task)" matSuffix>cancel</mat-icon>
                                 </div>
                             </td>
                         </tr>

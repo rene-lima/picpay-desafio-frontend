@@ -3,20 +3,20 @@
         <label>Exibir</label>
     </div>
     <mat-form-field appearance="outline">
-        <mat-select [value]="activeRow" (selectionChange)="changeRow($event.value)">
+        <mat-select id="select" [value]="activeRow" (selectionChange)="changeRow($event.value)">
             <mat-option *ngFor="let rows of nRow" [value]="(rows)" >
                 {{ rows }}
             </mat-option>
         </mat-select>
     </mat-form-field>
     <div class="alignItemsPaginator">
-        <mat-icon style="margin-right: 20px" (click)="changePage((activePage-1))">chevron_left</mat-icon>
+        <mat-icon id="backPage" style="margin-right: 20px" (click)="changePage((activePage-1))">chevron_left</mat-icon>
             <ng-container *ngFor="let page of nPageFor[arrayPage]">
                 <div class="arrowPaginator" [ngClass]="activePage === (page + 1) ? 'activePage' : ''"
                 (click)="changePage((page + 1))">
                     {{ page + 1 }}
                 </div>
             </ng-container>
-        <mat-icon (click)="changePage((activePage+1))">chevron_right</mat-icon>
+        <mat-icon id="nextPage" (click)="changePage((activePage+1))">chevron_right</mat-icon>
     </div>
 </div>

@@ -1,13 +1,15 @@
 /// <reference types="cypress" />
 
-context('Delete payment', () => {
+context('Search', () => {
     before(() => {
         localStorage.setItem('userId', '1');
         localStorage.setItem('name', 'usuario');
         cy.visit('http://localhost:4200/pagamentos');
     });
-    it('Click in button for delete payment', () => {
-        cy.get('#delete').first().click();
-        cy.get('#save').click();
+    it('Searching user for name', () => {
+        cy.wait(1000);
+        cy.get('#search').type('babe').type('{enter}');
+        cy.wait(3000);
+        cy.get('#search').clear().type('{enter}');
     });
 });
