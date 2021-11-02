@@ -1,9 +1,12 @@
 .mainModal {
   width: 50vw;
   height: 35vh;
-  margin: 0
+  margin: 0;
+  min-width: 787.5px;
 }
-
+mat-dialog-container {
+  min-width: 835.5px !important;
+}
 h1{
   font-weight: 1;
   margin-left: 2%;
