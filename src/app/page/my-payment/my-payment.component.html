@@ -26,7 +26,7 @@
                 </div>
                 <table style="width: 100%">
                     <thead>
-                    <th>
+                    <th (click)="organizer('name')">
                         <div class="titleColumn">
                             Usuário
                         </div>
@@ -34,25 +34,25 @@
                             <mat-icon >unfold_more</mat-icon>
                         </div>
                     </th>
-                    <th>
+                    <th (click)="organizer('title')">
                         <div class="titleColumn">
                             Título
                         </div>
                         <mat-icon >unfold_more</mat-icon>
                     </th>
-                    <th>
+                    <th (click)="organizer('date')">
                         <div class="titleColumn">
                             Data
                         </div>
                         <mat-icon >unfold_more</mat-icon>
                     </th>
-                    <th>
+                    <th (click)="organizer('value')">
                         <div class="titleColumn">
                             Valor
                         </div>
                         <mat-icon >unfold_more</mat-icon>
                     </th>
-                    <th>
+                    <th (click)="organizer('isPayed')">
                         <div class="titleColumn">
                             Pago
                         </div>

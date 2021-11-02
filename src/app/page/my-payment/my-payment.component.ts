@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TaskDTO} from '../../core/DTO/taskDTO';
 import {TaskService} from '../../service/task/task.service';
-import {MatDialog} from "@angular/material/dialog";
-import {AddPaymentModalComponent} from "../../shared/add-payment-modal/add-payment-modal.component";
-import {DeletePaymentModalComponent} from "../../shared/delete-payment-modal/delete-payment-modal.component";
+import {MatDialog} from '@angular/material/dialog';
+import {AddPaymentModalComponent} from '../../shared/add-payment-modal/add-payment-modal.component';
+import {DeletePaymentModalComponent} from '../../shared/delete-payment-modal/delete-payment-modal.component';
 
 @Component({
   selector: 'app-my-payment',
@@ -11,12 +11,59 @@ import {DeletePaymentModalComponent} from "../../shared/delete-payment-modal/del
   styleUrls: ['./my-payment.component.scss']
 })
 export class MyPaymentComponent implements OnInit {
-  page = 1;
-  tasks: TaskDTO[];
-  copyTasks: TaskDTO[];
-  pagination: TaskDTO[];
-  task: TaskDTO;
+    page = 1;
+    tasks: TaskDTO[];
+    copyTasks: TaskDTO[];
+    pagination: TaskDTO[];
+    task: TaskDTO;
+    sortState = {
+        name: false,
+        title: false,
+        date: false,
+        value: false,
+        isPayed: false,
+    };
 
+    sortingPage = {
+        textAndValue: (property: string) => {
+            this.sortState[property] = !this.sortState[property];
+            if (this.sortState[property]) {
+                const sortedPage = this.pagination.sort((a, b) => {
+                    if (a[property] > b[property]) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                    return 0;
+                });
+                return sortedPage;
+            } else {
+                const sortedPage = this.pagination.sort((a, b) => {
+                    if (a[property] < b[property]) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                    return 0;
+                });
+                return sortedPage;
+            }
+        },
+        date: (property: string) => {
+            this.sortState[property] = !this.sortState[property];
+            if (this.sortState[property]) {
+                const sortedPage = this.pagination.sort((a, b) => {
+                    return new Date(a.date).getTime() - new Date(b.date).getTime();
+                });
+                return sortedPage;
+            } else {
+                const sortedPage = this.pagination.sort((a, b) => {
+                    return new Date(b.date).getTime() - new Date(a.date).getTime();
+                });
+                return sortedPage;
+            }
+        }
+  };
 
   constructor(private taskService: TaskService,
               public modalPayment: MatDialog) { }
@@ -82,6 +129,14 @@ export class MyPaymentComponent implements OnInit {
                   this.getTasks();
               });
       });
+  }
+
+  organizer(property: string) {
+    if (property !== 'date') {
+        this.pagination = this.sortingPage.textAndValue(property);
+    } else {
+        this.pagination = this.sortingPage.date(property);
+    }
   }
 
 }
