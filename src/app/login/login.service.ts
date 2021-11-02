@@ -17,6 +17,7 @@ export class LoginService {
     private _router: Router
   ) { }
 
+  // Validate login 
   login(email: string, password: string) {
     return this._http.get<User[]>(`${API}/account`).pipe(
       map((response: User[]) => {

@@ -1,5 +1,6 @@
 // TITLE DIALOG
 .title-dialog{
+    text-align: center;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -10,8 +11,23 @@
     padding-bottom: 5%;
 }
 
-.cb-isPayed{   
-    margin: 0 12px;  
+mat-dialog-content {
+    overflow: hidden;
+}
+
+.btn-save{
+    width: auto;
+    float: right;
+    background: #007DFE;
+    border-radius: 4px;
+    font-family:  Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
 //color checkbox
@@ -21,7 +37,8 @@
 
 //slider & color slider
 mat-slider {
-    width: 200px;
+    width: 285px;
+    left: 10px;
 }
 
 ::ng-deep .mat-slider-thumb {

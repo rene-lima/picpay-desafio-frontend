@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'payment', component: PaymentComponent, canActivate: [LoginGuard] }
-  // { path: 'payment', loadChildren: './payments/payments.module#PaymentsModule', canActivate: [LoginGuard] }
 
 ];
 

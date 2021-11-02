@@ -1,8 +1,12 @@
-import { PaymentsService } from './../payments.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
-import { Task } from 'src/app/shared/model/tasks.model';
+// Material
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+// Component
 import { MessageComponent } from 'src/app/shared/message/message.component';
+// Service
+import { PaymentsService } from './../payments.service';
+// Model
+import { Task } from 'src/app/shared/model/tasks.model';
 
 @Component({
   selector: 'app-add-payment',

@@ -11,8 +11,8 @@
         <button mat-raised-button class="btn-add" (click)="openDialogAddPayment()">Adicionar pagamento</button>
 
         <!-- Filter and Pagination -->
-        <div class="bg-table col-md-12 ">
-            <div class="row d-flex align-content-center flex-wrap w-100">
+        <div class="bg-table col-md-12">
+            <div class="row d-flex align-content-center flex-sm-column flex-md-column w-100">
                 <div class="col-sm d-flex justify-content-start ">
                     <!-- Input search to user -->
                     <input class="input-filter" type="text" placeholder="Pesquise por usuário"
@@ -23,12 +23,13 @@
                     </button>
                 </div>
                 <!-- Pagination -->
-                <div class="col-sm d-flex justify-content-end">
+                <div class="paginator col-sm d-flex justify-content-end">
                     <mat-paginator class="pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
                     </mat-paginator>
                 </div>
             </div>
 
+            <!-- TABLE PAYMENTS -->
             <div class="table-container">
 
                 <table mat-table matSort [dataSource]="dataSource">
@@ -97,8 +98,5 @@
                 </table>
             </div>
         </div>
-
-        <!-- TABLE PAYMENTS -->
-
     </div>
 </section>

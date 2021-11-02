@@ -13,7 +13,7 @@ export class LoginGuard implements CanActivate {
     private _router: Router
   ) { }
 
-  // Não acessar paginas sem estar logado
+  // Do not access pages without being logged in
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

@@ -1,8 +1,12 @@
-import { PaymentsService } from './../payments.service';
 import { Component, Inject, OnInit } from '@angular/core';
+// Material
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Task } from 'src/app/shared/model/tasks.model';
+// Component
 import { MessageComponent } from 'src/app/shared/message/message.component';
+// Service
+import { PaymentsService } from './../payments.service';
+// Model
+import { Task } from 'src/app/shared/model/tasks.model';
 
 @Component({
   selector: 'app-delete-payment',
@@ -25,6 +29,7 @@ export class DeletePaymentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Save delete
   async onDelete() {
     await this._paymentService.deleteTask(this.payment.id).subscribe(
       resp => {

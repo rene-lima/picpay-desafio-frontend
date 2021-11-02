@@ -1,14 +1,20 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Task } from 'src/app/shared/model/tasks.model';
+
+// Components
 import { FilterPaymentComponent } from './../filter-payment/filter-payment.component';
-import { PaymentsService } from './../payments.service';
 import { AddPaymentComponent } from './../add-payment/add-payment.component';
 import { DeletePaymentComponent } from './../delete-payment/delete-payment.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { MessageComponent } from 'src/app/shared/message/message.component';
+
+// Services
+import { PaymentsService } from './../payments.service';
+
+// Material 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Task } from 'src/app/shared/model/tasks.model';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
-import { MessageComponent } from 'src/app/shared/message/message.component';
 
 @Component({
   selector: 'app-payment',
@@ -20,6 +26,7 @@ export class PaymentComponent implements OnInit {
   displayedColumns: string[] = ['name', 'title', 'date', 'value', 'isPayed', 'buttons'];
   dataSource: MatTableDataSource<Task>;
   payments: Task[];
+  innerWidth: any;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,7 +43,7 @@ export class PaymentComponent implements OnInit {
     this._MatPaginatorIntl.itemsPerPageLabel = 'Exibir:';
   }
 
-
+  // Take tasks api  
   private async takeTasks() {
     await this._paymentService.getTasks().subscribe(
       response => {
@@ -78,7 +85,7 @@ export class PaymentComponent implements OnInit {
       });
   }
 
-  //applu filter in table payments 
+  //apply filter in table payments 
   applyFilterPayments(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -86,7 +93,7 @@ export class PaymentComponent implements OnInit {
 
   //open dialog button filter
   openDialogFilterPayment() {
-    this.dialog.open(FilterPaymentComponent, { width: '325px', height: '290px' });
+    this.dialog.open(FilterPaymentComponent, { width: '325px' });
   }
 
 }

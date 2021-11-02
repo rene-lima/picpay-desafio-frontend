@@ -13,7 +13,7 @@ export class SecureInnerPagesGuard implements CanActivate {
     private _router: Router
   ) { }
 
-  // Não acessar paginas logado
+  // Do not access pages logged in
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

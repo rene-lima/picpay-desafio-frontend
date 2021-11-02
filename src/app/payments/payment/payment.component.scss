@@ -23,7 +23,7 @@
     color: #333333;
 }
 
-//container
+//container - button add payment + table
 .container-table{
     position: absolute;
     top: 150px;
@@ -52,7 +52,7 @@
     color: #FFFFFF;
 }
 
-// Container table
+//pagination + serch + table
 .bg-table{
     position: relative;
     right: 0; 
@@ -65,6 +65,7 @@
   
 }
 
+//input search
 .input-filter{
     padding: 4px 8px;
     position: absolute;
@@ -76,6 +77,7 @@
     border-radius: 6px;
 }
 
+//btn filter advanced
 .btn-filter{
     /* Grey */
     background: #E6ECF0;
@@ -106,8 +108,7 @@
     top: 10px;
 }
 
-
-// table
+// Table
 
 /* Structure */ 
   .table-container {
@@ -151,7 +152,43 @@
   /*Defining color of even lines*/
   table tr:nth-child(even) {background: #F5F8FA}
 
+  // Color icon isPayed
   .material-icons.color_blue { color: #007DFE; }
          
   
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (max-width:768px) { 
   
+}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media screen and (max-width:600px) { 
+
+  .container-table{
+    width: 82%;
+}
+
+}
+
+/* smartphones, Android phones, landscape iPhone */
+@media screen and (max-width:480px) { 
+  .btn-add{
+    float: right;
+  }
+
+  .btn-filter{
+    display: none !important;
+  }
+
+  .section-payments p{
+    font-size: 26px;
+  }
+
+}
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media screen and (max-width:320px) {     
+  .pagination{
+    display: none !important;
+  }
+}
