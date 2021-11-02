@@ -1,7 +1,8 @@
 import { PaymentsService } from './../payments.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Task } from 'src/app/shared/model/tasks.model';
+import { MessageComponent } from 'src/app/shared/message/message.component';
 
 @Component({
   selector: 'app-delete-payment',
@@ -14,8 +15,9 @@ export class DeletePaymentComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data,
+    public dialog: MatDialog,
     private _paymentService: PaymentsService,
-    public dialog: MatDialogRef<DeletePaymentComponent>
+    public dialogRef: MatDialogRef<DeletePaymentComponent>
   ) {
     this.payment = data.task;
   }
@@ -23,13 +25,26 @@ export class DeletePaymentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDelete() {
-    this._paymentService.deleteTask(this.payment.id).subscribe(response => {
+  async onDelete() {
+    await this._paymentService.deleteTask(this.payment.id).subscribe(
+      resp => {
+        const response = {
+          title: "Pagamento excluído com sucesso!"
+        };
 
-    });
+        this.dialog.open(MessageComponent, { data: response });
+      },
+      error => {
+        const response = {
+          title: "Erro ao excluir novo pagamento!"
+        };
+
+        this.dialog.open(MessageComponent, { data: response });
+      }
+    );
 
     let submit = true;
-    this.dialog.close({ submit });
+    this.dialogRef.close({ submit });
   }
 
 }

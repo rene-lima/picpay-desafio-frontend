@@ -18,40 +18,14 @@
                     <input class="input-filter" type="text" placeholder="Pesquise por usuário"
                         (keyup)="applyFilterPayments($event)">
                     <!-- Button Filters -->
-                    <button mat-raised-button class="btn-filter">
+                    <button mat-raised-button class="btn-filter" (click)="openDialogFilterPayment()">
                         <mat-icon>tune</mat-icon>Filtrar
                     </button>
                 </div>
                 <!-- Pagination -->
-                <div class="col-sm-8 d-flex justify-content-end">
-                    <ng-container>
-                        <label class="pagination-label">Exibir:</label>
-                        <select class="pagination-select" name="select">
-                            <option value="5" selected>5</option>
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                        </select>
-                    </ng-container>
-                </div>
-                <!-- Pagination -->
-                <div class="col-sm d-flex justify-content-end ">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link border-0 p-2" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link border-0 p-2" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link border-0 p-2" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link border-0 p-2" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link border-0 p-2" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link border-0 p-2" href="#">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link border-0 p-2" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="col-sm d-flex justify-content-end">
+                    <mat-paginator class="pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+                    </mat-paginator>
                 </div>
             </div>
 

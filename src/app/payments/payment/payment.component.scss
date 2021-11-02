@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: nowrap;
     position: relative;
-    height: 120%;
+    height: 150%;
     overflow: hidden;
     background: #F2F2F2;
 }
@@ -52,7 +52,6 @@
     color: #FFFFFF;
 }
 
-
 // Container table
 .bg-table{
     position: relative;
@@ -98,93 +97,23 @@
     color: #2D3540;
 }
 
+//Pagination
 .pagination{
     display: flex;
     float: right;
     justify-content: right;
     position: absolute;
-    top: 20px;
+    top: 10px;
 }
 
-.page-item{
-    position: static;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    /* White */
-    color: #FFFFFF;
-    /* Inside Auto Layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 0px 2px;
-}
-
-.page-link{
-    color: #69788C;
-}
-
-.page-link:hover,
-.page-link:focus,
-.page-link:active{
-    background: #007DFE;
-    border-radius: 6px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 0px 4px;
-    border: none;
-    color: white;
-}
-
-.pagination-label{
-    position: absolute;
-    top: 30px;
-    right: 290px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: right;
-    letter-spacing: -0.2px;
-    /* Secondary Text */
-    color: #69788C;
-}
-
-
-.pagination-select{
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 230px;
-    border: 1px solid #CFDCE5;
-    box-sizing: border-box;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    /* Body Text */
-    color: #2D3540;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px 0px;
-}
 
 // table
 
 /* Structure */ 
   .table-container {
     position: relative;
-    min-height: 200px;
-    max-height: 400px;
+    min-height: 400px;
+    max-height: 600px;
     overflow: auto;
     top: 50px;
   }

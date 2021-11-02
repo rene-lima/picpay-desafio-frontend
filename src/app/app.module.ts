@@ -6,13 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
 
+import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { PaymentComponent } from './payments/payment/payment.component';
 import { AddPaymentComponent } from './payments/add-payment/add-payment.component';
 import { DeletePaymentComponent } from './payments/delete-payment/delete-payment.component';
+import { FilterPaymentComponent } from './payments/filter-payment/filter-payment.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DeletePaymentComponent } from './payments/delete-payment/delete-payment
     HeaderComponent,
     PaymentComponent,
     AddPaymentComponent,
-    DeletePaymentComponent
+    DeletePaymentComponent,
+    FilterPaymentComponent
   ],
   imports: [
     BrowserModule,
