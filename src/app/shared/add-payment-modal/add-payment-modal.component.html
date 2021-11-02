@@ -4,29 +4,29 @@
         <div class="inputRow">
             <mat-form-field appearance="outline">
                 <mat-label>Usuario</mat-label>
-                <input matInput formControlName="user" required>
+                <input id="user" matInput formControlName="user" required>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Valor</mat-label>
-                <input matInput formControlName="value" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}" required>
+                <input id="value" matInput formControlName="value" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}" required>
             </mat-form-field>
         </div>
         <div class="inputRow">
             <mat-form-field appearance="outline">
                 <mat-label>Data</mat-label>
-                <input (focus)="picker.open()" matInput [matDatepicker]="picker" formControlName="date" required>
+                <input id="date" (focus)="picker.open()" matInput [matDatepicker]="picker" formControlName="date" required>
                 <mat-datepicker-toggle [disabled]="true" matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Título</mat-label>
-                <input matInput formControlName="title" required>
+                <input id="title" matInput formControlName="title" required>
             </mat-form-field>
         </div>
         <div class="buttonRow">
             <div style="display: flex; justify-content: space-between; width:40%">
                 <button mat-raised-button (click)="dialogRef.close()" type="button" class="buttonModal">Cancelar</button>
-                <button [disabled]="form.invalid" mat-raised-button (click)="emitPayment()" type="button" class="button buttonModal">Salvar</button>
+                <button id="save" [disabled]="form.invalid" mat-raised-button (click)="emitPayment()" type="button" class="button buttonModal">Salvar</button>
             </div>
         </div>
     </form>

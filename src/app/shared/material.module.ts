@@ -41,7 +41,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NgxCurrencyModule} from "ngx-currency";
+import {NgxCurrencyModule} from 'ngx-currency';
 import { DeletePaymentModalComponent } from './delete-payment-modal/delete-payment-modal.component';
 
 
