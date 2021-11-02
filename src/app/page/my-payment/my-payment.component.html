@@ -1,30 +1,31 @@
 <div class="main payment">
-    <app-toolbar></app-toolbar>
-    <h2>Meus pagamentos</h2>
-    <div class="divButtonAddPayment">
-        <button id="addPayment" class="button buttonAddPayment" (click)="openModalAddPayment()" mat-raised-button>
-            ADICIONAR PAGAMENTO
-        </button>
-    </div>
-    <div class="centerTable">
-        <div class="table">
+    <div style="min-width: 1299px;">
+        <app-toolbar></app-toolbar>
+        <h2>Meus pagamentos</h2>
+        <div class="divButtonAddPayment">
+            <button id="addPayment" class="button buttonAddPayment" (click)="openModalAddPayment()" mat-raised-button>
+                ADICIONAR PAGAMENTO
+            </button>
+        </div>
+        <div class="centerTable">
+            <div class="table">
 
-            <div class="options">
-                <div class="filters input">
-                    <mat-form-field appearance="outline">
-                        <input (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
-                        <mat-icon matSuffix>search</mat-icon>
-                    </mat-form-field>
-                    <button class="buttonSettings" mat-raised-button>
+                <div class="options">
+                    <div class="filters input">
+                        <mat-form-field appearance="outline">
+                            <input (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                        <button class="buttonSettings" mat-raised-button>
 
-                        <mat-icon matSuffix inline="true">settings_input_component</mat-icon>
-                        Filtrar
-                    </button>
+                            <mat-icon matSuffix inline="true">settings_input_component</mat-icon>
+                            Filtrar
+                        </button>
+                    </div>
+                    <app-paginator (taskPaginationEmit)="handlePagination($event)" [tasks]="tasks" style="margin-right: 25px; margin-top: 10px;"></app-paginator>
                 </div>
-                <app-paginator (taskPaginationEmit)="handlePagination($event)" [tasks]="tasks" style="margin-right: 25px; margin-top: 10px;"></app-paginator>
-            </div>
-            <table style="width: 100%">
-                <thead>
+                <table style="width: 100%">
+                    <thead>
                     <th>
                         <div class="titleColumn">
                             Usuário
@@ -57,8 +58,8 @@
                         </div>
                         <mat-icon >unfold_more</mat-icon>
                     </th>
-                </thead>
-                <div class="line"></div>
+                    </thead>
+                    <div class="line"></div>
 
                     <ng-container *ngFor="let task of pagination; let index = index">
                         <tr [ngClass]="(index+1)%2 === 0 ? 'rowPainted': ''">
@@ -86,7 +87,8 @@
                             </td>
                         </tr>
                     </ng-container>
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,10 @@
   height: 30%;
   min-width: 311px;
 }
+::ng-deep .mat-dialog-container {
+  min-width: 345.6px;
+  overflow-x: auto;
+}
   .buttonRow {
     display: flex;
     justify-content: flex-end;
