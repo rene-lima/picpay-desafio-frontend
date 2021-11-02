@@ -2,7 +2,7 @@
     <app-toolbar></app-toolbar>
     <h2>Meus pagamentos</h2>
     <div class="divButtonAddPayment">
-        <button class="button buttonAddPayment" (click)="openModal()" mat-raised-button>
+        <button class="button buttonAddPayment" (click)="openModalAddPayment()" mat-raised-button>
             ADICIONAR PAGAMENTO
         </button>
     </div>
@@ -81,12 +81,11 @@
                                     <mat-icon style="cursor: pointer" (click)="editPayment(task)" matSuffix>
                                         edit
                                     </mat-icon>
-                                    <mat-icon style="cursor: pointer" matSuffix>cancel</mat-icon>
+                                    <mat-icon style="cursor: pointer" (click)="deletePayment(task)" matSuffix>cancel</mat-icon>
                                 </div>
                             </td>
                         </tr>
                     </ng-container>
-
             </table>
         </div>
     </div>

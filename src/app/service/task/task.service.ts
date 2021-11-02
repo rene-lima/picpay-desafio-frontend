@@ -22,4 +22,8 @@ export class TaskService {
   updateTask(task: TaskDTO): Observable<TaskDTO> {
     return this.http.put<TaskDTO>(`${this.route}/${task.id}`, task);
   }
+
+  deleteTask(id: number): Observable<TaskDTO> {
+    return this.http.delete<TaskDTO>(`${this.route}/${id}`);
+  }
 }

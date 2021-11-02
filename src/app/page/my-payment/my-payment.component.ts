@@ -3,6 +3,7 @@ import {TaskDTO} from '../../core/DTO/taskDTO';
 import {TaskService} from '../../service/task/task.service';
 import {MatDialog} from "@angular/material/dialog";
 import {AddPaymentModalComponent} from "../../shared/add-payment-modal/add-payment-modal.component";
+import {DeletePaymentModalComponent} from "../../shared/delete-payment-modal/delete-payment-modal.component";
 
 @Component({
   selector: 'app-my-payment',
@@ -18,7 +19,7 @@ export class MyPaymentComponent implements OnInit {
 
 
   constructor(private taskService: TaskService,
-              public modalAddPayment: MatDialog) { }
+              public modalPayment: MatDialog) { }
 
   ngOnInit(): void {
     this.getTasks();
@@ -31,8 +32,8 @@ export class MyPaymentComponent implements OnInit {
           this.copyTasks = response;
         });
   }
-  openModal() {
-    const modalRef = this.modalAddPayment.open(AddPaymentModalComponent);
+  openModalAddPayment() {
+    const modalRef = this.modalPayment.open(AddPaymentModalComponent);
 
     modalRef.afterClosed().subscribe((data: TaskDTO ) => {
         this.taskService.addTask(data)
@@ -42,7 +43,7 @@ export class MyPaymentComponent implements OnInit {
     });
   }
   editPayment(task: TaskDTO) {
-    const modalRef = this.modalAddPayment.open(AddPaymentModalComponent, { data: task });
+    const modalRef = this.modalPayment.open(AddPaymentModalComponent, { data: task });
 
     modalRef.afterClosed().subscribe((data: TaskDTO) => {
         this.taskService.updateTask(data)
@@ -71,4 +72,17 @@ export class MyPaymentComponent implements OnInit {
           this.tasks = this.copyTasks;
       }
   }
+
+  deletePayment(task: TaskDTO) {
+      const modalRef = this.modalPayment.open(DeletePaymentModalComponent, { data: task });
+
+      modalRef.afterClosed().subscribe(data => {
+          console.log(data);
+          this.taskService.deleteTask(data)
+              .subscribe(reponse => {
+                  this.getTasks();
+              });
+      });
+  }
+
 }

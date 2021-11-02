@@ -42,6 +42,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxCurrencyModule} from "ngx-currency";
+import { DeletePaymentModalComponent } from './delete-payment-modal/delete-payment-modal.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {NgxCurrencyModule} from "ngx-currency";
     LoadingSpinnerComponent,
     ToolbarComponent,
     PaginatorComponent,
-    AddPaymentModalComponent
+    AddPaymentModalComponent,
+    DeletePaymentModalComponent
   ],
     imports: [
         CommonModule,
