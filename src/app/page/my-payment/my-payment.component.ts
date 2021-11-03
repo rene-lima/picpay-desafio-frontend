@@ -111,7 +111,7 @@ export class MyPaymentComponent implements OnInit {
           this.copyTasks.forEach((value, ind) => {
               const values = Object.values(value);
               const ocurrence = values.find(item => {
-                  return item.toString().toLowerCase().search(query) !== - 1;
+                  return item.toString().toLowerCase().search(query.toLowerCase()) !== - 1;
               });
               ocurrence ? paginationSearch.push(value) : null;
           });
