@@ -39,11 +39,12 @@ export class PaginatorComponent implements OnInit, OnChanges {
             x += 1;
           }
           this.nPageFor[x].push(i);
+
         }
       } else {
         this.nPageFor[0].push(0);
-        this.arrayPage = 0;
       }
+      this.arrayPage = 0;
     }
   }
 
