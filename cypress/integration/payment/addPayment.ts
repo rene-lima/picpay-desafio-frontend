@@ -12,7 +12,7 @@ context('Add payments', () => {
         cy.get('#user').type('novo usuario');
         cy.get('#value').type('111,2');
         cy.get('#date').click().then(x => {
-            cy.contains('24').click();
+            cy.get('.mat-focus-indicator').contains('24').click();
         });
         cy.get('#title').type('Professor');
         cy.get('#save').click();

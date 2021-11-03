@@ -16,16 +16,13 @@
                             <input id="search" (change)="searchInTable($event.target.value)" matInput placeholder="Pesquisar por usuário">
                             <mat-icon matSuffix>search</mat-icon>
                         </mat-form-field>
-                        <button (click)="filterDateRange()" class="buttonSettings" mat-raised-button>
-
+                        <button id="filterDateRange" (click)="filterDateRange()" class="buttonSettings" mat-raised-button>
                             <mat-icon matSuffix inline="true">settings_input_component</mat-icon>
                             Filtrar
                         </button>
-                        <button (click)="getTasks()"  class="refresh" mat-button [disableRipple]="true">
+                        <button id="refresh" (click)="getTasks()"  class="refresh" mat-button [disableRipple]="true">
                             <mat-icon style="margin-bottom: 8px">refresh</mat-icon>
                         </button>
-
-
                     </div>
                     <app-paginator (taskPaginationEmit)="handlePagination($event)" [tasks]="tasks" style="margin-right: 25px; margin-top: 10px;"></app-paginator>
                 </div>

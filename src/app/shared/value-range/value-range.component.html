@@ -3,17 +3,17 @@
     <div [formGroup]="form"  class="rowInput input">
         <mat-form-field appearance="outline">
             <mat-label>Valor inicial</mat-label>
-            <input formControlName="start" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}"  matInput  required>
+            <input id="valueStart" formControlName="start" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}"  matInput  required>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Valor final</mat-label>
-            <input formControlName="end" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}" matInput required>
+            <input id="valueEnd" formControlName="end" currencyMask [options]="{prefix:'', decimal: ',', thousands: '.',align: 'left', nullable: true}" matInput required>
         </mat-form-field>
     </div>
     <div class="buttonRow">
         <div style="display: flex; justify-content: space-between; width:100%">
             <button mat-raised-button (click)="dialogRef.close()" type="button" class="buttonModal">Cancelar</button>
-            <button mat-raised-button [disabled]="form.invalid" (click)="emitValueRange()" type="button" class="button buttonModal">Buscar</button>
+            <button  mat-raised-button [disabled]="form.invalid" id="searchValue" (click)="emitValueRange()" type="button" class="button buttonModal">Buscar</button>
         </div>
     </div>
 </div>
