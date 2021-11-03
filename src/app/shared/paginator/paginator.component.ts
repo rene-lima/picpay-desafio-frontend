@@ -26,7 +26,6 @@ export class PaginatorComponent implements OnInit, OnChanges {
   }
 
   countPages() {
-    debugger;
     if (this.tasks) {
       this.emitPagination();
       this.nPageFor = [];
