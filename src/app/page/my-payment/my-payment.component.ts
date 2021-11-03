@@ -4,6 +4,7 @@ import {TaskService} from '../../service/task/task.service';
 import {MatDialog} from '@angular/material/dialog';
 import {AddPaymentModalComponent} from '../../shared/add-payment-modal/add-payment-modal.component';
 import {DeletePaymentModalComponent} from '../../shared/delete-payment-modal/delete-payment-modal.component';
+import {ValueRangeComponent} from "../../shared/value-range/value-range.component";
 
 @Component({
   selector: 'app-my-payment',
@@ -139,4 +140,14 @@ export class MyPaymentComponent implements OnInit {
     }
   }
 
+  filterDateRange() {
+      const modalRef = this.modalPayment.open(ValueRangeComponent);
+
+      modalRef.afterClosed().subscribe((valueRange) => {
+          this.taskService.getTasksValueRange(valueRange)
+              .subscribe(tasks => {
+                  this.tasks = tasks;
+              });
+      });
+  }
 }

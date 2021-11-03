@@ -43,6 +43,7 @@ import { AddPaymentModalComponent } from './add-payment-modal/add-payment-modal.
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxCurrencyModule} from 'ngx-currency';
 import { DeletePaymentModalComponent } from './delete-payment-modal/delete-payment-modal.component';
+import { ValueRangeComponent } from './value-range/value-range.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { DeletePaymentModalComponent } from './delete-payment-modal/delete-payme
     ToolbarComponent,
     PaginatorComponent,
     AddPaymentModalComponent,
-    DeletePaymentModalComponent
+    DeletePaymentModalComponent,
+    ValueRangeComponent
   ],
     imports: [
         CommonModule,

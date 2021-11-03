@@ -225,3 +225,11 @@ table {
   display: flex;
   justify-content: space-between;
 }
+.refresh {
+  ::ng-deep.mat-button-focus-overlay {
+    background-color:transparent;
+  }
+  margin-left: 20px;
+  width: 20px
+}
+
